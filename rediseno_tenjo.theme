@@ -14,3 +14,127 @@ function rediseno_tenjo_preprocess_page(array &$variables) {
     $variables['ultimas_noticias'] = $view->render();
   }
 }
+
+/**
+ * Implements hook_preprocess_html().
+ *
+ * Genera meta description y Open Graph tags para todas las vistas:
+ * - Home / portada
+ * - Listado de noticias (/noticias)
+ * - Listado de eventos (/eventos)
+ * - Interna de noticia (node--article)
+ * - Interna de evento (node--evento)
+ * - Páginas genéricas (node--page)
+ * - Páginas de transparencia y demás vistas
+ */
+function rediseno_tenjo_preprocess_html(array &$variables) {
+  $node = \Drupal::routeMatch()->getParameter('node');
+  $request = \Drupal::request();
+  $site_url = 'https://tenjoculturayturismo.gov.co';
+  $og_url = $request->getSchemeAndHttpHost() . $request->getRequestUri();
+
+  $meta_description = '';
+  $og_title = '';
+  $og_image = '';
+  $og_type = 'website';
+
+  // --- Páginas de contenido (nodos) ---
+  if ($node instanceof \Drupal\node\NodeInterface) {
+    $og_title = $node->getTitle();
+
+    switch ($node->getType()) {
+
+      case 'article':
+        $og_type = 'article';
+        if ($node->hasField('body') && !$node->get('body')->isEmpty()) {
+          $body = $node->get('body')->first();
+          $meta_description = !empty($body->summary)
+            ? strip_tags($body->summary)
+            : substr(strip_tags($body->value), 0, 200);
+        }
+        // Imagen: field_image es campo de archivo directo
+        if ($node->hasField('field_image') && !$node->get('field_image')->isEmpty()) {
+          $file = $node->get('field_image')->entity;
+          if ($file) {
+            $og_image = \Drupal::service('file_url_generator')
+              ->generateAbsoluteString($file->getFileUri());
+          }
+        }
+        break;
+
+      case 'evento':
+        $og_type = 'event';
+        // Usar field_descripcion_del_evento como meta description
+        if ($node->hasField('field_descripcion_del_evento') && !$node->get('field_descripcion_del_evento')->isEmpty()) {
+          $meta_description = strip_tags($node->get('field_descripcion_del_evento')->value);
+        }
+        elseif ($node->hasField('body') && !$node->get('body')->isEmpty()) {
+          $body = $node->get('body')->first();
+          $meta_description = substr(strip_tags($body->value), 0, 200);
+        }
+        // Imagen: field_imagen_principal es campo Media con imagen anidada
+        if ($node->hasField('field_imagen_principal') && !$node->get('field_imagen_principal')->isEmpty()) {
+          $media = $node->get('field_imagen_principal')->entity;
+          if ($media && $media->hasField('field_media_image') && !$media->get('field_media_image')->isEmpty()) {
+            $file = $media->get('field_media_image')->entity;
+            if ($file) {
+              $og_image = \Drupal::service('file_url_generator')
+                ->generateAbsoluteString($file->getFileUri());
+            }
+          }
+        }
+        break;
+
+      default:
+        if ($node->hasField('body') && !$node->get('body')->isEmpty()) {
+          $body = $node->get('body')->first();
+          $meta_description = !empty($body->summary)
+            ? strip_tags($body->summary)
+            : substr(strip_tags($body->value), 0, 200);
+        }
+        break;
+    }
+  }
+
+  // --- Páginas especiales por ruta ---
+  $path_matcher = \Drupal::service('path.matcher');
+  $current_path = \Drupal::service('path.current')->getPath();
+  $path_alias = \Drupal::service('path_alias.manager')->getAliasByPath($current_path);
+
+  if ($path_matcher->isFrontPage()) {
+    $og_title = 'Instituto Municipal de Cultura y Turismo de Tenjo';
+    $meta_description = 'Conoce nuestra agenda cultural, eventos, noticias y programas de turismo del municipio de Tenjo, Cundinamarca. Somos el Instituto Municipal de Cultura y Turismo de Tenjo.';
+    $og_url = $site_url;
+  }
+  elseif ($path_alias === '/noticias' || $current_path === '/noticias') {
+    $og_title = 'Noticias - Instituto Municipal de Cultura y Turismo de Tenjo';
+    $meta_description = 'Últimas noticias del Instituto Municipal de Cultura y Turismo de Tenjo. Entérate de actividades culturales, convocatorias y novedades del municipio de Tenjo.';
+  }
+  elseif ($path_alias === '/eventos' || $current_path === '/eventos') {
+    $og_title = 'Eventos - Instituto Municipal de Cultura y Turismo de Tenjo';
+    $meta_description = 'Agenda de eventos culturales y turísticos del municipio de Tenjo, Cundinamarca. Conciertos, talleres, festivales y más actividades organizadas por el IMCT.';
+  }
+
+  // --- Fallback global ---
+  if (empty($meta_description)) {
+    $meta_description = 'Instituto Municipal de Cultura y Turismo de Tenjo - Entidad pública dedicada al fomento de la cultura, el arte y el turismo en el municipio de Tenjo, Cundinamarca.';
+  }
+
+  // Limitar a 160 caracteres para Google
+  $meta_description = trim($meta_description);
+  if (strlen($meta_description) > 160) {
+    $meta_description = substr($meta_description, 0, 157) . '...';
+  }
+
+  // Imagen OG por defecto: logo institucional
+  if (empty($og_image)) {
+    $og_image = $site_url . '/wp-content/themes/yootheme/cache/LOGO-DE-INSTITUTO-DE-CULTURA-02-33e32241.webp';
+  }
+
+  $variables['meta_description'] = $meta_description;
+  $variables['og_title']       = $og_title ?: \Drupal::config('system.site')->get('name');
+  $variables['og_description'] = $meta_description;
+  $variables['og_image']       = $og_image;
+  $variables['og_type']        = $og_type;
+  $variables['og_url']         = $og_url;
+}
