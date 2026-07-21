@@ -1,0 +1,67 @@
+{#
+  Plantilla Estática para: SITUR (Sistema de Información Turística)
+  Archivo: node--208.html.twig
+#}
+<div class="pagina-estatica-situr">
+
+  {# --- 1. HERO INSTITUCIONAL --- #}
+  <div class="page-hero" style="width: 100vw; position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; background-color: var(--verde-medio, #1a3c28); padding: 70px 0; color: #ffffff;">
+
+    <div class="container page-hero-inner" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+
+      {# Migas de pan #}
+      <div class="page-hero-breadcrumb" style="margin-bottom: 20px; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; display: flex; align-items: center; gap: 8px; color: rgba(255,255,255,0.7);">
+        <a href="/es" style="color: #fff; text-decoration: none;">INICIO</a>
+        <span class="sep">></span>
+        <span>TENJO TURÍSTICO</span>
+        <span class="sep">></span>
+        <span>SITUR</span>
+      </div>
+
+      {# Título #}
+      <h1 style="color: #fff; font-size: clamp(2.2rem, 5vw, 3.8rem); font-weight: 800; line-height: 1.15; margin: 0;">
+        Sistema de Información Turística <br>
+        <span style="color: var(--acento, #D4A843);">SITUR Tenjo</span>
+      </h1>
+    </div>
+  </div>
+
+  {# --- 2. CONTENIDO PRINCIPAL --- #}
+  <div class="container" style="max-width: 1200px; margin: 60px auto 100px auto; padding: 0 20px; font-family: 'Montserrat', sans-serif;">
+
+    {# Texto Introductorio #}
+    <p style="font-size: 1.2rem; font-weight: 500; color: var(--verde-oscuro, #1a3c28); border-left: 4px solid var(--acento, #D4A843); padding-left: 20px; max-width: 1000px; line-height: 1.8; margin-bottom: 50px;">
+      Explora el tablero interactivo de datos estadísticos y conoce el panorama actual del turismo en nuestro municipio. Esta herramienta está diseñada para la toma de decisiones, la planeación y el fortalecimiento de la cadena de valor turística.
+    </p>
+
+    {# --- 3. CONTENEDOR RESPONSIVE DE POWER BI --- #}
+    <div class="powerbi-wrapper" style="position: relative; width: 100%; padding-bottom: 56.25%; /* Relación de aspecto 16:9 */ height: 0; overflow: hidden; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.08); border: 1px solid #EBE9E0; margin-bottom: 60px; background-color: #f9f9f9;">
+
+      <iframe title="Tablero SITUR Tenjo" src="https://app.powerbi.com/view?r=eyJrIjoiODZiZmEzYTItYWE2My00ZWQwLTlmNzktMjgxYjg3OGYxMDE3IiwidCI6IjBiOTg0YTFlLTQ5NmUtNGVkNy1hOGE5LTJmNjc1MzM1YWFlOCIsImMiOjR9" frameborder="0" allowFullScreen="true" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;"></iframe>
+
+    </div>
+
+    {# --- 4. TARJETA DE REGISTRO (CTA) --- #}
+    <div class="registro-situr-card" style="background-color: #FCFAEF; padding: 45px; border-radius: 15px; border: 1px solid #EBE9E0; box-shadow: 0 4px 15px rgba(0,0,0,0.03); display: flex; flex-direction: column; align-items: center; text-align: center; max-width: 800px; margin: 0 auto;">
+
+      <div style="background-color: #fff; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 10px rgba(0,0,0,0.05); margin-bottom: 20px;">
+        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--acento, #D4A843)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="8.5" cy="7" r="4"></circle><line x1="20" y1="8" x2="20" y2="14"></line><line x1="23" y1="11" x2="17" y2="11"></line></svg>
+      </div>
+
+      <h2 style="color: var(--verde-oscuro, #1a3c28); font-size: 2rem; font-weight: 800; margin-top: 0; margin-bottom: 15px;">
+        Haz parte del SITUR
+      </h2>
+
+      <p style="font-size: 1.1rem; line-height: 1.7; color: #444; margin-bottom: 30px; max-width: 600px;">
+        Si eres prestador de servicios turísticos o haces parte de la cadena de valor del municipio, regístrate en el Sistema de Información Turística para fortalecer la competitividad de Tenjo.
+      </p>
+
+      <a href="https://situr.visitatenjo.com/" target="_blank" rel="noopener" class="btn-primario" style="display: inline-flex; align-items: center; gap: 10px; background-color: var(--verde-oscuro, #1a3c28); color: #fff; padding: 16px 36px; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 1.1rem; transition: all 0.3s ease; text-transform: uppercase; letter-spacing: 1px;" onmouseover="this.style.backgroundColor='var(--acento, #D4A843)'; this.style.transform='translateY(-3px)'; this.style.boxShadow='0 8px 20px rgba(212, 168, 67, 0.3)';" onmouseout="this.style.backgroundColor='var(--verde-oscuro, #1a3c28)'; this.style.transform='translateY(0)'; this.style.boxShadow='none';">
+        Registrarse en el SITUR
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+      </a>
+
+    </div>
+
+  </div>
+</div>

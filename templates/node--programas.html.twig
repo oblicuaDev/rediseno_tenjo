@@ -1,0 +1,48 @@
+{# node--programas.html.twig #}
+{% set titulo = label|render|striptags|trim %}
+{% set imagen = file_url(node.field_imagen_principal.entity.field_media_image.entity.uri.value) %}
+{% set categoria = node.field_categoria_del_programa.entity.name.value %}
+{# Creamos un ID limpio para el filtro (ej. "Artes Escénicas" -> "artes-escenicas") #}
+{% set categoria_id = categoria|lower|replace({' ': '-', 'á':'a', 'é':'e', 'í':'i', 'ó':'o', 'ú':'u'}) %}
+
+<article class="programa-card js-perfil-trigger" data-categoria="{{ categoria_id }}" data-nombre="{{ titulo }}" data-cargo="{{ categoria }}" data-foto="{{ imagen }}">
+  
+  <div class="hidden-bio-content" style="display:none !important;">
+    {{ node.field_descripcion_programa.value|raw }}
+  </div>
+
+  <div class="programa-card-img">
+    <img src="{{ imagen }}" alt="{{ titulo }}">
+  </div>
+  
+  <div class="programa-card-body">
+    <span class="programa-area-tag">
+      <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="5"/></svg>
+      {{ categoria }}
+    </span>
+    <h3>{{ titulo }}</h3>
+    <p>{{ node.field_descripcion_programa.value|striptags|slice(0, 110) ~ '...' }}</p>
+    
+    {# CHIPS DINÁMICOS - Ahora dentro del body para mantener los márgenes #}
+    <div class="programa-card-chips" style="display: flex; flex-wrap: wrap; gap: 6px; margin-top: auto;">
+      
+      {# Chip de Edades #}
+      {% if node.field_edades.value %}
+        <span class="programa-chip">{{ node.field_edades.value }}</span>
+      {% endif %}
+
+      {# Chip de Horarios #}
+      {% if node.field_horarios.value %}
+        <span class="programa-chip">{{ node.field_horarios.value }}</span>
+      {% endif %}
+
+      {# Chip de Lugar #}
+      {% if node.field_lugar.value %}
+        <span class="programa-chip">{{ node.field_lugar.value }}</span>
+      {% endif %}
+      
+      <span class="programa-chip" style="background: var(--acento); color: #fff;">Gratuito</span>
+    </div>
+
+  </div>
+</article>

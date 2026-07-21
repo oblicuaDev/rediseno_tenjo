@@ -1,0 +1,38 @@
+{#
+  Plantilla: Agrupador de Quiénes Somos (Crea grillas separadas por categoría)
+  Archivo: views-view-unformatted--quienes-somos-cultural.html.twig
+#}
+
+{% if title %}
+  {# 1. Limpiamos el título de THEME DEBUG para evitar fallos #}
+  {% set nombre_grupo = title|render|striptags|trim %}
+
+  <div class="grupo-equipo-wrapper" style="margin-bottom: 70px;">
+
+    {# 2. El título del grupo (Ej. "Equipo Biblioteca" o "Directorio Cultural") #}
+    <h2 style="font-size: 2rem; color: var(--verde-oscuro, #1a3c28); font-weight: 800; margin-bottom: 30px; display: flex; align-items: center; gap: 12px;">
+      <span style="display: block; width: 8px; height: 32px; background-color: var(--acento, #D4A843); border-radius: 4px;"></span>
+      {{ nombre_grupo }}
+    </h2>
+
+    {# 3. La grilla exclusiva para las tarjetas de este grupo #}
+    <div class="equipo-grupo-grid">
+      {% for row in rows %}
+        <div class="views-row">
+          {{ row.content }}
+        </div>
+      {% endfor %}
+    </div>
+
+  </div>
+
+{% else %}
+  {# Fallback por si la vista pierde la agrupación #}
+  <div class="equipo-grupo-grid">
+    {% for row in rows %}
+      <div class="views-row">
+        {{ row.content }}
+      </div>
+    {% endfor %}
+  </div>
+{% endif %}

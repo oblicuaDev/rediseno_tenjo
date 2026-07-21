@@ -1,0 +1,37 @@
+{# 
+  Plantilla: Agrupación en Acordeón para Rendición de Cuentas
+  Archivo: views-view-unformatted--rendicion-de-cuentas.html.twig
+#}
+
+{% if title %}
+  <div class="rendicion-accordion">
+    
+    <button class="rendicion-accordion-btn">
+      {# Se le agrega la palabra "Vigencia" antes del año que trae Drupal #}
+      <span style="flex: 1;">Vigencia {{ title }}</span>
+      <span class="rendicion-chevron">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg>
+      </span>
+    </button>
+    
+    <div class="rendicion-content">
+      <div class="documentos-lista">
+        {# Aquí Drupal inyectará las tarjetas de documentos (doc-card) #}
+        {% for row in rows %}
+          {{ row.content }}
+        {% endfor %}
+      </div>
+    </div>
+    
+  </div>
+
+{% else %}
+  
+  {# En caso de que haya documentos sin año asignado, se listan por fuera #}
+  <div class="documentos-lista" style="margin-bottom: 20px;">
+    {% for row in rows %}
+      {{ row.content }}
+    {% endfor %}
+  </div>
+
+{% endif %}

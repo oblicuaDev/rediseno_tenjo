@@ -1,0 +1,36 @@
+{# node--pagina-equipo.html.twig #}
+<article class="equipo-page">
+  <header class="lista-header-verde">
+    <div class="container">
+      <nav class="breadcrumb-custom">
+        <a href="/">INICIO</a> <span style="opacity: 0.5; margin: 0 5px;">/</span> <span>{{ label|render|striptags|upper }}</span>
+      </nav>
+      <h1 class="lista-titulo-principal">{{ label|render|striptags }}</h1>
+      {% if node.field_mini_descripcion.value %}
+        <div class="lista-mini-desc">
+          {{ node.field_mini_descripcion.value }}
+        </div>
+      {% endif %}
+    </div>
+  </header>
+
+  <div class="container equipo-cuerpo-wrap">
+    <div class="equipo-intro-text" style="text-align: center; margin-bottom: 60px;">
+      {% if node.field_titulo_seccion.value %}
+        <h2 class="titulo-seccion-equipo">{{ node.field_titulo_seccion.value }}</h2>
+      {% endif %}
+      {% if node.field_descripcion_seccion.value %}
+        <div class="desc-seccion-equipo">
+          {{ node.field_descripcion_seccion.value|raw }}
+        </div>
+      {% endif %}
+    </div>
+
+    {# La Grilla #}
+    {% if content.field_integrantes %}
+      <div class="team-grid">
+        {{ content.field_integrantes }}
+      </div>
+    {% endif %}
+  </div>
+</article>

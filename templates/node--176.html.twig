@@ -1,0 +1,579 @@
+<style>
+  /* Previene el scroll horizontal */
+  body, html { overflow-x: hidden; }
+
+  /* Estilos base para la lectura */
+  .contenido-estatico p { margin-bottom: 25px; font-size: 1.15rem; line-height: 1.8; color: #444; text-align: justify; }
+  .contenido-estatico h2 { color: var(--verde-oscuro, #1a3c28); font-weight: 800; font-size: 1.8rem; margin: 50px 0 20px 0; border-bottom: 2px solid #EBE9E0; padding-bottom: 10px; }
+
+  /* Sistema de Acordeones Personalizado */
+  .participa-accordion { border: 1px solid #EBE9E0; border-radius: 12px; background: #fff; overflow: hidden; margin-bottom: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.02); transition: box-shadow 0.3s; }
+  .participa-accordion:hover { box-shadow: 0 8px 25px rgba(0,0,0,0.06); }
+
+  .participa-accordion-btn { width: 100%; text-align: left; display: flex; justify-content: space-between; align-items: center; padding: 20px 25px; cursor: pointer; background: transparent; border: none; font-weight: 800; color: var(--verde-oscuro, #1a3c28); font-size: 1.15rem; transition: background 0.3s; }
+  .participa-accordion-btn:hover { background: #FCFAEF; }
+
+  .participa-chevron { color: var(--acento, #D4A843); transition: transform 0.3s ease; display: flex; align-items: center; justify-content: center; }
+  .participa-accordion-btn.activo .participa-chevron { transform: rotate(180deg); }
+
+  .participa-content { max-height: 0; overflow: hidden; transition: max-height 0.4s ease, padding 0.4s ease; background: #FCFAEF; padding: 0 25px; }
+  .participa-content.activo { padding: 25px; max-height: 5000px; border-top: 1px solid #EBE9E0; }
+
+  /* ESTILOS DE LA TARJETA DE DOCUMENTO / ENLACE */
+  .lista-documentos { display: flex; flex-direction: column; gap: 12px; margin-top: 15px; }
+
+  .doc-card {
+    display: flex; align-items: center; justify-content: space-between;
+    background-color: #ffffff; padding: 16px 24px; border-radius: 12px;
+    text-decoration: none !important; border: 1px solid #EBE9E0;
+    transition: transform 0.2s, box-shadow 0.2s; flex-wrap: wrap; gap: 15px;
+  }
+  .doc-card:hover {
+    transform: translateY(-3px); box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+  }
+  .doc-card-left { display: flex; align-items: center; gap: 18px; flex: 1; }
+  .doc-card-icon {
+    background-color: #FCFAEF; width: 46px; height: 46px; border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    border: 1px solid #eee; flex-shrink: 0; box-shadow: 0 2px 5px rgba(0,0,0,0.04);
+  }
+  .doc-card-title { font-size: 1.05rem; font-weight: 700; color: #111; line-height: 1.2; }
+  .doc-card-right { display: flex; align-items: center; gap: 15px; margin-left: auto; flex-shrink: 0; }
+  .doc-card-badge {
+    background-color: #fff; border: 1px solid #ddd; padding: 4px 12px;
+    border-radius: 20px; font-size: 0.75rem; font-weight: 800; color: #777;
+  }
+  .doc-card-action {
+    color: var(--verde-oscuro, #1a3c28); font-weight: 700; font-size: 0.95rem;
+    display: flex; align-items: center; gap: 6px;
+  }
+</style>
+
+<div class="pagina-estatica-base">
+
+  <section class="page-hero" style="margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw); width: 100vw; max-width: 100vw; background-color: var(--verde-medio, #1a3c28); padding: 80px 0 60px 0; color: #ffffff;">
+    <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+      <nav class="page-hero-breadcrumb" style="margin-bottom: 25px; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; display: flex; align-items: center; gap: 8px; color: rgba(255,255,255,0.7);">
+        <a href="/" style="color: #fff; text-decoration: none;">Inicio</a>
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9,18 15,12 9,6"/></svg>
+        <span>PARTICIPA</span>
+      </nav>
+      <h1 style="color: #fff; font-size: clamp(2.2rem, 5vw, 3.8rem); font-weight: 800; line-height: 1.1; margin: 0 0 20px 0;">
+        Menú <span style="color: var(--acento, #D4A843);">Participa</span>
+      </h1>
+      <p style="font-size: 1.15rem; max-width: 850px; line-height: 1.6; opacity: 0.9; margin: 0;">
+        Espacios, mecanismos y acciones que permiten la vinculación de la ciudadanía en las decisiones y acciones públicas del Instituto Municipal de Cultura y Turismo de Tenjo.
+      </p>
+    </div>
+  </section>
+
+  <main class="container contenido-estatico" style="max-width: 900px; margin: 60px auto 100px auto; padding: 0 20px; font-family: 'Montserrat', sans-serif;">
+
+    <h2>¿Qué es?</h2>
+    <p>
+      Participa es la sección donde encontrará toda la información relacionada a los espacios, mecanismos y acciones que permiten la participación ciudadana en el ciclo de la gestión pública, esto con el propósito de dinamizar con la vinculación de la ciudadanía en las decisiones y acciones públicas durante el diagnóstico, formulación, implementación, evaluación y seguimiento a la gestión institucional a través de su sitio web institucional.
+    </p>
+
+    <h2>¿Cómo Participar?</h2>
+    <p>
+      Las instancias de participación ciudadana permiten el encuentro e interacción entre actores sociales y entre estos con las autoridades públicas locales y distritales. Se distribuyen en dos grupos: las instancias que abordan asuntos de interés general, es decir, que afectan a todos y las instancias que tratan temas específicos, que conciernen a una parte de la población.
+    </p>
+    <p>
+      Las instancias de participación ciudadana desarrollan sus acciones para informar, deliberar, concertar o decidir en los asuntos propios de su naturaleza. Tener claro el alcance de la instancia de participación es definitivo en la búsqueda de la legitimidad, tanto de las acciones de la instancia de participación como de las responsabilidades de los gobernantes.
+    </p>
+
+    <h2>Descripción General</h2>
+    <p>
+      Por lo anterior, el Instituto Municipal de Cultura y Turismo da a conocer los Planes Anticorrupción y sus seguimientos hechos por la oficina de Control Interno.
+    </p>
+
+    <div class="participa-accordion">
+      <button class="participa-accordion-btn">
+        <span>Publicar el Plan Anticorrupción y de Atención al Ciudadano (PAAC)</span>
+        <span class="participa-chevron"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
+      </button>
+      <div class="participa-content">
+        <div class="lista-documentos">
+          <a href="/plan-anticorrupcion-y-atencion-al-ciudadano/" target="_blank" rel="noopener" class="doc-card">
+            <div class="doc-card-left">
+              <div class="doc-card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--verde-oscuro, #1a3c28)" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg></div>
+              <span class="doc-card-title">Plan Anticorrupción y Atención al Ciudadano</span>
+            </div>
+            <div class="doc-card-right">
+              <span class="doc-card-badge">Enlace</span>
+              <span class="doc-card-action">Ver <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg></span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="participa-accordion">
+      <button class="participa-accordion-btn">
+        <span>Publicación de informes de rendición de cuentas generales</span>
+        <span class="participa-chevron"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
+      </button>
+      <div class="participa-content">
+        <div class="lista-documentos">
+          <a href="/rendicion-de-cuentas/" target="_blank" class="doc-card">
+            <div class="doc-card-left">
+              <div class="doc-card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--verde-oscuro, #1a3c28)" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg></div>
+              <span class="doc-card-title">Rendición de cuentas generales</span>
+            </div>
+            <div class="doc-card-right"><span class="doc-card-badge">Enlace</span><span class="doc-card-action">Ver <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg></span></div>
+          </a>
+          <a href="https://tenjoculturayturismo.gov.co/wp-content/uploads/SEGUNDO-SEGUIMIENTO-PTEP-2025.pdf" target="_blank" class="doc-card">
+            <div class="doc-card-left">
+              <div class="doc-card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--verde-oscuro, #1a3c28)" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg></div>
+              <span class="doc-card-title">Segundo informe de rendición de cuentas</span>
+            </div>
+            <div class="doc-card-right"><span class="doc-card-badge">PDF</span><span class="doc-card-action">Descargar <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg></span></div>
+          </a>
+          <a href="https://tenjoculturayturismo.gov.co/wp-content/uploads/TERCER-SEGUIMIENTO-PTEP-2025.pdf" target="_blank" class="doc-card">
+            <div class="doc-card-left">
+              <div class="doc-card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--verde-oscuro, #1a3c28)" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg></div>
+              <span class="doc-card-title">Tercer informe de rendición de cuentas</span>
+            </div>
+            <div class="doc-card-right"><span class="doc-card-badge">PDF</span><span class="doc-card-action">Descargar <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg></span></div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="participa-accordion">
+      <button class="participa-accordion-btn">
+        <span>Convocatorias para la participación de la ciudadanía y grupos de valor</span>
+        <span class="participa-chevron"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
+      </button>
+      <div class="participa-content">
+        <div class="lista-documentos">
+          <a href="/eventos" class="doc-card">
+            <div class="doc-card-left">
+              <div class="doc-card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--verde-oscuro, #1a3c28)" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg></div>
+              <span class="doc-card-title">Convocatorias para la participación de la ciudadanía y grupos</span>
+            </div>
+            <div class="doc-card-right"><span class="doc-card-badge">Enlace</span><span class="doc-card-action">Ver <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg></span></div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="participa-accordion">
+      <button class="participa-accordion-btn">
+        <span>Calendario de la estrategia anual de participación ciudadana</span>
+        <span class="participa-chevron"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
+      </button>
+      <div class="participa-content">
+        <div class="lista-documentos">
+          <a href="/eventos" class="doc-card">
+            <div class="doc-card-left">
+              <div class="doc-card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--verde-oscuro, #1a3c28)" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg></div>
+              <span class="doc-card-title">Calendario de la estrategia anual de participación ciudadana</span>
+            </div>
+            <div class="doc-card-right"><span class="doc-card-badge">Enlace</span><span class="doc-card-action">Ver <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg></span></div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="participa-accordion">
+      <button class="participa-accordion-btn">
+        <span>Canal de interacción deliberatoria para la participación ciudadana</span>
+        <span class="participa-chevron"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
+      </button>
+      <div class="participa-content">
+        <div class="lista-documentos">
+          <a href="/respuesta-pqrds-anonimas" class="doc-card">
+            <div class="doc-card-left">
+              <div class="doc-card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--verde-oscuro, #1a3c28)" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg></div>
+              <span class="doc-card-title">Canal de interacción (PQRSD)</span>
+            </div>
+            <div class="doc-card-right"><span class="doc-card-badge">Enlace</span><span class="doc-card-action">Ver <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg></span></div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="participa-accordion">
+      <button class="participa-accordion-btn">
+        <span>Estrategia de participación ciudadana</span>
+        <span class="participa-chevron"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
+      </button>
+      <div class="participa-content">
+        <p>La Estrategia de Participación Ciudadana es el conjunto de acciones planeadas por la entidad para promover la vinculación activa de los ciudadanos y grupos de valor en los asuntos de interés público, durante las diferentes etapas del ciclo de gestión.</p>
+        <div class="lista-documentos">
+          <a href="/participacion" class="doc-card">
+            <div class="doc-card-left">
+              <div class="doc-card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--verde-oscuro, #1a3c28)" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg></div>
+              <span class="doc-card-title">Estrategia de participación ciudadana</span>
+            </div>
+            <div class="doc-card-right"><span class="doc-card-badge">Enlace</span><span class="doc-card-action">Ver <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg></span></div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="participa-accordion">
+      <button class="participa-accordion-btn">
+        <span>Estrategia anual de rendición de cuentas</span>
+        <span class="participa-chevron"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
+      </button>
+      <div class="participa-content">
+        <p>La Estrategia Anual de Rendición de Cuentas describe los mecanismos, espacios, medios y actividades que la entidad implementa para informar, explicar y dialogar con la ciudadanía y los grupos de valor sobre su gestión, resultados y uso de los recursos públicos.</p>
+        <div class="lista-documentos">
+          <a href="/rendicion-de-cuentas" class="doc-card">
+            <div class="doc-card-left">
+              <div class="doc-card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--verde-oscuro, #1a3c28)" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg></div>
+              <span class="doc-card-title">Estrategia anual de rendición de cuentas</span>
+            </div>
+            <div class="doc-card-right"><span class="doc-card-badge">Enlace</span><span class="doc-card-action">Ver <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg></span></div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="participa-accordion">
+      <button class="participa-accordion-btn">
+        <span>Formulario de inscripción para participación ciudadana</span>
+        <span class="participa-chevron"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
+      </button>
+      <div class="participa-content">
+        <p>Espacio para que los ciudadanos y grupos de valor se inscriban y participen activamente en los diferentes mecanismos de participación que ofrece el Instituto Municipal de Cultura y Turismo de Tenjo.</p>
+        <div class="lista-documentos">
+          <a href="/respuesta-pqrds-anonimas" class="doc-card">
+            <div class="doc-card-left">
+              <div class="doc-card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--verde-oscuro, #1a3c28)" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><polyline points="3 7 12 13 21 7"/></svg></div>
+              <span class="doc-card-title">Formulario de inscripción ciudadana</span>
+            </div>
+            <div class="doc-card-right"><span class="doc-card-badge">Formulario</span><span class="doc-card-action">Inscribirse <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span></div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <h2>Mecanismos de Participación</h2>
+
+    <div class="participa-accordion">
+      <button class="participa-accordion-btn">
+        <span>Diagnóstico e identificación de problemas</span>
+        <span class="participa-chevron"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
+      </button>
+      <div class="participa-content">
+        <p>La participación para el diagnóstico e identificación de problemas es la vinculación de ciudadanos e interesados en el proceso de recolección y análisis de información para identificar y explicar los problemas que les afectan directa o indirectamente. Se basa en datos, ideas, hechos, experiencias y propuestas relacionados con la caracterización de la situación abordada.</p>
+        <div class="lista-documentos">
+          <a href="/informacion-publica-relevante" class="doc-card">
+            <div class="doc-card-left">
+              <div class="doc-card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--verde-oscuro, #1a3c28)" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg></div>
+              <span class="doc-card-title">Publicación temas de interés</span>
+            </div>
+            <div class="doc-card-right"><span class="doc-card-badge">Enlace</span><span class="doc-card-action">Ver <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg></span></div>
+          </a>
+          <a href="/respuesta-pqrds-anonimas" class="doc-card">
+            <div class="doc-card-left">
+              <div class="doc-card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--verde-oscuro, #1a3c28)" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg></div>
+              <span class="doc-card-title">Caja de herramientas</span>
+            </div>
+            <div class="doc-card-right"><span class="doc-card-badge">Enlace</span><span class="doc-card-action">Ver <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg></span></div>
+          </a>
+          <a href="/informacion-publica-relevante" class="doc-card">
+            <div class="doc-card-left">
+              <div class="doc-card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--verde-oscuro, #1a3c28)" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg></div>
+              <span class="doc-card-title">Divulgación de resultados</span>
+            </div>
+            <div class="doc-card-right"><span class="doc-card-badge">Enlace</span><span class="doc-card-action">Ver <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg></span></div>
+          </a>
+          <a href="/respuesta-pqrds-anonimas" class="doc-card">
+            <div class="doc-card-left">
+              <div class="doc-card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--verde-oscuro, #1a3c28)" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg></div>
+              <span class="doc-card-title">Facilitar herramienta de evaluación</span>
+            </div>
+            <div class="doc-card-right"><span class="doc-card-badge">Enlace</span><span class="doc-card-action">Ver <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg></span></div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="participa-accordion">
+      <button class="participa-accordion-btn">
+        <span>Consulta ciudadana</span>
+        <span class="participa-chevron"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
+      </button>
+      <div class="participa-content">
+        <p>La Consulta ciudadana es un mecanismo de participación que busca conocer las opiniones, sugerencias o propuestas, comentarios y aportes de los usuarios, ciudadanos y grupos de interés con respecto a los proyectos, normas, políticas, programas o trámites adelantados por la entidad antes de la formulación de los mismos o la toma de decisiones.</p>
+        <div class="lista-documentos">
+          <a href="/proyectos-normativos" class="doc-card">
+            <div class="doc-card-left">
+              <div class="doc-card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--verde-oscuro, #1a3c28)" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg></div>
+              <span class="doc-card-title">Tema de consulta (normas, políticas, programas o proyectos)</span>
+            </div>
+            <div class="doc-card-right"><span class="doc-card-badge">Enlace</span><span class="doc-card-action">Ver <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg></span></div>
+          </a>
+          <a href="/respuesta-pqrds-anonimas" class="doc-card">
+            <div class="doc-card-left">
+              <div class="doc-card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--verde-oscuro, #1a3c28)" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg></div>
+              <span class="doc-card-title">Habilitar canales de consulta y caja de herramientas</span>
+            </div>
+            <div class="doc-card-right"><span class="doc-card-badge">Enlace</span><span class="doc-card-action">Ver <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg></span></div>
+          </a>
+          <a href="/respuesta-pqrds-anonimas" class="doc-card">
+            <div class="doc-card-left">
+              <div class="doc-card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--verde-oscuro, #1a3c28)" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg></div>
+              <span class="doc-card-title">Publicar observaciones y comentarios</span>
+            </div>
+            <div class="doc-card-right"><span class="doc-card-badge">Enlace</span><span class="doc-card-action">Ver <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg></span></div>
+          </a>
+          <a href="/normativa-entidad" class="doc-card">
+            <div class="doc-card-left">
+              <div class="doc-card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--verde-oscuro, #1a3c28)" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg></div>
+              <span class="doc-card-title">Sección Normativa</span>
+            </div>
+            <div class="doc-card-right"><span class="doc-card-badge">Enlace</span><span class="doc-card-action">Ver <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg></span></div>
+          </a>
+          <a href="/planes-accion-e-inversion" class="doc-card">
+            <div class="doc-card-left">
+              <div class="doc-card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--verde-oscuro, #1a3c28)" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg></div>
+              <span class="doc-card-title">Programas y proyectos en ejecución</span>
+            </div>
+            <div class="doc-card-right"><span class="doc-card-badge">Enlace</span><span class="doc-card-action">Ver <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg></span></div>
+          </a>
+          <a href="/respuesta-pqrds-anonimas" class="doc-card">
+            <div class="doc-card-left">
+              <div class="doc-card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--verde-oscuro, #1a3c28)" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg></div>
+              <span class="doc-card-title">Facilitar herramienta de evaluación</span>
+            </div>
+            <div class="doc-card-right"><span class="doc-card-badge">Enlace</span><span class="doc-card-action">Ver <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg></span></div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="participa-accordion">
+      <button class="participa-accordion-btn">
+        <span>Planeación y presupuesto participativo</span>
+        <span class="participa-chevron"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
+      </button>
+      <div class="participa-content">
+        <p>La Planeación Participativa es entendida como el mecanismo mediante el cual la sociedad civil decide el rumbo de las políticas, planes, programas, proyectos o trámites de acuerdo con sus necesidades. El Presupuesto Participativo es obligatorio para territorio, alcaldías y gobernaciones y no para entidades nacionales (Art 90, 91, 92 y 93 Ley 1557 de 2015).</p>
+        <p>El instituto Municipal de Cultura y turismo de Tenjo, acoge los lineamientos de articulación, coordinación, cooperación y participación de todos los interesados, para la formulación e implementación de planes y estrategias que resuelvan las necesidades de los ciudadanos, conforme al propósito y misional de la Entidad.</p>
+        <div class="lista-documentos">
+          <a href="/presupuesto-general-de-ingresos-gastos-e-inversion" class="doc-card">
+            <div class="doc-card-left">
+              <div class="doc-card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--verde-oscuro, #1a3c28)" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg></div>
+              <span class="doc-card-title">Porcentaje del presupuesto para el proceso</span>
+            </div>
+            <div class="doc-card-right"><span class="doc-card-badge">Enlace</span><span class="doc-card-action">Ver <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg></span></div>
+          </a>
+          <a href="/respuesta-pqrds-anonimas" class="doc-card">
+            <div class="doc-card-left">
+              <div class="doc-card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--verde-oscuro, #1a3c28)" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg></div>
+              <span class="doc-card-title">Habilitar canales de interacción y caja de herramientas</span>
+            </div>
+            <div class="doc-card-right"><span class="doc-card-badge">Enlace</span><span class="doc-card-action">Ver <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg></span></div>
+          </a>
+          <a href="/informacion-sobre-decisiones-que-pueden-afectar-al-publico" class="doc-card">
+            <div class="doc-card-left">
+              <div class="doc-card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--verde-oscuro, #1a3c28)" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg></div>
+              <span class="doc-card-title">Publicar la información sobre las decisiones</span>
+            </div>
+            <div class="doc-card-right"><span class="doc-card-badge">Enlace</span><span class="doc-card-action">Ver <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg></span></div>
+          </a>
+          <a href="/planes-accion-e-inversion" class="doc-card">
+            <div class="doc-card-left">
+              <div class="doc-card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--verde-oscuro, #1a3c28)" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg></div>
+              <span class="doc-card-title">Visibilizar avances y su estado (semáforo de seguimiento)</span>
+            </div>
+            <div class="doc-card-right"><span class="doc-card-badge">Enlace</span><span class="doc-card-action">Ver <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg></span></div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="participa-accordion">
+      <button class="participa-accordion-btn">
+        <span>Colaboración e innovación</span>
+        <span class="participa-chevron"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
+      </button>
+      <div class="participa-content">
+        <p>La Colaboración e Innovación es entendida como la interacción con la ciudadanía para la búsqueda de soluciones a problemáticas públicas con el conocimiento de los grupos de valor y así resolver los desafíos de las entidades, de modo que se establezcan redes de cooperación y sinergias.</p>
+        <p>El Instituto de Cultura y Turismo de Tenjo abre este espacio para que la ciudadanía conozca y participe de los retos y avances sobre innovación que se proponga desde las áreas misionales de la Entidad.</p>
+        <div class="lista-documentos">
+          <a href="/respuesta-pqrds-anonimas" class="doc-card">
+            <div class="doc-card-left">
+              <div class="doc-card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--verde-oscuro, #1a3c28)" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg></div>
+              <span class="doc-card-title">Disponer un espacio para consulta sobre temas o problemáticas</span>
+            </div>
+            <div class="doc-card-right"><span class="doc-card-badge">Enlace</span><span class="doc-card-action">Ver <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg></span></div>
+          </a>
+          <a href="/eventos" class="doc-card">
+            <div class="doc-card-left">
+              <div class="doc-card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--verde-oscuro, #1a3c28)" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg></div>
+              <span class="doc-card-title">Convocatoria con el reto</span>
+            </div>
+            <div class="doc-card-right"><span class="doc-card-badge">Enlace</span><span class="doc-card-action">Ver <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg></span></div>
+          </a>
+          <a href="/informacion-publica-relevante" class="doc-card">
+            <div class="doc-card-left">
+              <div class="doc-card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--verde-oscuro, #1a3c28)" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg></div>
+              <span class="doc-card-title">Informar retos vigentes y reporte de votaciones</span>
+            </div>
+            <div class="doc-card-right"><span class="doc-card-badge">Enlace</span><span class="doc-card-action">Ver <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg></span></div>
+          </a>
+          <a href="/informacion-publica-relevante" class="doc-card">
+            <div class="doc-card-left">
+              <div class="doc-card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--verde-oscuro, #1a3c28)" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg></div>
+              <span class="doc-card-title">Publicar la propuesta elegida y criterios de selección</span>
+            </div>
+            <div class="doc-card-right"><span class="doc-card-badge">Enlace</span><span class="doc-card-action">Ver <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg></span></div>
+          </a>
+          <a href="/planes-accion-e-inversion" class="doc-card">
+            <div class="doc-card-left">
+              <div class="doc-card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--verde-oscuro, #1a3c28)" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg></div>
+              <span class="doc-card-title">Plan de trabajo para implementar la solución diseñada</span>
+            </div>
+            <div class="doc-card-right"><span class="doc-card-badge">Enlace</span><span class="doc-card-action">Ver <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg></span></div>
+          </a>
+          <a href="/informacion-publica-relevante" class="doc-card">
+            <div class="doc-card-left">
+              <div class="doc-card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--verde-oscuro, #1a3c28)" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg></div>
+              <span class="doc-card-title">Publicar información sobre desarrollos o prototipos</span>
+            </div>
+            <div class="doc-card-right"><span class="doc-card-badge">Enlace</span><span class="doc-card-action">Ver <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg></span></div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="participa-accordion">
+      <button class="participa-accordion-btn">
+        <span>Rendición de cuentas</span>
+        <span class="participa-chevron"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
+      </button>
+      <div class="participa-content">
+        <p>La Rendición de Cuentas es el proceso conformado por un conjunto de normas, procedimientos, metodologías, estructuras, prácticas y resultados mediante los que las entidades de la administración pública del nivel nacional y territorial y los servidores públicos informan, explican y dan a conocer los resultados de su gestión a los ciudadanos, la sociedad civil, otras entidades públicas y a los organismos de control a partir de la promoción del diálogo. El Instituto de Cultura y Turismo  de Tenjo promueve espacios para fomentar la participación ciudadana dentro del ciclo de la gestión pública fundamentado en tres (3) elementos básicos: a) Información y lenguaje comprensible al ciudadano b) Diálogo para explicar, escuchar y retroalimentar la gestión. c) Responsabilidad para la construcción de la cultura de servidores como una forma motivación de los servidores públicos y a los ciudadanos, con el fin de evaluar la gestión y la búsqueda de la transparencia en la administración pública.</p>
+        <div class="lista-documentos">
+          <a href="/rendicion-de-cuentas" class="doc-card">
+            <div class="doc-card-left">
+              <div class="doc-card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--verde-oscuro, #1a3c28)" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg></div>
+              <span class="doc-card-title">Informe rendición de cuentas</span>
+            </div>
+            <div class="doc-card-right"><span class="doc-card-badge">Enlace</span><span class="doc-card-action">Ver <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg></span></div>
+          </a>
+          <a href="/respuesta-pqrds-anonimas" class="doc-card">
+            <div class="doc-card-left">
+              <div class="doc-card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--verde-oscuro, #1a3c28)" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg></div>
+              <span class="doc-card-title">Habilitar un espacio para que la ciudadanía postule temáticas</span>
+            </div>
+            <div class="doc-card-right"><span class="doc-card-badge">Enlace</span><span class="doc-card-action">Ver <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg></span></div>
+          </a>
+          <a href="/eventos" class="doc-card">
+            <div class="doc-card-left">
+              <div class="doc-card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--verde-oscuro, #1a3c28)" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg></div>
+              <span class="doc-card-title">Calendario eventos de diálogo</span>
+            </div>
+            <div class="doc-card-right"><span class="doc-card-badge">Enlace</span><span class="doc-card-action">Ver <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg></span></div>
+          </a>
+          <a href="/transparencia" class="doc-card">
+            <div class="doc-card-left">
+              <div class="doc-card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--verde-oscuro, #1a3c28)" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg></div>
+              <span class="doc-card-title">Articulación con la sección de Transparencia</span>
+            </div>
+            <div class="doc-card-right"><span class="doc-card-badge">Enlace</span><span class="doc-card-action">Ver <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></span></div>
+          </a>
+          <a href="/eventos" class="doc-card">
+            <div class="doc-card-left">
+              <div class="doc-card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--verde-oscuro, #1a3c28)" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg></div>
+              <span class="doc-card-title">Canal de transmisión de eventos de rendición de cuentas</span>
+            </div>
+            <div class="doc-card-right"><span class="doc-card-badge">Enlace</span><span class="doc-card-action">Ver <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg></span></div>
+          </a>
+          <a href="/respuesta-pqrds-anonimas" class="doc-card">
+            <div class="doc-card-left">
+              <div class="doc-card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--verde-oscuro, #1a3c28)" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg></div>
+              <span class="doc-card-title">Espacio de preguntas y respuestas ciudadanas</span>
+            </div>
+            <div class="doc-card-right"><span class="doc-card-badge">Enlace</span><span class="doc-card-action">Ver <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg></span></div>
+          </a>
+          <a href="/informacion-publica-relevante" class="doc-card">
+            <div class="doc-card-left">
+              <div class="doc-card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--verde-oscuro, #1a3c28)" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg></div>
+              <span class="doc-card-title">Memorias y grabaciones de eventos de rendición</span>
+            </div>
+            <div class="doc-card-right"><span class="doc-card-badge">Enlace</span><span class="doc-card-action">Ver <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg></span></div>
+          </a>
+          <a href="/planes-accion-e-inversion" class="doc-card">
+            <div class="doc-card-left">
+              <div class="doc-card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--verde-oscuro, #1a3c28)" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg></div>
+              <span class="doc-card-title">Acciones de mejora del proceso de rendición de cuentas</span>
+            </div>
+            <div class="doc-card-right"><span class="doc-card-badge">Enlace</span><span class="doc-card-action">Ver <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg></span></div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="participa-accordion">
+      <button class="participa-accordion-btn">
+        <span>Control social</span>
+        <span class="participa-chevron"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"></polyline></svg></span>
+      </button>
+      <div class="participa-content">
+        <p>El Control Social es el derecho y el deber de los ciudadanos a participar, de manera individual o a través de sus organizaciones, redes sociales e instituciones, en la vigilancia de la gestión pública y sus resultados para la correcta utilización de los recursos y bienes públicos. (artículos 60, 61 y 63 de la Ley 1757 de 2015).</p>
+        <p>
+Se entiende por Veeduría Ciudadana el mecanismo democrático de representación que le permite a los ciudadanos o a las diferentes organizaciones comunitarias ejercer vigilancia sobre la gestión pública, a las autoridades administrativas, políticas, judiciales, electorales, legislativas y órganos de control, así como de las entidades públicas o privadas, organizaciones no gubernamentales de carácter nacional o internacional que operen en el país y que estén encargadas de la ejecución de un programa, proyecto, contrato o de la prestación de un servicio público. Para conocer más información sobre el funcionamiento de las veedurías, ver <strong><a href="https://www.funcionpublica.gov.co/eva/gestornormativo/norma.php?i=10570" style="text-decoration: underline;" aria-label="enlace">la Ley 850 de 2003.</a></strong></p>
+        <div class="lista-documentos">
+          <a href="https://tenjoculturayturismo.gov.co/apps/pqr_imctt/" target="_blank" rel="noopener" class="doc-card">
+            <div class="doc-card-left">
+              <div class="doc-card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--verde-oscuro, #1a3c28)" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg></div>
+              <span class="doc-card-title">Informar las modalidades de control social</span>
+            </div>
+            <div class="doc-card-right"><span class="doc-card-badge">Enlace</span><span class="doc-card-action">Ver <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg></span></div>
+          </a>
+          <a href="/ejecucion-contratos" class="doc-card">
+            <div class="doc-card-left">
+              <div class="doc-card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--verde-oscuro, #1a3c28)" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg></div>
+              <span class="doc-card-title">Cuando inicie ejecución de programa, proyecto contratos</span>
+            </div>
+            <div class="doc-card-right"><span class="doc-card-badge">Enlace</span><span class="doc-card-action">Ver <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg></span></div>
+          </a>
+          <a href="/informacion-publica-relevante" class="doc-card">
+            <div class="doc-card-left">
+              <div class="doc-card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--verde-oscuro, #1a3c28)" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg></div>
+              <span class="doc-card-title">Resumen del tema objeto de vigilancia</span>
+            </div>
+            <div class="doc-card-right"><span class="doc-card-badge">Enlace</span><span class="doc-card-action">Ver <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg></span></div>
+          </a>
+          <a href="/informes-de-gestion-evaluacion-y-auditoria" class="doc-card">
+            <div class="doc-card-left">
+              <div class="doc-card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--verde-oscuro, #1a3c28)" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg></div>
+              <span class="doc-card-title">Informes del interventor o el supervisor</span>
+            </div>
+            <div class="doc-card-right"><span class="doc-card-badge">Enlace</span><span class="doc-card-action">Ver <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg></span></div>
+          </a>
+          <a href="/respuesta-pqrds-anonimas" class="doc-card">
+            <div class="doc-card-left">
+              <div class="doc-card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--verde-oscuro, #1a3c28)" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg></div>
+              <span class="doc-card-title">Facilitar herramienta de evaluación de las actividades</span>
+            </div>
+            <div class="doc-card-right"><span class="doc-card-badge">Enlace</span><span class="doc-card-action">Ver <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg></span></div>
+          </a>
+          <a href="/informacion-publica-relevante" class="doc-card">
+            <div class="doc-card-left">
+              <div class="doc-card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--verde-oscuro, #1a3c28)" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg></div>
+              <span class="doc-card-title">Publicar el registro de las observaciones de las veedurías</span>
+            </div>
+            <div class="doc-card-right"><span class="doc-card-badge">Enlace</span><span class="doc-card-action">Ver <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg></span></div>
+          </a>
+          <a href="/planes-accion-e-inversion" class="doc-card">
+            <div class="doc-card-left">
+              <div class="doc-card-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--verde-oscuro, #1a3c28)" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline></svg></div>
+              <span class="doc-card-title">Acciones de mejora</span>
+            </div>
+            <div class="doc-card-right"><span class="doc-card-badge">Enlace</span><span class="doc-card-action">Ver <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg></span></div>
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </main>
+</div>

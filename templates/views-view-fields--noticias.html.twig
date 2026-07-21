@@ -1,0 +1,45 @@
+{# 
+  Plantilla para las tarjetas de noticias en la vista.
+  Nombre: views-view-fields--noticias.html.twig 
+#}
+
+{# Extraemos los valores del nodo 'article' #}
+{% set nodo = row._entity %}
+{% set link = url('entity.node.canonical', {'node': nodo.id}) %}
+
+{# Imagen: Buscamos en field_image (ajustar si es Media) #}
+{% set img_uri = nodo.field_image.entity.uri.value %}
+{% set img_url = img_uri ? file_url(img_uri) : '' %}
+
+{# Fecha: Día y Mes abreviado #}
+{% set fecha_raw = nodo.field_fecha_de_la_noticia.value %}
+{% set dia = fecha_raw|date('d') %}
+{% set mes = fecha_raw|date('M') %}
+
+<article class="noticia-card">
+  <div class="noticia-img-wrap">
+    <a href="{{ link }}">
+      {% if img_url %}
+        <img src="{{ img_url }}" alt="{{ nodo.title.value }}" loading="lazy">
+      {% else %}
+        <div class="img-placeholder"></div>
+      {% endif %}
+    </a>
+    <div class="noticia-fecha-badge">
+      <span class="badge-mes">{{ mes }}</span>
+      <span class="badge-dia">{{ dia }}</span>
+    </div>
+  </div>
+
+  <div class="noticia-content">
+    {% if nodo.field_categoria_de_la_noticia.entity.name.value %}
+      <span class="noticia-categoria">{{ nodo.field_categoria_de_la_noticia.entity.name.value }}</span>
+    {% endif %}
+    
+    <h3 class="noticia-titulo">
+      <a href="{{ link }}">{{ nodo.title.value }}</a>
+    </h3>
+    
+    <a href="{{ link }}" class="btn-noticia-red">Conoce más</a>
+  </div>
+</article>

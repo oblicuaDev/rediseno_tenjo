@@ -1,0 +1,50 @@
+{# 
+  Plantilla: Documento Institucional
+  Archivo: node--documento-institucional--teaser.html.twig
+#}
+
+{# 1. Obtener URL del archivo #}
+{% set archivo_url = '' %}
+{% if node.field_documentos.entity.uri.value %}
+  {% set archivo_url = file_url(node.field_documentos.entity.uri.value) %}
+{% elseif node.field_documentos.entity.field_media_document.entity.uri.value %}
+  {% set archivo_url = file_url(node.field_documentos.entity.field_media_document.entity.uri.value) %}
+{% endif %}
+
+{# 2. Lógica para descripción opcional #}
+{% set tiene_descripcion = node.field_descripcion_documento.value|render|trim is not empty %}
+
+{# 3. Renderizado del componente con fondo crema y diseño horizontal #}
+<a href="{{ archivo_url }}" target="_blank" rel="noopener" class="documento-item" style="display: flex; align-items: center; justify-content: space-between; background-color: #FCFAEF; padding: 16px 24px; border-radius: 12px; text-decoration: none; border: 1px solid #EBE9E0; transition: transform 0.2s, box-shadow 0.2s; flex-wrap: wrap; gap: 15px;" onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 8px 20px rgba(0,0,0,0.06)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';">
+  
+  <div style="display: flex; flex-direction: column; gap: 5px; flex: 1; min-width: 280px;">
+    <div style="display: flex; align-items: center; gap: 18px;">
+      {# Contenedor del icono con fondo blanco #}
+      <div style="background-color: #fff; width: 46px; height: 46px; border-radius: 10px; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 5px rgba(0,0,0,0.04); border: 1px solid #eee; flex-shrink: 0;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--verde-oscuro, #1a3c28)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+      </div>
+      {# Título del documento #}
+      <span style="font-size: 1.05rem; font-weight: 700; color: #111;">{{ label }}</span>
+    </div>
+
+    {# Descripción (se muestra debajo del título si existe) #}
+    {% if tiene_descripcion %}
+      <div style="padding-left: 64px;">
+        <p style="margin: 0; font-size: 0.92rem; color: #666; line-height: 1.5;">
+          {{ node.field_descripcion_documento.value|striptags }}
+        </p>
+      </div>
+    {% endif %}
+  </div>
+
+  {# Bloque lateral de descarga #}
+  {% set extension = archivo_url|split('.')|last|split('?')|first|upper %}
+  <div style="display: flex; align-items: center; gap: 15px; margin-left: auto;">
+    <span style="background-color: #fff; border: 1px solid #ddd; padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 800; color: #777;">{{ extension ?: 'DOC' }}</span>
+    <span style="color: var(--verde-oscuro, #1a3c28); font-weight: 700; font-size: 0.95rem; display: flex; align-items: center; gap: 6px;">
+      Descargar 
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+    </span>
+  </div>
+
+</a>

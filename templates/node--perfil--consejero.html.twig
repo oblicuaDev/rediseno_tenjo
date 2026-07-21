@@ -1,0 +1,23 @@
+<article class="card-consejero">
+
+  {% if content.field_imagen %}
+    <div class="card-consejero__imagen">
+      {{ content.field_imagen }}
+    </div>
+  {% endif %}
+
+  <div class="card-consejero__contenido">
+
+    <h3>{{ label }}</h3>
+
+    {% if content.field_cargo %}
+      {{ content.field_cargo }}
+    {% endif %}
+
+    {% if content.field_entidad %}
+      {{ content.field_entidad }}
+    {% endif %}
+
+  </div>
+
+</article>

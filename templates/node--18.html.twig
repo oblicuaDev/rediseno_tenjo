@@ -1,0 +1,229 @@
+{#
+  Plantilla Estática para: Patrimonio
+  Archivo: node--18.html.twig
+#}
+<div class="pagina-estatica-patrimonio">
+
+  {# --- 1. HERO INSTITUCIONAL --- #}
+  <div class="page-hero" style="width: 100vw; position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; background-color: var(--verde-medio, #1a3c28); padding: 60px 0; color: #ffffff;">
+    <div class="container page-hero-inner" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+
+      <div class="page-hero-breadcrumb" style="margin-bottom: 20px; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; display: flex; align-items: center; gap: 8px; color: rgba(255,255,255,0.7);">
+        <a href="/es" style="color: #fff; text-decoration: none;">INICIO</a>
+        <span class="sep">></span>
+        <a href="#" style="color: #fff; text-decoration: none;">TENJO CULTURAL</a>
+        <span class="sep">></span>
+        <span>PATRIMONIO</span>
+      </div>
+
+      <h1 style="color: #fff; font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 800; line-height: 1.15; margin: 0;">
+        Patrimonio <br><span style="color: var(--acento, #D4A843);">Cultural y Natural</span>
+      </h1>
+      <p style="color: rgba(255,255,255,0.8); max-width: 700px; font-size: 1.1rem; margin-top: 15px;">
+        Área encargada de promover la protección, salvaguardia, rescate, difusión, investigación y disfrute del patrimonio del municipio de Tenjo.
+      </p>
+    </div>
+  </div>
+
+  {# --- 2. CONTENIDO PRINCIPAL --- #}
+  <div class="container" style="max-width: 1200px; margin: 60px auto 100px auto; padding: 0 20px;">
+
+    {# Intro Concepto #}
+    <div style="max-width: 900px; margin: 0 auto 50px auto; text-align: center;">
+      <h2 style="font-size: 1.8rem; color: var(--verde-oscuro, #1a3c28); font-weight: 800; margin-bottom: 20px;">¿Qué es el Patrimonio Cultural?</h2>
+      <p style="font-size: 1.1rem; line-height: 1.8; color: #555;">
+        Es el legado cultural que recibimos del pasado, que vivimos en el presente y transmitiremos a las nuevas generaciones. El <strong>patrimonio cultural</strong> se clasifica en material (mueble e inmueble) e inmaterial. De igual manera, el <strong>patrimonio natural</strong> comprende las formaciones y elementos con reconocimiento comunitario y valor biológico.
+      </p>
+    </div>
+
+    {# --- 3. CATEGORÍAS DE PATRIMONIO  --- #}
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-bottom: 80px;">
+
+      {# Mueble #}
+      <article class="js-perfil-trigger" data-nombre="Patrimonio Material Mueble" data-cargo="Clasificación del Patrimonio" data-foto="https://tenjoculturayturismo.gov.co/wp-content/themes/yootheme/cache/Iglesias-Tenjo-scaled-5f813edb.webp" style="border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); background: #fff; border: 1px solid #EBE9E0; display: flex; flex-direction: column; cursor: pointer; transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)';" onmouseout="this.style.transform='translateY(0)';">
+
+        <div class="hidden-bio-content" style="display:none !important;">
+          <p>El patrimonio cultural material mueble está representado por monumentos, esculturas y pinturas que tienen un valor excepcional desde el punto histórico, artístico o científico, sin importar su antigüedad. Algunos ejemplos en el municipio de Tenjo son: el busto de Jorge Eliécer Gaitán, las vasijas halladas en contextos arqueológicos en la vereda Chincé y La Punta, los cuadros coloniales conservados en el templo doctrinero, entre otros.</p>
+        </div>
+
+        <img src="https://tenjoculturayturismo.gov.co/wp-content/themes/yootheme/cache/Iglesias-Tenjo-scaled-5f813edb.webp" alt="Patrimonio Mueble" style="width: 100%; height: 220px; object-fit: cover;">
+        <div style="padding: 25px; flex: 1; display: flex; flex-direction: column;">
+          <h3 style="font-size: 1.3rem; color: var(--verde-oscuro, #1a3c28); font-weight: 800; margin-bottom: 15px;">Material Mueble</h3>
+          <p style="font-size: 0.95rem; color: #555; line-height: 1.6; margin: 0;">El patrimonio cultural material mueble está representado por monumentos, esculturas y pinturas que tienen un valor excepcional desde el punto histórico, artístico o científico</p>
+          <div style="margin-top: auto; padding-top: 15px; color: var(--acento, #D4A843); font-weight: 700; font-size: 0.8rem; letter-spacing: 0.5px;">LEER MÁS +</div>
+        </div>
+      </article>
+
+      {# Inmueble #}
+      <article class="js-perfil-trigger" data-nombre="Patrimonio Material Inmueble" data-cargo="Clasificación del Patrimonio" data-foto="https://tenjoculturayturismo.gov.co/wp-content/themes/yootheme/cache/Nuestra-Senora-del-Rosario-478ab78c.webp" style="border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); background: #fff; border: 1px solid #EBE9E0; display: flex; flex-direction: column; cursor: pointer; transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)';" onmouseout="this.style.transform='translateY(0)';">
+
+        <div class="hidden-bio-content" style="display:none !important;">
+          <p>Por su parte, el patrimonio cultural material inmueble abarca sitios arqueológicos, obras de ingeniería, espacios públicos, sectores urbanos y obras arquitectónicas (aisladas o reunidas) de especial interés por su valor estético, histórico, artístico o antropológico. Este tipo de patrimonio es relevante en Tenjo, pues da cuenta de la historia del territorio; abarca los sitios con arte rupestre de la serranía de Juaica, ciertas edificaciones del Centro Histórico del municipio y algunas grandes haciendas del siglo XIX.</p>
+        </div>
+
+        <img src="https://tenjoculturayturismo.gov.co/wp-content/themes/yootheme/cache/Nuestra-Senora-del-Rosario-478ab78c.webp" alt="Patrimonio Inmueble" style="width: 100%; height: 220px; object-fit: cover;">
+        <div style="padding: 25px; flex: 1; display: flex; flex-direction: column;">
+          <h3 style="font-size: 1.3rem; color: var(--verde-oscuro, #1a3c28); font-weight: 800; margin-bottom: 15px;">Material Inmueble</h3>
+          <p style="font-size: 0.95rem; color: #555; line-height: 1.6; margin: 0;">Por su parte, el patrimonio cultural material inmueble abarca sitios arqueológicos, obras de ingeniería, espacios públicos, sectores urbanos y obras arquitectónicas (aisladas o reunidas)...</p>
+          <div style="margin-top: auto; padding-top: 15px; color: var(--acento, #D4A843); font-weight: 700; font-size: 0.8rem; letter-spacing: 0.5px;">LEER MÁS +</div>
+        </div>
+      </article>
+
+      {# Inmaterial #}
+      <article class="js-perfil-trigger" data-nombre="Patrimonio Cultural Inmaterial" data-cargo="Clasificación del Patrimonio" data-foto="https://tenjoculturayturismo.gov.co/wp-content/themes/yootheme/cache/semana-santa-2-scaled-76f1171f.webp" style="border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); background: #fff; border: 1px solid #EBE9E0; display: flex; flex-direction: column; cursor: pointer; transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)';" onmouseout="this.style.transform='translateY(0)';">
+
+        <div class="hidden-bio-content" style="display:none !important;">
+          <p>El patrimonio cultural inmaterial comprende las expresiones vivas heredadas de nuestros antepasados, tales como las tradiciones orales, los rituales, los actos festivos, los conocimientos y prácticas relativos a la naturaleza y el universo, los saberes y técnicas vinculados a la artesanía y los oficios tradicionales. El patrimonio cultural inmaterial es fundamental para el mantenimiento de la diversidad y la identidad cultural. En Tenjo, este patrimonio se ejemplifica en prácticas como la gastronomía basada en el maíz, la medicina tradicional a base de plantas y conocimientos del campo como el ordeño y el cuidado de los animales.</p>
+        </div>
+
+        <img src="https://tenjoculturayturismo.gov.co/wp-content/themes/yootheme/cache/semana-santa-2-scaled-76f1171f.webp" alt="Patrimonio Inmaterial" style="width: 100%; height: 220px; object-fit: cover;">
+        <div style="padding: 25px; flex: 1; display: flex; flex-direction: column;">
+          <h3 style="font-size: 1.3rem; color: var(--verde-oscuro, #1a3c28); font-weight: 800; margin-bottom: 15px;">Cultural Inmaterial</h3>
+          <p style="font-size: 0.95rem; color: #555; line-height: 1.6; margin: 0;">El patrimonio cultural inmaterial comprende las expresiones vivas heredadas de nuestros antepasados, tales como las tradiciones orales, los rituales, los actos festivos...</p>
+          <div style="margin-top: auto; padding-top: 15px; color: var(--acento, #D4A843); font-weight: 700; font-size: 0.8rem; letter-spacing: 0.5px;">LEER MÁS +</div>
+        </div>
+      </article>
+
+      {# Natural #}
+      <article class="js-perfil-trigger" data-nombre="Patrimonio Natural (Paisaje Cultural)" data-cargo="Clasificación del Patrimonio" data-foto="https://tenjoculturayturismo.gov.co/wp-content/themes/yootheme/cache/Las_Cuevas-f22afaac.webp" style="border-radius: 12px; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.05); background: #fff; border: 1px solid #EBE9E0; display: flex; flex-direction: column; cursor: pointer; transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-5px)';" onmouseout="this.style.transform='translateY(0)';">
+
+        <div class="hidden-bio-content" style="display:none !important;">
+          <p>El patrimonio natural, desde el enfoque cultural, se denomina paisaje cultural; a este grupo pertenecen los cerros, caminos, ríos, lagunas, entre otros, que caracterizan físicamente un territorio. Pueden ser creados por la acción de la naturaleza o por el hombre, como es el caso del Paisaje Cultural Cafetero. El patrimonio natural más representativo de Tenjo son el Cerro de Juaica, el Cerro Majuí, el Cerro Pan de Azúcar, el río Chicú y las Cuevas.</p>
+        </div>
+
+        <img src="https://tenjoculturayturismo.gov.co/wp-content/themes/yootheme/cache/Las_Cuevas-f22afaac.webp" alt="Patrimonio Natural" style="width: 100%; height: 220px; object-fit: cover;">
+        <div style="padding: 25px; flex: 1; display: flex; flex-direction: column;">
+          <h3 style="font-size: 1.3rem; color: var(--verde-oscuro, #1a3c28); font-weight: 800; margin-bottom: 15px;">Natural (Paisaje)</h3>
+          <p style="font-size: 0.95rem; color: #555; line-height: 1.6; margin: 0;">El patrimonio natural, desde el enfoque cultural, se denomina paisaje cultural; a este grupo pertenecen los cerros, caminos, ríos, lagunas, entre otros, que caracterizan...</p>
+          <div style="margin-top: auto; padding-top: 15px; color: var(--acento, #D4A843); font-weight: 700; font-size: 0.8rem; letter-spacing: 0.5px;">LEER MÁS +</div>
+        </div>
+      </article>
+
+    </div>
+
+    {# --- 4. DECLARATORIAS Y NORMATIVAS --- #}
+    <div style="background: var(--verde-xclaro, #F4F7F5); border-radius: 15px; padding: 40px; margin-bottom: 80px;">
+      <h2 style="font-size: 1.8rem; color: var(--verde-oscuro, #1a3c28); font-weight: 800; margin-bottom: 25px;">Declaratorias y normativas de protección del patrimonio Tenjano</h2>
+      <div style="display: flex; flex-wrap: wrap; gap: 30px; align-items: flex-start;">
+        <div style="flex: 1; min-width: 300px;">
+          <p style="font-size: 1rem; color: #444; line-height: 1.7; margin-bottom: 15px;">
+            En 1993, el Centro Histórico de Tenjo fue declarado Monumento Nacional, el cual incluyó el Parque Principal y construcciones como el Templo Colonial, la Iglesia Santiago Apóstol, la Casa Cural, la Alcaldía Municipal, la Casa Chitasugá, el Centro Tecnológico, el Concejo Municipal, la sede de Emsertenjo, entre otros. A partir de la Ley 1185 del año 2008, esta denominación cambió a Bienes de Interés Cultural del Ámbito Nacional. En el año 2010, luego de un proceso de diagnóstico y de elaboración de un régimen de protección de estos bienes como conjunto arquitectónico, se decretó el Plan Especial de Manejo y Protección (PEMP) del Sector Urbano de Interés Cultural del municipio de Tenjo, que incluye, además de las acciones de conservación y protección desde la institucionalidad, estrategias de valoración, difusión y apropiación de la comunidad sobre este patrimonio.
+          </p>
+          <p style="font-size: 1rem; color: #444; line-height: 1.7; margin-bottom: 15px;">
+            Igualmente, los sitios con arte rupestre, que están conformados por los pictogramas presentes en algunos abrigos rocosos de la serranía Juaica, cuentan, en primer lugar, con la protección establecida desde la Constitución Política, que establece, de conformidad con los artículos 63 y 72 de la Constitución Política, que los bienes del patrimonio arqueológico pertenecen a la Nación y son inalienables, imprescriptibles e inembargables; y la segunda, de carácter medioambiental, que declara a la serranía de Juaica en la jurisdicción del municipio de Tenjo como Distrito de Manejo Integrado Cerro Juaica. Igualmente, algunos de estos sitios se encuentran registrados ante el ICANH.
+          </p>
+          <p style="font-size: 1rem; color: #444; line-height: 1.7;">
+            <em>Actualmente, el municipio adelanta un proceso de inventario de los bienes y manifestaciones que se considera prioritario preservar, proteger, difundir y promover.</em>
+          </p>
+        </div>
+        <img src="https://tenjoculturayturismo.gov.co/wp-content/themes/yootheme/cache/Busto-Jorge-Eliecer-Gaitan-d29b4e3d.webp" alt="Normativas" style="border-radius: 8px; width: 250px; height: auto; object-fit: cover; box-shadow: 0 4px 15px rgba(0,0,0,0.1);">
+      </div>
+
+    </div>
+
+    <div style="display: flex; flex-wrap: wrap; gap: 50px; align-items: center; flex-direction: row-reverse;">
+
+        {# Columna de Texto del Video #}
+        <div style="flex: 1; min-width: 300px;">
+          <span style="display: inline-block; background-color: var(--verde-xclaro, #E8F0EA); color: var(--verde-oscuro, #1a3c28); padding: 5px 15px; border-radius: 20px; font-weight: 800; font-size: 0.8rem; margin-bottom: 15px; letter-spacing: 1px;">HISTORIAS DE NUESTRO PUEBLO</span>
+          <h2 style="font-size: 2.2rem; color: var(--verde-oscuro, #1a3c28); font-weight: 800; margin-bottom: 20px; line-height: 1.2;">418 Años de Tenjo</h2>
+          <p style="font-size: 1.1rem; line-height: 1.8; color: #555; margin-bottom: 20px;">
+            ¡Seguimos escribiendo la historia de Tenjo!<br>
+            A pocos días de celebrar el cumpleaños de nuestro municipio, hablamos con <strong>don Leonidas Orozco</strong>, quien desde su hogar compartió recuerdos valiosos de Tenjo y reflexionó sobre el importante compromiso que tienen las nuevas generaciones con el medioambiente.
+          </p>
+          <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+            <span style="font-weight: 700; color: var(--acento, #D4A843);">#TenjoBioseguro</span>
+            <span style="font-weight: 700; color: var(--acento, #D4A843);">#TenjoEsDeTodos</span>
+          </div>
+        </div>
+
+        {# Columna de Video #}
+        <div style="flex: 1.2; min-width: 300px;">
+          <div style="border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.15); background: #000; border: 4px solid #fff;">
+            <video src="https://tenjoculturayturismo.gov.co/wp-content/uploads/CTLeonidas-version-corta_1.mp4" controls playsinline style="width: 100%; display: block; outline: none;">
+              <track src="/sites/default/files/2026-07/subtitulos_leonidas_1.txt" kind="subtitles" srclang="es" label="Español">
+            </video>
+          </div>
+        </div>
+
+      </div>
+
+    {# --- 5. CÁTEDRA IDENTIDAD DE TENJO (RECURSOS DOCENTES) --- #}
+    <div style="margin-bottom: 80px; margin-top:30px; ">
+      <div style="text-align: center; margin-bottom: 40px;">
+        <h2 style="font-size: 1.8rem; color: var(--verde-oscuro, #1a3c28); font-weight: 800; margin-bottom: 15px;">Cátedra Identidad de Tenjo</h2>
+        <p style="font-size: 1.05rem; color: #555; max-width: 800px; margin: 0 auto;">
+         La Cátedra de Identidad de Tenjo es un proceso de formación dirigido a la comunidad, principalmente a los estudiantes y docentes de las IED (Instituciones Educativas Departamentales) y colegios privados del municipio. Esta cátedra busca fortalecer los conocimientos existentes en torno a la historia, la cultura y la valoración del patrimonio cultural y natural del territorio, promoviendo el cuidado del mismo y el diálogo entre lo local y lo global.
+
+En este espacio se alojan recursos digitales para ser usados por los docentes del municipio; en este momento contamos con:
+        </p>
+      </div>
+
+      <h3 style="font-size: 1.3rem; color: #333; font-weight: 700; margin-bottom: 25px; border-bottom: 2px solid #EBE9E0; padding-bottom: 10px;">Recursos Docentes</h3>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
+
+        {# Cartilla 1 #}
+        <a href="https://tenjoculturayturismo.gov.co/wp-content/uploads/CARTILLA-1_2021.pdf" target="_blank" rel="noopener" class="doc-download-card" style="display: flex; align-items: center; background-color: #FCFAEF; padding: 15px 20px; border-radius: 12px; text-decoration: none; border: 1px solid #EBE9E0; transition: transform 0.2s ease;">
+          <div style="background-color: #fff; width: 40px; height: 40px; border-radius: 8px; display: flex; align-items: center; justify-content: center; border: 1px solid #eee; margin-right: 15px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--verde-oscuro, #1a3c28)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg></div>
+          <div style="flex: 1;">
+            <div style="font-weight: 700; color: #111; font-size: 0.95rem; margin-bottom: 3px;">Cartilla No. 1 (Ciclo I)</div>
+            <div style="font-size: 0.8rem; color: #777;">PDF • 1°, 2° y 3° de primaria</div>
+          </div>
+          <span style="color: var(--verde-oscuro, #1a3c28);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg></span>
+        </a>
+
+        {# Cartilla 2 #}
+        <a href="https://tenjoculturayturismo.gov.co/wp-content/uploads/CARTILLA-2_2021.pdf" target="_blank" rel="noopener" class="doc-download-card" style="display: flex; align-items: center; background-color: #FCFAEF; padding: 15px 20px; border-radius: 12px; text-decoration: none; border: 1px solid #EBE9E0; transition: transform 0.2s ease;">
+          <div style="background-color: #fff; width: 40px; height: 40px; border-radius: 8px; display: flex; align-items: center; justify-content: center; border: 1px solid #eee; margin-right: 15px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--verde-oscuro, #1a3c28)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg></div>
+          <div style="flex: 1;">
+            <div style="font-weight: 700; color: #111; font-size: 0.95rem; margin-bottom: 3px;">Cartilla No. 2 (Ciclo II)</div>
+            <div style="font-size: 0.8rem; color: #777;">PDF • 4° y 5° de primaria</div>
+          </div>
+          <span style="color: var(--verde-oscuro, #1a3c28);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg></span>
+        </a>
+
+        {# Guías #}
+        <a href="/sites/default/files/2026-05/Guias_primaria.pdf" target="_blank" rel="noopener" class="doc-download-card" style="display: flex; align-items: center; background-color: #FCFAEF; padding: 15px 20px; border-radius: 12px; text-decoration: none; border: 1px solid #EBE9E0; transition: transform 0.2s ease;">
+          <div style="background-color: #fff; width: 40px; height: 40px; border-radius: 8px; display: flex; align-items: center; justify-content: center; border: 1px solid #eee; margin-right: 15px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--verde-oscuro, #1a3c28)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg></div>
+          <div style="flex: 1;">
+            <div style="font-weight: 700; color: #111; font-size: 0.95rem; margin-bottom: 3px;">Guías de Actividades</div>
+            <div style="font-size: 0.8rem; color: #777;">PDF • Para Cartillas 1 y 2</div>
+          </div>
+          <span style="color: var(--verde-oscuro, #1a3c28);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg></span>
+        </a>
+
+      </div>
+    </div>
+
+    {# --- 6. PRODUCCIÓN ACADÉMICA --- #}
+    <div>
+      <h3 style="font-size: 1.3rem; color: #333; font-weight: 700; margin-bottom: 25px; border-bottom: 2px solid #EBE9E0; padding-bottom: 10px;">Producción Académica</h3>
+
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
+
+        {# Informe #}
+        <a href="/sites/default/files/2026-05/Informe-final-patrimonio-vivo-Tenjano-2024.pdf" target="_blank" rel="noopener" class="doc-download-card" style="display: flex; align-items: center; background-color: #FCFAEF; padding: 15px 20px; border-radius: 12px; text-decoration: none; border: 1px solid #EBE9E0; transition: transform 0.2s ease;">
+          <div style="background-color: #fff; width: 40px; height: 40px; border-radius: 8px; display: flex; align-items: center; justify-content: center; border: 1px solid #eee; margin-right: 15px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--verde-oscuro, #1a3c28)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg></div>
+          <div style="flex: 1;">
+            <div style="font-weight: 700; color: #111; font-size: 0.95rem; margin-bottom: 3px;">Informe Final 2024</div>
+            <div style="font-size: 0.8rem; color: #777;">Patrimonio Vivo Tenjano</div>
+          </div>
+          <span style="color: var(--verde-oscuro, #1a3c28);"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg></span>
+        </a>
+
+        {# Podcast #}
+        <a href="https://youtu.be/qA7cO7oviVw" target="_blank" rel="noopener" class="doc-download-card" style="display: flex; align-items: center; background-color: #FDF9F9; padding: 15px 20px; border-radius: 12px; text-decoration: none; border: 1px solid #EBE9E0; transition: transform 0.2s ease;">
+          <div style="background-color: #FF0000; width: 40px; height: 40px; border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-right: 15px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="#fff" stroke="none"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29.01 29.01 0 0 0 1 11.75a29.01 29.01 0 0 0 .46 5.33 2.78 2.78 0 0 0 1.94 2c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2c.18-1.74.27-3.53.27-5.33s-.09-3.59-.27-5.33zM9.5 15.5v-7.5l6.5 3.75-6.5 3.75z"></path></svg></div>
+          <div style="flex: 1;">
+            <div style="font-weight: 700; color: #111; font-size: 0.95rem; margin-bottom: 3px;">Podcast YouTube</div>
+            <div style="font-size: 0.8rem; color: #777;">Festivales y Celebraciones</div>
+          </div>
+          <span style="color: var(--verde-oscuro, #1a3c28); font-weight: 700; font-size: 0.8rem;">ESCUCHAR</span>
+        </a>
+
+      </div>
+    </div>
+
+  </div>
+</div>

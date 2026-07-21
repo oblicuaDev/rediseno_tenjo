@@ -1,0 +1,43 @@
+{#
+  Plantilla: Convierte los grupos de la vista PQRDS en Acordeones por Año
+  Archivo: views-view-unformatted--respuesta-pqrds-anonimas.html.twig
+#}
+
+{% if title %}
+  {# 1. Limpiamos comentarios de THEME DEBUG y espacios vacíos #}
+  {% set anio_limpio = title|render|striptags|trim %}
+
+  <div class="accordion-item" style="border: 1px solid #EBE9E0; border-radius: 12px; background: #fff; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.02); margin-bottom: 15px;">
+
+    <button class="accordion-header" style="width: 100%; text-align: left; display: flex; align-items: center; padding: 20px 25px; cursor: pointer; background: transparent; border: none; font-weight: 800; color: var(--verde-oscuro, #1a3c28); font-size: 1.25rem; gap: 15px;">
+
+      {# 2. Muestra "Año [valor]" o un texto genérico si no hay fecha #}
+      <span style="flex: 1;">
+        {% if anio_limpio %}
+          Año {{ anio_limpio }}
+        {% else %}
+          Otras Fechas
+        {% endif %}
+      </span>
+
+      <span class="accordion-chevron" style="color: var(--acento, #D4A843); font-size: 1.2rem; transition: transform 0.3s ease;">▼</span>
+    </button>
+
+    {# 3. Contenido del acordeón: lista de documentos del año #}
+    <div class="accordion-content" style="padding: 25px; border-top: 1px solid #EBE9E0; background: #FCFAEF;">
+      <div class="documentos-lista" style="display: flex; flex-direction: column; gap: 12px;">
+        {% for row in rows %}
+          {{ row.content }}
+        {% endfor %}
+      </div>
+    </div>
+
+  </div>
+{% else %}
+  {# Fallback: documentos sin agrupación de fecha #}
+  <div class="documentos-lista" style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 20px;">
+    {% for row in rows %}
+      {{ row.content }}
+    {% endfor %}
+  </div>
+{% endif %}

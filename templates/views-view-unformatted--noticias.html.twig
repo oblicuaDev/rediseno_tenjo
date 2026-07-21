@@ -1,0 +1,9 @@
+{# 
+  Contenedor maestro de la grilla para las noticias. 
+  Archivo: views-view-unformatted--noticias.html.twig 
+#}
+<div class="noticias-grid">
+  {% for row in rows %}
+    {{ row.content }}
+  {% endfor %}
+</div>

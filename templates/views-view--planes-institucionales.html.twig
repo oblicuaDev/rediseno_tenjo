@@ -1,0 +1,56 @@
+{#
+  Plantilla: Contenedor Principal Vista PLANES INSTITUCIONALES
+  Archivo: views-view--planes-institucionales.html.twig
+#}
+<style>
+  body, html { overflow-x: hidden; }
+
+  /* === ESTILOS DEL ACORDEÓN === */
+  .accordion-content { display: none; }
+  .accordion-header .accordion-chevron { transition: transform 0.3s ease; }
+  .accordion-header.activo .accordion-chevron { transform: rotate(180deg); }
+</style>
+
+<div class="pagina-estatica-planes">
+
+  {# --- 1. HERO INSTITUCIONAL --- #}
+  <div class="page-hero" style="width: 100vw; max-width: 100vw; margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw); background-color: var(--verde-medio, #1a3c28); padding: 80px 0 60px 0; color: #ffffff; position: relative; left: 0; right: 0; display: block; box-sizing: border-box;">
+    <div class="container page-hero-inner" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+
+      <div class="page-hero-breadcrumb" style="margin-bottom: 25px; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; display: flex; align-items: center; gap: 8px; color: rgba(255,255,255,0.7);">
+        <a href="/" style="color: #fff; text-decoration: none;">Inicio</a>
+        <span class="sep">></span>
+        <a href="/transparencia" style="color: #fff; text-decoration: none;">Transparencia</a>
+        <span class="sep">></span>
+        <span>Plan Anual de Adquisiciones</span>
+      </div>
+
+      <h1 style="color: #fff; font-size: clamp(2.2rem, 5vw, 3.8rem); font-weight: 800; line-height: 1.1; margin: 0 0 20px 0;">
+        Plan Anual de <span style="color: var(--acento, #D4A843);">Adquisiciones</span>
+      </h1>
+
+    </div>
+  </div>
+
+  {# --- 2. CONTENIDO PRINCIPAL --- #}
+  <div class="container" style="max-width: 1200px; margin: 60px auto 100px auto; padding: 0 20px; font-family: 'Montserrat', sans-serif;">
+
+    <p style="font-size: 1.25rem; font-weight: 500; color: var(--verde-oscuro, #1a3c28); border-left: 4px solid var(--acento, #D4A843); padding-left: 20px; max-width: 900px; line-height: 1.8; margin-bottom: 50px;">
+      Las entidades del Estado, de acuerdo con el ámbito de aplicación del Modelo Integrado de Planeación y Gestión, deberán integrar los planes institucionales y estratégicos que se relacionan a continuación y publicarlo, en su respectiva página web, a más tardar el 31 de enero de cada año.
+      <br><br>
+      Ingresa al SECOP <a href="https://community.secop.gov.co/Public/App/AnnualPurchasingPlanManagementPublic/Index?currentLanguage=es-CO&Page=login&Country=CO&SkinName=CCE" style="text-decoration:underline; font-weight: bold; color: var(--acento, #D4A843);">aquí</a>
+    </p>
+
+    {# Aquí se imprime la lista de documentos agrupados en Acordeones #}
+    <div class="contenedor-acordeones">
+      {{ rows }}
+
+      {% if not rows %}
+        <div style="padding: 30px; text-align: center; color: #777; border: 1px dashed #ccc; border-radius: 12px;">
+          Aún no hay documentos publicados en esta sección.
+        </div>
+      {% endif %}
+    </div>
+
+  </div>
+</div>

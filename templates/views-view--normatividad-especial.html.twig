@@ -1,0 +1,50 @@
+{#
+  Plantilla: Normatividad Especial
+  Archivo: views-view--normatividad-especial.html.twig
+  Vista: normatividad_especial
+#}
+<style>
+  body, html { overflow-x: hidden; }
+  .accordion-content { display: none; }
+  .accordion-header .accordion-chevron { transition: transform 0.3s ease; }
+  .accordion-header.activo .accordion-chevron { transform: rotate(180deg); }
+</style>
+
+<div class="pagina-estatica-normatividad-especial">
+
+  {# --- 1. HERO INSTITUCIONAL --- #}
+  <div class="page-hero" style="margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw); width: 100vw; max-width: 100vw; background-color: var(--verde-medio, #1a3c28); padding: 60px 0; color: #ffffff;">
+    <div class="container page-hero-inner" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+
+      <div class="page-hero-breadcrumb" style="margin-bottom: 20px; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; display: flex; align-items: center; gap: 8px; color: rgba(255,255,255,0.7);">
+        <a href="/es" style="color: #fff; text-decoration: none;">INICIO</a>
+        <span class="sep">&gt;</span>
+        <a href="/transparencia" style="color: #fff; text-decoration: none;">TRANSPARENCIA</a>
+        <span class="sep">&gt;</span>
+        <span>NORMATIVIDAD ESPECIAL</span>
+      </div>
+
+      <h1 style="color: #fff; font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 800; line-height: 1.15; margin: 0;">
+        Normatividad <span style="color: var(--acento, #D4A843);">Especial</span>
+      </h1>
+
+    </div>
+  </div>
+
+  {# --- 2. CONTENIDO PRINCIPAL --- #}
+  <div class="container" style="max-width: 1100px; margin: 50px auto 100px auto; padding: 0 20px;">
+
+    <h2 style="font-size: 1.8rem; color: var(--verde-oscuro, #1a3c28); font-weight: 800; margin: 0 0 25px 0; text-align: center; border-bottom: 2px solid #EBE9E0; padding-bottom: 10px;">
+      Documentos de Normatividad Especial
+    </h2>
+
+    {{ rows }}
+
+    {% if not rows %}
+      <div style="text-align: center; padding: 40px; color: #666; border: 1px dashed #ccc; border-radius: 12px;">
+        <p>No hay documentos publicados actualmente.</p>
+      </div>
+    {% endif %}
+
+  </div>
+</div>

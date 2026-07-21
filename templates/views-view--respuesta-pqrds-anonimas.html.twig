@@ -1,0 +1,60 @@
+{#
+  Plantilla: Contenedor de la Vista de PQRDS
+  Archivo: views-view--respuesta-pqrds-anonimas.html.twig
+#}
+<style>
+  body, html { overflow-x: hidden; }
+  .accordion-content { display: none; }
+  .accordion-header .accordion-chevron { transition: transform 0.3s ease; }
+  .accordion-header.activo .accordion-chevron { transform: rotate(180deg); }
+</style>
+
+<div class="pagina-estatica-pqrs">
+
+  {# --- 1. HERO INSTITUCIONAL --- #}
+  <div class="page-hero" style="margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw); width: 100vw; max-width: 100vw; background-color: var(--verde-medio, #1a3c28); padding: 60px 0; color: #ffffff;">
+    <div class="container page-hero-inner" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+
+      <div class="page-hero-breadcrumb" style="margin-bottom: 20px; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; display: flex; align-items: center; gap: 8px; color: rgba(255,255,255,0.7);">
+        <a href="/es" style="color: #fff; text-decoration: none;">INICIO</a>
+        <span class="sep">></span>
+        <a href="/transparencia" style="color: #fff; text-decoration: none;">TRANSPARENCIA</a>
+        <span class="sep">></span>
+        <span>PQRS</span>
+      </div>
+
+      <h1 style="color: #fff; font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 800; line-height: 1.15; margin: 0;">
+        Respuestas a
+        <span style="color: var(--acento, #D4A843);">PQRDS Anónimas</span>
+      </h1>
+
+    </div>
+  </div>
+
+  {# --- 2. CONTENIDO PRINCIPAL --- #}
+  <div class="container" style="max-width: 1100px; margin: 60px auto 100px auto; padding: 0 20px;">
+
+    {# Texto Introductorio #}
+    <div style="background-color: #F8F9F3; border-radius: 12px; padding: 30px; border: 1px solid #EBE9E0; margin-bottom: 40px;">
+      <p style="font-size: 1.1rem; line-height: 1.6; color: #444; margin: 0;">
+        El Instituto Municipal de Cultura y Turismo de Tenjo da a conocer a la comunidad las respuestas a las PQRS que se reciben de manera anónima, acorde a la Ley 1712 de 2014 de Transparencia y Acceso a la Información.
+      </p>
+    </div>
+
+    {# Título de sección #}
+    <h2 style="font-size: 1.8rem; color: var(--verde-oscuro, #1a3c28); font-weight: 800; margin: 0 0 25px 0; text-align: center; border-bottom: 2px solid #EBE9E0; padding-bottom: 10px;">
+      Respuestas por Año
+    </h2>
+
+    {# Aquí se imprimirán los acordeones agrupados por año #}
+    {{ rows }}
+
+    {# Mensaje si no hay PQRS cargadas #}
+    {% if not rows %}
+      <div style="text-align: center; padding: 40px; color: #666; border: 1px dashed #ccc; border-radius: 12px;">
+        <p style="font-size: 1.2rem;">No hay respuestas a PQRDS para mostrar en este momento.</p>
+      </div>
+    {% endif %}
+
+  </div>
+</div>

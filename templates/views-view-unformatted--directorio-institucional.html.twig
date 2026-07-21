@@ -1,0 +1,30 @@
+{# 
+  Plantilla: Convierte los grupos de la vista en Acordeones
+#}
+
+{% if title %}
+  {# Si hay un título de grupo (Ej. "Directorio Institucional Funcionarios") #}
+  <div class="accordion-item" style="border: 1px solid #EBE9E0; border-radius: 12px; background: #fff; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.02); margin-bottom: 15px;">
+    
+    <button class="accordion-header" style="width: 100%; text-align: left; display: flex; align-items: center; padding: 20px 25px; cursor: pointer; background: transparent; border: none; font-weight: 800; color: var(--verde-oscuro, #1a3c28); font-size: 1.15rem; gap: 15px;">
+      {# Limpiamos el título para que quite la palabra "Directorio Institucional" si lo deseas, o lo dejamos tal cual #}
+      <span style="flex: 1;">{{ title }}</span>
+      <span class="accordion-chevron" style="color: var(--acento, #D4A843); font-size: 1.2rem;">▼</span>
+    </button>
+    
+    <div class="accordion-content" style="padding: 25px; border-top: 1px solid #EBE9E0; background: #FCFAEF;">
+      <div class="documentos-lista">
+        {% for row in rows %}
+          {{ row.content }}
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+{% else %}
+  {# Si hay documentos sin grupo, se imprimen sueltos #}
+  <div class="documentos-lista" style="margin-bottom: 20px;">
+    {% for row in rows %}
+      {{ row.content }}
+    {% endfor %}
+  </div>
+{% endif %}

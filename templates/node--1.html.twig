@@ -1,0 +1,265 @@
+{#
+/**
+ * @file
+ * Plantilla exclusiva para la página "¿Quiénes Somos?".
+ * Carga el diseño estático saltándose el editor de Drupal.
+ */
+#}
+{{ attach_library('classy/node') }}
+<article{{ attributes.addClass('quienes-somos-custom') }}>
+
+  <style>
+  /* Fundamental para evitar que el cálculo genere un scroll horizontal en la página */
+  body, html { overflow-x: hidden; }
+</style>
+
+<section class="page-hero" aria-labelledby="qs-titulo" style="margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw); width: 100vw; max-width: 100vw; background-color: var(--verde-medio, #1a3c28); padding: 80px 0 60px 0; color: #ffffff;">
+
+  <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+    <div class="page-hero-inner">
+
+      <nav class="page-hero-breadcrumb" aria-label="Miga de pan" style="margin-bottom: 25px; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; display: flex; align-items: center; gap: 8px; color: rgba(255,255,255,0.7);">
+        <a href="/" style="color: #fff; text-decoration: none;">Inicio</a>
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9,18 15,12 9,6"/></svg>
+        <span>¿Quiénes Somos?</span>
+      </nav>
+
+      <h1 id="qs-titulo" style="color: #fff; font-size: clamp(2.2rem, 5vw, 3.8rem); font-weight: 800; line-height: 1.1; margin: 0 0 20px 0;">
+        Instituto Municipal de<br>
+        <span style="color: var(--acento, #D4A843);">Cultura y Turismo</span>
+      </h1>
+
+      <p class="page-hero-sub" style="font-size: 1.15rem; max-width: 850px; line-height: 1.6; opacity: 0.9; margin: 0;">
+        Ente descentralizado del sector público, creado mediante Acuerdo Municipal No. 004 de 2019,
+        para fomentar la cultura y el turismo en Tenjo, Cundinamarca.
+      </p>
+
+    </div>
+  </div>
+</section>
+
+  <section class="seccion-sobre" aria-labelledby="sobre-titulo">
+    <div class="container">
+      <div class="sobre-grid">
+
+        <div class="sobre-texto" data-reveal>
+          <span class="sobre-dato">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+            Fundado en mayo de 2019
+          </span>
+
+          <div class="seccion-iconos-cabecera" style="text-align:left; align-items:flex-start; padding:0; margin-bottom:24px;">
+            <span class="seccion-tag cultural">Sobre el Instituto</span>
+            <h2 class="seccion-iconos-titulo" id="sobre-titulo" style="font-size:clamp(1.4rem,3vw,2rem);">¿Quiénes Somos?</h2>
+          </div>
+
+          <p>
+            El Instituto Municipal de Cultura y Turismo de Tenjo es un ente descentralizado del sector público con autonomía administrativa y financiera, creado mediante el Acuerdo Municipal No. 004 del 17 de mayo de 2019 y su modificatorio, el Acuerdo No. 001 del 13 de febrero de 2020. Desde su creación, el Instituto dirige sus esfuerzos a estructurar los servicios que presta a la comunidad de manera clara, contextualizada y responsable, dando respuesta a necesidades clave como la estructuración del Proyecto Institucional de Formación Artística, el fomento del emprendimiento y la circulación artística. Todo este esfuerzo operativo se fundamenta en su misión principal: fomentar la cultura y el turismo en Tenjo a través del diseño, implementación y difusión de planes, programas y proyectos integrados, en pro del fortalecimiento, desarrollo y sostenibilidad de la identidad tenjana.
+          </p>
+          <div style="margin-top:24px; display:flex; gap:12px; flex-wrap:wrap;">
+            <a href="https://tenjoculturayturismo.gov.co/wp-content/uploads/ACUERDO-MUNICIPAL-004-DE-2019-creacion-instituto-1.pdf"
+               target="_blank" rel="noopener"
+               class="btn btn-acento">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14,2 14,8 20,8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
+              Acuerdo de creación
+            </a>
+          </div>
+        </div>
+
+        <div class="sobre-imagen" data-reveal data-delay="1">
+          <img
+            src="https://tenjoculturayturismo.gov.co/wp-content/uploads/Parque-Tenjo-Mario-Pedraza.png"
+            alt="Parque Principal de Tenjo — foto Mario Pedraza"
+            loading="lazy"
+          >
+          <div class="sobre-imagen-overlay"></div>
+          <span class="sobre-imagen-label"></span>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="seccion-mv" aria-labelledby="mv-titulo">
+    <div class="container">
+
+      <div class="seccion-iconos-cabecera" data-reveal>
+        <span class="seccion-tag turistica">Identidad institucional</span>
+        <h2 class="seccion-iconos-titulo" id="mv-titulo">Misión y Visión</h2>
+        <p class="seccion-iconos-subtitulo">Los principios que guían nuestro trabajo en favor de la comunidad tenjana.</p>
+      </div>
+
+      <div class="mv-grid">
+
+        <div class="mv-card mision" data-reveal data-delay="1">
+          <div class="mv-card-icono">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>
+          </div>
+          <span class="mv-card-tag">Misión</span>
+          <h3>Fomentar cultura y turismo en Tenjo</h3>
+          <p>
+            Fomentar la cultura y el turismo en Tenjo, a través del diseño, implementación y difusión de planes,
+            programas y proyectos integrados, en pro del fortalecimiento, desarrollo y sostenibilidad de la
+            identidad Tenjana.
+          </p>
+        </div>
+
+        <div class="mv-card vision" data-reveal data-delay="2">
+          <div class="mv-card-icono">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+          </div>
+          <span class="mv-card-tag">Visión</span>
+          <h3>Reconocidos a nivel nacional en 2027</h3>
+          <p>
+            Ser a 2027 una institución reconocida a nivel nacional por su gestión eficiente y de calidad en el
+            desarrollo sostenible de sus planes, programas y proyectos culturales y turísticos de impacto en la
+            comunidad local y regional.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="seccion-valores" aria-labelledby="valores-titulo">
+    <div class="container">
+
+      <div class="seccion-iconos-cabecera" data-reveal>
+        <span class="seccion-tag cultural">Código de integridad</span>
+        <h2 class="seccion-iconos-titulo" id="valores-titulo">Nuestros Valores</h2>
+        <p class="seccion-iconos-subtitulo">
+          Valores pilares del Código de Integridad del Servicio Público Colombiano, elaborado por el
+          Departamento Nacional de la Función Pública.
+        </p>
+      </div>
+
+      <div class="valores-grid">
+
+        <div class="valor-card" data-reveal data-delay="1">
+          <div class="valor-card-icono">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h4>Honestidad</h4>
+          <p>Actuación permanente con transparencia y en beneficio de los demás, convirtiéndose en un rasgo característico de nuestros funcionarios y colaboradores.</p>
+        </div>
+
+        <div class="valor-card" data-reveal data-delay="2">
+          <div class="valor-card-icono">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>
+          </div>
+          <h4>Respeto</h4>
+          <p>Reconocimiento y valoración de todo individuo y ciudadano como igual, digno del mejor trato sin preferencias ni discriminación alguna.</p>
+        </div>
+
+        <div class="valor-card" data-reveal data-delay="3">
+          <div class="valor-card-icono">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20,6 9,17 4,12"/></svg>
+          </div>
+          <h4>Compromiso</h4>
+          <p>Llevar un paso adelante la prestación de un servicio a la comunidad, enfocando sus necesidades como objeto de prioritaria atención.</p>
+        </div>
+
+        <div class="valor-card" data-reveal data-delay="4">
+          <div class="valor-card-icono">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12,6 12,12 16,14"/></svg>
+          </div>
+          <h4>Diligencia</h4>
+          <p>Cumplimiento del deber y responsabilidades de la mejor manera y en el menor tiempo posible, optimizando los recursos del Estado y del Instituto.</p>
+        </div>
+
+        <div class="valor-card" data-reveal data-delay="5">
+          <div class="valor-card-icono">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22V12m0 0L7 7m5 5l5-5"/><path d="M3 12a9 9 0 1018 0 9 9 0 00-18 0z"/></svg>
+          </div>
+          <h4>Justicia</h4>
+          <p>Actuar con imparcialidad garantizando los derechos de las personas, con equidad, igualdad y sin discriminación, tal como lo postula la Función Pública.</p>
+        </div>
+
+        <div class="valor-card" data-reveal data-delay="5" style="background:var(--verde-xclaro); border-color:rgba(74,124,89,0.25); display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; gap:12px;">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="var(--verde-salvia)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>
+          <p style="font-size:0.82rem; color:var(--verde-oscuro); font-weight:600; line-height:1.5;">
+            Conoce más sobre los valores del servidor público en Colombia.
+          </p>
+          <a href="https://www1.funcionpublica.gov.co/documents/418537/24621277/2017-06-07_valores_del_servidor_publico_codigo_integridad"
+             target="_blank" rel="noopener"
+             class="btn btn-acento"
+             style="font-size:0.78rem; padding:8px 16px;">
+            Consultar documento
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="seccion-funciones" aria-label="Funciones y deberes">
+    <div class="container">
+      <div class="funciones-inner" data-reveal>
+
+        <div class="funciones-texto">
+          <h2>Funciones y Deberes</h2>
+          <p>
+            Consulta el Acuerdo Municipal No. 004 de 2019 que establece las funciones, deberes y estructura
+            organizacional del Instituto Municipal de Cultura y Turismo de Tenjo.
+          </p>
+        </div>
+
+        <div class="funciones-cta">
+          <a href="https://tenjoculturayturismo.gov.co/wp-content/uploads/ACUERDO-MUNICIPAL-004-DE-2019-creacion-instituto-1.pdf"
+             target="_blank" rel="noopener"
+             class="btn btn-acento">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7,10 12,15 17,10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Ver Funciones y Deberes
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <section class="seccion-organigrama" aria-labelledby="org-titulo">
+    <div class="container">
+
+      <div class="seccion-iconos-cabecera" data-reveal>
+        <span class="seccion-tag turistica">Estructura</span>
+        <h2 class="seccion-iconos-titulo" id="org-titulo">Organigrama</h2>
+        <p class="seccion-iconos-subtitulo">Estructura organizacional vigente del Instituto Municipal de Cultura y Turismo de Tenjo.</p>
+      </div>
+
+      <div class="organigrama-wrap" data-reveal data-delay="1">
+        <img
+          src="https://tenjoculturayturismo.gov.co/wp-content/uploads/organigrama2025.jpg"
+          alt="Organigrama del Instituto Municipal de Cultura y Turismo de Tenjo — 2025"
+          loading="lazy"
+        >
+      </div>
+
+    </div>
+  </section>
+
+  <section class="seccion-logos" aria-label="Entidades aliadas">
+    <div class="container">
+      <p class="logos-titulo">Entidades aliadas</p>
+      <div class="logos-strip" data-reveal>
+
+        <a href="https://www.dnp.gov.co/Prensa_/Podcast/Paginas/plan-nacional-de-desarrollo-colombia-potencia-mundial-de-la-vida.aspx" target="_blank" rel="noopener" aria-label="Plan Nacional de Desarrollo">
+          <img class="logo-aliado" src="https://tenjoculturayturismo.gov.co/wp-content/uploads/90852.png" alt="Plan Nacional de Desarrollo — Colombia potencia mundial de la vida">
+        </a>
+
+        <a href="https://www.presidencia.gov.co/" target="_blank" rel="noopener" aria-label="Presidencia de la República">
+          <img class="logo-aliado" src="https://tenjoculturayturismo.gov.co/wp-content/uploads/90829.png" alt="Presidencia de la República de Colombia">
+        </a>
+
+        <a href="https://www.mintic.gov.co/portal/inicio/" target="_blank" rel="noopener" aria-label="MinTIC">
+          <img class="logo-aliado" src="https://tenjoculturayturismo.gov.co/wp-content/uploads/90830.png" alt="Ministerio de Tecnologías de la Información y las Comunicaciones">
+        </a>
+
+        <a href="https://portal.paco.gov.co/index.php?pagina=denuncie" target="_blank" rel="noopener" aria-label="PACO — Denuncie la corrupción">
+          <img class="logo-aliado" src="https://tenjoculturayturismo.gov.co/wp-content/uploads/90851.png" alt="PACO — Denuncie la corrupción">
+        </a>
+
+      </div>
+    </div>
+  </section>
+
+</article>

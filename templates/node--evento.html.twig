@@ -1,0 +1,142 @@
+{# node--evento.html.twig #}
+<article class="evento-interna container" style="margin-top: 40px; margin-bottom: 60px;">
+  
+  <div class="evento-layout">
+    
+    {# COLUMNA IZQUIERDA: Galería y Descripción #}
+    <div class="evento-main">
+      
+      {# Cabecera del Evento #}
+      <header class="evento-header">
+        {% if node.field_categoria_del_evento.entity.name.value %}
+          <span class="evento-tag">{{ node.field_categoria_del_evento.entity.name.value }}</span>
+        {% endif %}
+        <h1 class="evento-titulo">{{ label }}</h1>
+      </header>
+
+      {# Galería de Imágenes (Ajustada para campos tipo Multimedia) #}
+      <div class="evento-galeria">
+        {% if node.field_imagen_principal.entity.field_media_image.entity.uri.value %}
+          <div class="galeria-principal">
+            <img src="{{ file_url(node.field_imagen_principal.entity.field_media_image.entity.uri.value) }}" alt="{{ label }}" style="width: 100%; height: 100%; object-fit: cover;">
+          </div>
+        {% endif %}
+        
+        {% if node.field_galeria_de_imagenes|length > 0 %}
+          <div class="galeria-miniaturas">
+            {% for item in node.field_galeria_de_imagenes %}
+              <div class="mini-item">
+                <img src="{{ file_url(item.entity.field_media_image.entity.uri.value) }}" alt="Galería {{ loop.index }}" style="width: 100%; height: 100%; object-fit: cover;">
+              </div>
+            {% endfor %}
+          </div>
+        {% endif %}
+      </div>
+
+      {# Descripción del Evento #}
+      {% if node.field_descripcion_del_evento.value %}
+        <p class="evento-intro" style="font-size: 1.25rem; color: #1a3c28; font-weight: 600; margin-bottom: 25px;">
+          {{ node.field_descripcion_del_evento.value }}
+        </p>
+      {% endif %}
+      
+      <div class="evento-cuerpo">
+        {{ content.body }}
+      </div>
+    </div>
+
+    {# COLUMNA DERECHA: Tarjeta de Información (Sidebar) #}
+    <aside class="evento-sidebar">
+      <div class="evento-info-card">
+        <h3>Detalles del Evento</h3>
+        
+        <ul class="info-lista">
+          <li>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+            <div>
+              <strong>Fecha del evento</strong>
+              <span>{{ content.field_fecha_del_evento }}</span>
+            </div>
+          </li>
+          
+          {% if node.field_horario_del_evento.value %}
+          <li>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><polyline points="12 6 12 12 16 14"></polyline></svg>
+            <div>
+              <strong>Horario</strong>
+              <span>{{ node.field_horario_del_evento.value }}</span>
+            </div>
+          </li>
+          {% endif %}
+
+          {% if node.field_direccion.value %}
+          <li>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+            <div>
+              <strong>Dirección</strong>
+              <span>{{ node.field_direccion.value }}</span>
+            </div>
+          </li>
+          {% endif %}
+        </ul>
+      </div>
+
+      {# Mapa #}
+      {% if node.field_mapa.value %}
+        <div class="evento-mapa">
+          {{ node.field_mapa.value|raw }}
+        </div>
+      {% endif %}
+    </aside>
+
+  </div>
+</article>
+
+{# --- MODAL LIGHTBOX PARA LA GALERÍA --- #}
+<div id="evento-lightbox" class="lightbox-overlay">
+  <span class="lightbox-cerrar">&times;</span>
+  <img class="lightbox-img" id="lightbox-img-src">
+</div>
+
+<style>
+  /* Estilos del modal */
+  .evento-galeria img { cursor: pointer; transition: opacity 0.2s; }
+  .evento-galeria img:hover { opacity: 0.8; }
+  
+  .lightbox-overlay {
+    display: none;
+    position: fixed;
+    z-index: 99999;
+    left: 0; top: 0; width: 100%; height: 100%;
+    background-color: rgba(0,0,0,0.85);
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+  .lightbox-overlay.activo {
+    display: flex;
+    opacity: 1;
+  }
+  .lightbox-img {
+    max-width: 90%;
+    max-height: 90vh;
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    transform: scale(0.8);
+    transition: transform 0.3s ease;
+  }
+  .lightbox-overlay.activo .lightbox-img {
+    transform: scale(1);
+  }
+  .lightbox-cerrar {
+    position: absolute;
+    top: 20px; right: 35px;
+    color: white;
+    font-size: 45px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.2s;
+  }
+  .lightbox-cerrar:hover { color: #d60000; }
+</style>

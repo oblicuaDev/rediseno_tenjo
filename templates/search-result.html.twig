@@ -1,0 +1,29 @@
+{#
+  Template: Resultado individual de búsqueda
+  Hook: search_result / search-result--node-search.html.twig
+  Variables: url, title, snippet, info, result (incluye result.node)
+#}
+
+{# --- Si el resultado es un Documento Institucional, enlazar directo al archivo adjunto --- #}
+{% set es_documento_institucional = result.node and result.node.bundle == 'documento_institucional' %}
+{% set archivo_url = '' %}
+{% if es_documento_institucional %}
+  {% if result.node.field_documentos.entity.uri.value %}
+    {% set archivo_url = file_url(result.node.field_documentos.entity.uri.value) %}
+  {% elseif result.node.field_documentos.entity.field_media_document.entity.uri.value %}
+    {% set archivo_url = file_url(result.node.field_documentos.entity.field_media_document.entity.uri.value) %}
+  {% endif %}
+{% endif %}
+{% set enlace_final = (es_documento_institucional and archivo_url) ? archivo_url : url %}
+
+<div class="resultado-card">
+  <h3 class="resultado-card-titulo">
+    <a href="{{ enlace_final }}"{% if es_documento_institucional and archivo_url %} target="_blank" rel="noopener"{% endif %}>{{ title }}</a>
+  </h3>
+  {% if snippet %}
+    <div class="resultado-card-extracto">{{ snippet }}</div>
+  {% endif %}
+  {% if info %}
+    <div class="resultado-card-meta">{{ info }}</div>
+  {% endif %}
+</div>

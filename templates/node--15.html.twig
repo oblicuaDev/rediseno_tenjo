@@ -1,0 +1,65 @@
+{# 
+  Plantilla Estática para: Comité Municipal de Patrimonio Cultural
+  Archivo: node--15.html.twig
+#}
+<div class="pagina-estatica-patrimonio">
+
+  {# --- 1. HERO INSTITUCIONAL (100% ANCHO DE PANTALLA) --- #}
+
+  <div class="page-hero" style="width: 100vw; position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; background-color: var(--verde-medio, #2B4E38); padding: 60px 0; color: #ffffff;">
+    
+    <div class="container page-hero-inner" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+      
+      {# Migas de pan #}
+      <div class="page-hero-breadcrumb" style="margin-bottom: 20px; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; display: flex; align-items: center; gap: 8px; color: rgba(255,255,255,0.7);">
+        <a href="/es" style="color: #fff; text-decoration: none;">INICIO</a>
+        <span class="sep">></span>
+        <a href="#" style="color: #fff; text-decoration: none;">TENJO CULTURAL</a>
+        <span class="sep">></span>
+        <span>COMITÉ MUNICIPAL DE PATRIMONIO CULTURAL</span>
+      </div>
+
+      {# Título #}
+      <h1 style="color: #fff; font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 800; line-height: 1.15; margin: 0;">
+        Comité Municipal de <br><span style="color: var(--acento, #D4A843);">Patrimonio Cultural</span>
+      </h1>
+    </div>
+  </div>
+
+  {# --- 2. CONTENIDO DE LA PÁGINA (CENTRADITO) --- #}
+  <div class="container" style="max-width: 800px; margin: 60px auto 100px auto; padding: 0 20px;">
+    
+    {# Textos Introductorios #}
+    <div style="font-size: 1.05rem; line-height: 1.8; color: #444; margin-bottom: 40px;">
+      <p style="margin-bottom: 20px;">
+        El <strong>Comité Municipal de Patrimonio Cultural</strong> es el mecanismo de acompañamiento de la Administración Municipal y del Instituto Municipal de Cultura y Turismo de Tenjo frente a la protección y salvaguarda del patrimonio cultural material e inmaterial en el municipio.
+      </p>
+      <p>
+        A continuación, conoce la reglamentación del proceso de elección y designación de los miembros del <strong>Comité Municipal de Patrimonio Cultural</strong>.
+      </p>
+    </div>
+
+    {# --- 3. NUEVO DISEÑO DEL DOCUMENTO DE DESCARGA --- #}
+    
+    <a href="/sites/default/files/2026-05/2.-Resolucion-No.-25-de-2022-Reglamentacion-proceso-de-eleccion.pdf" target="_blank" rel="noopener" class="doc-download-card" style="display: flex; align-items: center; justify-content: space-between; background-color: #FCFAEF; padding: 16px 24px; border-radius: 12px; text-decoration: none; border: 1px solid #EBE9E0; transition: transform 0.2s ease, box-shadow 0.2s ease; flex-wrap: wrap; gap: 15px;" onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 8px 20px rgba(0,0,0,0.06)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';">
+      
+      {# Lado Izquierdo: Icono y Título #}
+      <div style="display: flex; align-items: center; gap: 18px;">
+        <div style="background-color: #fff; width: 46px; height: 46px; border-radius: 10px; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 5px rgba(0,0,0,0.04); border: 1px solid #eee; flex-shrink: 0;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--verde-oscuro, #1a3c28)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+        </div>
+        <span style="font-size: 1.1rem; font-weight: 700; color: #111;">Resolución No. 25 de 2022</span>
+      </div>
+
+      {# Lado Derecho: Etiqueta PDF y Botón Descargar #}
+      <div style="display: flex; align-items: center; gap: 15px; margin-left: auto;">
+        <span style="background-color: #fff; border: 1px solid #ddd; padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 800; color: #777; letter-spacing: 0.5px;">PDF</span>
+        <span style="color: var(--verde-oscuro, #1a3c28); font-weight: 700; font-size: 0.95rem; display: flex; align-items: center; gap: 6px;">
+          Descargar
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+        </span>
+      </div>
+    </a>
+
+  </div>
+</div>

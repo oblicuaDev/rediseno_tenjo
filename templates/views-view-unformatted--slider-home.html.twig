@@ -1,0 +1,40 @@
+{#
+/**
+ * @file
+ * Plantilla para la vista de Slider Home.
+ * Este archivo envuelve todos los banners dinámicos.
+ */
+#}
+
+{# 1. Contenedor Maestro del Slider #}
+<div class="slider-container" style="position: relative; width: 100vw; min-height: 80vh; height: 600px; overflow: hidden; display: block;">
+
+  {# 2. El Ciclo: Aquí Drupal recorre cada "Banner Home" que creaste #}
+  {% for row in rows %}
+    {%
+      set row_classes = [
+        'hero-slide',
+        loop.first ? 'activo',
+      ]
+    %}
+    
+    {# Envolvemos cada resultado de la vista en el div de la diapositiva #}
+    <div{{ row.attributes.addClass(row_classes) }}>
+      {{ row.content }}
+    </div>
+  {% endfor %}
+
+  {# 3. Controles del Slider (Se mantienen fijos sobre las diapositivas) #}
+  <div class="slider-controls" style="position: absolute; top: 50%; left: 0; width: 100%; display: flex; justify-content: space-between; transform: translateY(-50%); z-index: 10; pointer-events: none;">
+    <button class="slider-btn prev" aria-label="Anterior" style="pointer-events: auto; margin-left: 20px;">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+    </button>
+    <button class="slider-btn next" aria-label="Siguiente" style="pointer-events: auto; margin-right: 100px;">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+    </button>
+  </div>
+
+  {# 4. Puntos indicadores (Se llenan con JS) #}
+  <div class="slider-dots" style="position: absolute; bottom: 20px; width: 100%; display: flex; justify-content: center; z-index: 10;"></div>
+
+</div>

@@ -1,0 +1,387 @@
+{#
+  Plantilla Estática para: Transparencia y Acceso a la Información Pública
+  Archivo: node--[ID].html.twig
+#}
+<style>
+  /* Soluciona el problema del hero que se sale de la pantalla (Scroll horizontal) */
+  body, html { overflow-x: hidden; }
+
+  /* Asegura que el contenido del acordeón inicie cerrado para el JS */
+  .accordion-content { display: none; }
+
+  /* Transición suave para el icono del acordeón */
+  .accordion-header .accordion-chevron { transition: transform 0.3s ease; }
+  .accordion-header.activo .accordion-chevron { transform: rotate(180deg); }
+
+  /* Estilos base para la lista de documentos */
+  .documentos-lista { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px; }
+  .documento-item { display: flex; align-items: center; gap: 15px; background: #fff; padding: 12px 18px; border-radius: 10px; text-decoration: none !important; border: 1px solid #EBE9E0; transition: transform 0.2s; color: #333; }
+  .documento-item:hover { transform: translateY(-2px); box-shadow: 0 4px 10px rgba(0,0,0,0.03); }
+</style>
+
+<div class="pagina-estatica-transparencia">
+
+  {# --- 1. HERO INSTITUCIONAL --- #}
+  <div class="page-hero" style="width: 100vw; position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; background-color: var(--verde-medio, #1a3c28); padding: 60px 0; color: #ffffff;">
+    <div class="container page-hero-inner" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+      <div class="page-hero-breadcrumb" style="margin-bottom: 20px; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; display: flex; align-items: center; gap: 8px; color: rgba(255,255,255,0.7);">
+        <a href="/es" style="color: #fff; text-decoration: none;">INICIO</a>
+        <span class="sep">></span>
+        <span>TRANSPARENCIA</span>
+      </div>
+      <h1 style="color: #fff; font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 800; line-height: 1.15; margin: 0;">
+        Transparencia y <br><span style="color: var(--acento, #D4A843);">Acceso a la Información</span>
+      </h1>
+    </div>
+  </div>
+
+  {# --- 2. MARCO LEGAL --- #}
+  <div class="container" style="max-width: 1100px; margin: 50px auto; padding: 0 20px;">
+    <div style="background-color: #F8F9F3; border-radius: 12px; padding: 30px; border: 1px solid #EBE9E0; margin-bottom: 40px; font-size: 0.95rem; line-height: 1.6; color: #444;">
+      <p style="margin-bottom: 15px;">En cumplimiento a la <strong>Ley 1712 de 2014</strong>, el Instituto Municipal de Cultura y Turismo de Tenjo pone a disposición de la ciudadanía la sección de Transparencia y Acceso a la Información Pública.</p>
+      <div style="display: flex; flex-wrap: wrap; gap: 20px;">
+        <a href="http://www.tenjo-cundinamarca.gov.co/Transparencia/BancoDocumentos/2014-ley-1712-del-06mar2014-transparencia.pdf" target="_blank" rel="noopener" style="color: var(--verde-oscuro, #1a3c28); text-decoration: none; font-weight: 700; display: flex; align-items: center; gap: 5px;"><span style="color: var(--acento, #D4A843);">▶</span> Ley 1712 de 2014</a>
+        <a href="http://www.tenjo-cundinamarca.gov.co/Transparencia/BancoDocumentos/decreto-1081-del-26may2015-presidencia.pdf" target="_blank" rel="noopener" style="color: var(--verde-oscuro, #1a3c28); text-decoration: none; font-weight: 700; display: flex; align-items: center; gap: 5px;"><span style="color: var(--acento, #D4A843);">▶</span> Decreto No. 1081 de 2015</a>
+        <a href="http://www.tenjo-cundinamarca.gov.co/Transparencia/BancoDocumentos/resolucion-3564-del-31dic2015-mintic.pdf" target="_blank" rel="noopener" style="color: var(--verde-oscuro, #1a3c28); text-decoration: none; font-weight: 700; display: flex; align-items: center; gap: 5px;"><span style="color: var(--acento, #D4A843);">▶</span> Resolución No. 3564 de 2015</a>
+      </div>
+    </div>
+
+    {# --- 3. ACORDEONES MINTIC --- #}
+    <div style="display: flex; flex-direction: column; gap: 15px;">
+
+      {# Acordeón 1 #}
+      <div class="accordion-item" style="border: 1px solid #EBE9E0; border-radius: 12px; background: #fff; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.02);">
+        <button class="accordion-header" style="width: 100%; text-align: left; display: flex; align-items: center; padding: 20px 25px; cursor: pointer; background: transparent; border: none; font-weight: 800; color: var(--verde-oscuro, #1a3c28); font-size: 1.15rem; gap: 15px;">
+          <span style="background: var(--verde-xclaro, #E8F0EA); color: var(--verde-oscuro, #1a3c28); width: 38px; height: 38px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0;">1</span>
+          <span style="flex: 1;">Información de la entidad</span>
+          <span class="accordion-chevron" style="color: var(--acento, #D4A843); font-size: 1.2rem;">▼</span>
+        </button>
+        <div class="accordion-content" style="padding: 25px; border-top: 1px solid #EBE9E0; background: #FCFAEF;">
+          <ul class="documentos-lista">
+            <li>
+              <a href="/quienes-somos" class="documento-item">
+                <span style="font-weight: 700; font-size: 0.95rem; flex: 1;">1.1 Misión, visión, funciones y deberes</span><span style="color: var(--acento, #D4A843); font-size: 0.85rem; font-weight: 700;">VER</span>
+              </a>
+            </li>
+            <li>
+              <div class="documento-item" style="display: flex; align-items: center; gap: 15px; background: #fff; padding: 12px 18px; border-radius: 10px; border: 1px solid #eee; color: #333; flex-wrap: wrap;">
+                <span style="font-weight: 700; font-size: 0.95rem; flex: 1;">1.2 Estructura orgánica - Organigrama</span>
+
+                <div style="display: flex; gap: 10px; align-items: center;">
+                    <a href="/sites/default/files/2026-05/Acuerdo001-de-2020-Manual-de-Funciones-Junta-Directiva-IMCTT-3.pdf" target="_blank" style="color: var(--verde-oscuro, #1a3c28); font-size: 0.75rem; font-weight: 800; text-decoration: none; padding: 4px 12px; border: 1px solid #ddd; border-radius: 20px; transition: background 0.2s;" onmouseover="this.style.background='#f5f5f5'" onmouseout="this.style.background='transparent'">MANUAL 2020</a>
+
+                    <a href="/sites/default/files/2026-05/manual-de-funciones2024.pdf" target="_blank" style="color: var(--acento, #D4A843); font-size: 0.75rem; font-weight: 800; text-decoration: none; padding: 4px 12px; border: 1px solid var(--acento, #D4A843); border-radius: 20px; transition: background 0.2s;" onmouseover="this.style.background='#fffbf0'" onmouseout="this.style.background='transparent'">MANUAL 2024</a>
+                </div>
+              </div>
+            </li>
+            <li>
+              <a href="#" class="documento-item">
+                <span style="font-weight: 700; font-size: 0.95rem; flex: 1;">1.3 Mapas y Cartas descriptivas de procesos</span><span style="color: var(--acento, #D4A843); font-size: 0.85rem; font-weight: 700;">VER</span>
+              </a>
+            </li>
+            <li>
+              <a href="/directorio-institucional" class="documento-item">
+                <span style="font-weight: 700; font-size: 0.95rem; flex: 1;">1.4 Directorio Institucional</span><span style="color: var(--acento, #D4A843); font-size: 0.85rem; font-weight: 700;">VER</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://www1.funcionpublica.gov.co/web/sigep2/directorio" class="documento-item">
+                <span style="font-weight: 700; font-size: 0.95rem; flex: 1;">1.5 Directorio de servidores públicos</span><span style="color: var(--acento, #D4A843); font-size: 0.85rem; font-weight: 700;">VER</span>
+              </a>
+            </li>
+            <li>
+              <a href="/directorio-de-entidades" class="documento-item">
+                <span style="font-weight: 700; font-size: 0.95rem; flex: 1;">1.6 Directorio de entidades</span><span style="color: var(--acento, #D4A843); font-size: 0.85rem; font-weight: 700;">VER</span>
+              </a>
+            </li>
+            <li>
+              <a href="/directorio-agremiaciones" class="documento-item">
+                <span style="font-weight: 700; font-size: 0.95rem; flex: 1;">1.7 Directorio de agremiaciones</span><span style="color: var(--acento, #D4A843); font-size: 0.85rem; font-weight: 700;">VER</span>
+              </a>
+            </li>
+            <li>
+              <a href="/participacion/" class="documento-item">
+                <span style="font-weight: 700; font-size: 0.95rem; flex: 1;">1.8 Servicio al público, normas y protocolos</span><span style="color: var(--acento, #D4A843); font-size: 0.85rem; font-weight: 700;">VER</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="documento-item">
+                <span style="font-weight: 700; font-size: 0.95rem; flex: 1;">1.9 Procedimientos para toma de decisiones</span><span style="color: var(--acento, #D4A843); font-size: 0.85rem; font-weight: 700;">VER</span>
+              </a>
+            </li>
+            <li>
+              <a href="/respuesta-pqrds-anonimas" class="documento-item">
+                <span style="font-weight: 700; font-size: 0.95rem; flex: 1;">1.10 Mecanismo de PQRSD</span><span style="color: var(--acento, #D4A843); font-size: 0.85rem; font-weight: 700;">VER</span>
+              </a>
+            </li>
+            <li>
+              <a href="/eventos" class="documento-item">
+                <span style="font-weight: 700; font-size: 0.95rem; flex: 1;">1.11 Calendario de actividades y eventos</span><span style="color: var(--acento, #D4A843); font-size: 0.85rem; font-weight: 700;">VER</span>
+              </a>
+            </li>
+            <li>
+              <a href="/informacion-sobre-decisiones-que-pueden-afectar-al-publico" class="documento-item">
+                <span style="font-weight: 700; font-size: 0.95rem; flex: 1;">1.12 Decisiones que afectan al público</span><span style="color: var(--acento, #D4A843); font-size: 0.85rem; font-weight: 700;">VER</span>
+              </a>
+            </li>
+            <li>
+              <a href="/entes-y-autoridades-que-lo-vigilan" class="documento-item">
+                <span style="font-weight: 700; font-size: 0.95rem; flex: 1;">1.13 Entes y autoridades que lo vigilan</span><span style="color: var(--acento, #D4A843); font-size: 0.85rem; font-weight: 700;">VER</span>
+              </a>
+            </li>
+            <li>
+              <a href="/hojas-de-vida" class="documento-item">
+                <span style="font-weight: 700; font-size: 0.95rem; flex: 1;">1.14 Publicación de hojas de vida</span><span style="color: var(--acento, #D4A843); font-size: 0.85rem; font-weight: 700;">VER</span>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="documento-item">
+                <span style="font-weight: 700; font-size: 0.95rem; flex: 1;">1.15 Escalas salariales</span><span style="color: var(--acento, #D4A843); font-size: 0.85rem; font-weight: 700;">VER</span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      {# Acordeón 2 - Normativa #}
+      <div class="accordion-item" style="border: 1px solid #EBE9E0; border-radius: 12px; background: #fff; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.02);">
+
+        <button class="accordion-header" style="width: 100%; text-align: left; display: flex; align-items: center; padding: 20px 25px; cursor: pointer; background: transparent; border: none; font-weight: 800; color: var(--verde-oscuro, #1a3c28); font-size: 1.15rem; gap: 15px;">
+          <span style="background: var(--verde-xclaro, #E8F0EA); color: var(--verde-oscuro, #1a3c28); width: 38px; height: 38px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0;">2</span>
+          <span style="flex: 1;">Normativa</span>
+          <span class="accordion-chevron" style="color: var(--acento, #D4A843); font-size: 1.2rem;">▼</span>
+        </button>
+
+        <div class="accordion-content" style="padding: 25px; border-top: 1px solid #EBE9E0; background: #FCFAEF;">
+
+          {# --- SECCIÓN 2.1 --- #}
+          <h4 style="margin: 0 0 15px 0; font-size: 1.05rem; color: #333;">2.1 Normativa de la entidad o autoridad</h4>
+          <ul class="documentos-lista" style="margin-bottom: 25px;">
+
+            <li>
+              <a href="/normativa-entidad" class="documento-item">
+                <span style="font-weight: 700; font-size: 0.95rem; flex: 1;">2.1. Normativa de la entidad</span>
+                <span style="color: var(--acento, #D4A843); font-size: 0.85rem; font-weight: 700;">VER</span>
+              </a>
+            </li>
+
+            <li>
+              <a href="/leyes-decretos" class="documento-item">
+                <span style="font-weight: 700; font-size: 0.95rem; flex: 1;">2.1.1 Leyes y Decretos</span>
+                <span style="color: var(--acento, #D4A843); font-size: 0.85rem; font-weight: 700;">VER</span>
+              </a>
+            </li>
+            <li>
+              <a href="/sites/default/files/2026-05/NORMOGRAMA.pdf" class="documento-item">
+                <span style="font-weight: 700; font-size: 0.95rem; flex: 1;">2.1.2 Decreto Único Reglamentario</span>
+                <span style="color: var(--acento, #D4A843); font-size: 0.85rem; font-weight: 700;">VER</span>
+              </a>
+            </li>
+            <li>
+              <a href="/sites/default/files/2026-05/NORMOGRAMA.pdf" class="documento-item">
+                <span style="font-weight: 700; font-size: 0.95rem; flex: 1;">2.1.3 Normativa aplicable</span>
+                <span style="color: var(--acento, #D4A843); font-size: 0.85rem; font-weight: 700;">VER</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://svrpubindc.imprenta.gov.co/diario/" target="_blank" rel="noopener" class="documento-item">
+                <span style="font-weight: 700; font-size: 0.95rem; flex: 1;">2.1.4 Diario o Gaceta Oficial</span>
+                <span style="color: var(--acento, #D4A843); font-size: 0.85rem; font-weight: 700;">VER</span>
+              </a>
+            </li>
+            <li>
+              <a href="politicas-lineamientos-manuales" class="documento-item">
+                <span style="font-weight: 700; font-size: 0.95rem; flex: 1;">2.1.5 Políticas, lineamientos y manuales</span>
+                <span style="color: var(--acento, #D4A843); font-size: 0.85rem; font-weight: 700;">VER</span>
+              </a>
+            </li>
+            <li>
+              <a href="/sites/default/files/2026-05/NORMOGRAMA.pdf" class="documento-item">
+                <span style="font-weight: 700; font-size: 0.95rem; flex: 1;">2.1.6 Agenda Regulatoria</span>
+                <span style="color: var(--acento, #D4A843); font-size: 0.85rem; font-weight: 700;">VER</span>
+              </a>
+            </li>
+          </ul>
+
+          {# --- SECCIÓN 2.2 --- #}
+          <h4 style="margin: 0 0 15px 0; font-size: 1.05rem; color: #333;">2.2 Búsqueda de normas</h4>
+          <ul class="documentos-lista" style="margin-bottom: 25px;">
+            <li>
+              <a href="https://www.suin-juriscol.gov.co/suinjuriscol/index.html?filtro=instituto+nacional+de+salud&x=0&y=0" target="_blank" rel="noopener" class="documento-item">
+                <span style="font-weight: 700; font-size: 0.95rem; flex: 1;">Búsqueda de normas en SUIN Juriscol</span>
+                <span style="color: var(--acento, #D4A843); font-size: 0.85rem; font-weight: 700;">VER</span>
+              </a>
+            </li>
+          </ul>
+
+          {# --- SECCIÓN 2.3 --- #}
+          <h4 style="margin: 0 0 15px 0; font-size: 1.05rem; color: #333;">2.3 Proyectos de normas para comentarios</h4>
+          <ul class="documentos-lista">
+            <li>
+              <a href="/proyectos-normativos" class="documento-item">
+                <span style="font-weight: 700; font-size: 0.95rem; flex: 1;">2.3.1 Proyectos normativos</span>
+                <span style="color: var(--acento, #D4A843); font-size: 0.85rem; font-weight: 700;">VER</span>
+              </a>
+            </li>
+            <li>
+              <a href="https://www.sucop.gov.co/" target="_blank" rel="noopener" class="documento-item">
+                <span style="font-weight: 700; font-size: 0.95rem; flex: 1;">2.3.2 Participación ciudadana en la expedición de normas (SUCOP)</span>
+                <span style="color: var(--acento, #D4A843); font-size: 0.85rem; font-weight: 700;">VER</span>
+              </a>
+            </li>
+          </ul>
+
+        </div>
+      </div>
+
+      {# Acordeón 3 #}
+      <div class="accordion-item" style="border: 1px solid #EBE9E0; border-radius: 12px; background: #fff; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.02);">
+        <button class="accordion-header" style="width: 100%; text-align: left; display: flex; align-items: center; padding: 20px 25px; cursor: pointer; background: transparent; border: none; font-weight: 800; color: var(--verde-oscuro, #1a3c28); font-size: 1.15rem; gap: 15px;">
+          <span style="background: var(--verde-xclaro, #E8F0EA); color: var(--verde-oscuro, #1a3c28); width: 38px; height: 38px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0;">3</span>
+          <span style="flex: 1;">Contratación</span>
+          <span class="accordion-chevron" style="color: var(--acento, #D4A843); font-size: 1.2rem;">▼</span>
+        </button>
+        <div class="accordion-content" style="padding: 25px; border-top: 1px solid #EBE9E0; background: #FCFAEF;">
+          <ul class="documentos-lista">
+            <li><a href="/planes-institucionales" class="documento-item"><span style="font-weight: 700; font-size: 0.95rem; flex: 1;">3.1 Plan Anual de Adquisiciones</span><span style="color: var(--acento, #D4A843); font-size: 0.85rem; font-weight: 700;">VER</span></a></li>
+            <li><a href="https://www.contratos.gov.co/consultas/inicioConsulta.do" target="_blank" rel="noopener" class="documento-item"><span style="font-weight: 700; font-size: 0.95rem; flex: 1;">3.2 Publicación de información contractual</span><span style="color: var(--acento, #D4A843); font-size: 0.85rem; font-weight: 700;">VER</span></a></li>
+            <li><a href="/ejecucion-contratos" class="documento-item"><span style="font-weight: 700; font-size: 0.95rem; flex: 1;">3.3 Publicación de ejecución de contratos</span><span style="color: var(--acento, #D4A843); font-size: 0.85rem; font-weight: 700;">VER</span></a></li>
+            <li><a href="/manuales-contratacion" class="documento-item"><span style="font-weight: 700; font-size: 0.95rem; flex: 1;">3.4 Manual de contratación / compras</span><span style="color: var(--acento, #D4A843); font-size: 0.85rem; font-weight: 700;">VER</span></a></li>
+            <li><a href="/formatos-contrato" class="documento-item"><span style="font-weight: 700; font-size: 0.95rem; flex: 1;">3.5 Formatos de contratos o pliegos tipo</span><span style="color: var(--acento, #D4A843); font-size: 0.85rem; font-weight: 700;">VER</span></a></li>
+          </ul>
+        </div>
+      </div>
+
+      {# Acordeón 4 #}
+      <div class="accordion-item" style="border: 1px solid #EBE9E0; border-radius: 12px; background: #fff; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.02);">
+        <button class="accordion-header" style="width: 100%; text-align: left; display: flex; align-items: center; padding: 20px 25px; cursor: pointer; background: transparent; border: none; font-weight: 800; color: var(--verde-oscuro, #1a3c28); font-size: 1.15rem; gap: 15px;">
+          <span style="background: var(--verde-xclaro, #E8F0EA); color: var(--verde-oscuro, #1a3c28); width: 38px; height: 38px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0;">4</span>
+          <span style="flex: 1;">Planeación, Presupuesto e Informes</span>
+          <span class="accordion-chevron" style="color: var(--acento, #D4A843); font-size: 1.2rem;">▼</span>
+        </button>
+        <div class="accordion-content" style="padding: 25px; border-top: 1px solid #EBE9E0; background: #FCFAEF;">
+          <ul class="documentos-lista">
+            <li><a href="/presupuesto-general-de-ingresos-gastos-e-inversion" class="documento-item"><span style="font-weight: 700; font-size: 0.95rem; flex: 1;">4.1 Presupuesto general de ingresos, gastos e inversión</span><span style="color: var(--acento, #D4A843); font-size: 0.85rem; font-weight: 700;">VER</span></a></li>
+            <li><a href="/ejecucion-presupuestal" class="documento-item"><span style="font-weight: 700; font-size: 0.95rem; flex: 1;">4.2 Ejecución presupuestal</span><span style="color: var(--acento, #D4A843); font-size: 0.85rem; font-weight: 700;">VER</span></a></li>
+            <h4 style="margin: 0 0 15px 0; font-size: 1.05rem; color: #333;">4.3 Plan de Acción y proyectos de inversión</h4>
+            <li><a href="/planes-accion-e-inversion" class="documento-item"><span style="font-weight: 700; font-size: 0.95rem; flex: 1;">4.3.1 Plan de Acción y proyectos de inversión</span><span style="color: var(--acento, #D4A843); font-size: 0.85rem; font-weight: 700;">VER</span></a></li>
+            <li><a href="/planes-institucionales-y-estrategicos" class="documento-item"><span style="font-weight: 700; font-size: 0.95rem; flex: 1;">4.3.2 Planes estratégicos</span><span style="color: var(--acento, #D4A843); font-size: 0.85rem; font-weight: 700;">VER</span></a></li>
+            <li><a href="/informes-empalme" class="documento-item"><span style="font-weight: 700; font-size: 0.95rem; flex: 1;">4.5 Informes de empalme</span><span style="color: var(--acento, #D4A843); font-size: 0.85rem; font-weight: 700;">VER</span></a></li>
+            <li><a href="/informacion-publica-relevante" class="documento-item"><span style="font-weight: 700; font-size: 0.95rem; flex: 1;">4.6 Información pública y/o relevante</span><span style="color: var(--acento, #D4A843); font-size: 0.85rem; font-weight: 700;">VER</span></a></li>
+            <h4 style="margin: 20px 0 12px 0; font-size: 1.05rem; color: #333; font-weight: 800;">4.7 Informes de Gesti&oacute;n, Evaluaci&oacute;n y Auditor&iacute;a</h4>
+            <li><a href="/informes-gestion-institucional" class="documento-item"><span style="font-weight: 700; font-size: 0.95rem; flex: 1;">4.7.1 Informes de Gesti&oacute;n Institucional</span><span style="color: var(--acento, #D4A843); font-size: 0.85rem; font-weight: 700;">VER</span></a></li>
+            <li><a href="/informes-auditoria-externa" class="documento-item"><span style="font-weight: 700; font-size: 0.95rem; flex: 1;">4.7.2 Informes de Auditor&iacute;a Externa &ndash; Entes de Control</span><span style="color: var(--acento, #D4A843); font-size: 0.85rem; font-weight: 700;">VER</span></a></li>
+            <li><a href="/informes-auditorias-internas" class="documento-item"><span style="font-weight: 700; font-size: 0.95rem; flex: 1;">4.7.3 Informes de Auditor&iacute;as Internas Basadas en Riesgos</span><span style="color: var(--acento, #D4A843); font-size: 0.85rem; font-weight: 700;">VER</span></a></li>
+            <h4 style="margin: 20px 0 12px 0; font-size: 1.05rem; color: #333; font-weight: 800;">4.8 Informes de Control Interno</h4>
+            <li><a href="/control-interno/evaluacion-independiente" class="documento-item"><span style="font-weight: 700; font-size: 0.95rem; flex: 1;">4.8.1 Informe de Evaluaci&oacute;n Independiente del Estado del Sistema de Control Interno</span><span style="color: var(--acento, #D4A843); font-size: 0.85rem; font-weight: 700;">VER</span></a></li>
+            <li><a href="/control-interno/austeridad-gasto" class="documento-item"><span style="font-weight: 700; font-size: 0.95rem; flex: 1;">4.8.2 Informe de Austeridad y Eficiencia del Gasto P&uacute;blico</span><span style="color: var(--acento, #D4A843); font-size: 0.85rem; font-weight: 700;">VER</span></a></li>
+            <li><a href="/control-interno/ptep" class="documento-item"><span style="font-weight: 700; font-size: 0.95rem; flex: 1;">4.8.3 Informe de Seguimiento al Programa de Transparencia y &Eacute;tica P&uacute;blica PTEP</span><span style="color: var(--acento, #D4A843); font-size: 0.85rem; font-weight: 700;">VER</span></a></li>
+            <li><a href="/control-interno/plan-anticorrupcion" class="documento-item" style="padding-left: 30px;"><span style="font-weight: 700; font-size: 0.95rem; flex: 1;">4.8.3.1 Informe de Seguimiento al Plan Anticorrupci&oacute;n y de Atenci&oacute;n al Ciudadano</span><span style="color: var(--acento, #D4A843); font-size: 0.85rem; font-weight: 700;">VER</span></a></li>
+            <li><a href="/control-interno/ci-contable" class="documento-item"><span style="font-weight: 700; font-size: 0.95rem; flex: 1;">4.8.4 Informe Anual de Evaluaci&oacute;n de Control Interno Contable</span><span style="color: var(--acento, #D4A843); font-size: 0.85rem; font-weight: 700;">VER</span></a></li>
+            <li><a href="/control-interno/normas-software" class="documento-item"><span style="font-weight: 700; font-size: 0.95rem; flex: 1;">4.8.5 Informe de Verificaci&oacute;n del Cumplimiento de las Normas en Materia de Software</span><span style="color: var(--acento, #D4A843); font-size: 0.85rem; font-weight: 700;">VER</span></a></li>
+            <li><a href="/control-interno/pqrsdf" class="documento-item"><span style="font-weight: 700; font-size: 0.95rem; flex: 1;">4.8.6 Informe de Seguimiento a la Atenci&oacute;n de PQRSDF</span><span style="color: var(--acento, #D4A843); font-size: 0.85rem; font-weight: 700;">VER</span></a></li>
+            <li><a href="/control-interno/riesgos" class="documento-item"><span style="font-weight: 700; font-size: 0.95rem; flex: 1;">4.8.7 Evaluaci&oacute;n a la Administraci&oacute;n de Riesgos</span><span style="color: var(--acento, #D4A843); font-size: 0.85rem; font-weight: 700;">VER</span></a></li>
+            <li><a href="/control-interno/furag" class="documento-item"><span style="font-weight: 700; font-size: 0.95rem; flex: 1;">4.8.8 &Iacute;ndice de Desempe&ntilde;o Institucional &ndash; FURAG</span><span style="color: var(--acento, #D4A843); font-size: 0.85rem; font-weight: 700;">VER</span></a></li>
+            <li><a href="/control-interno/planes-mejoramiento" class="documento-item"><span style="font-weight: 700; font-size: 0.95rem; flex: 1;">4.8.9 Informe Planes de Mejoramiento Internos</span><span style="color: var(--acento, #D4A843); font-size: 0.85rem; font-weight: 700;">VER</span></a></li>
+            <li><a href="/defensa-publica-dano-antijuridico" class="documento-item"><span style="font-weight: 700; font-size: 0.95rem; flex: 1;">4.9 Defensa Pública y Daño Antijurídico</span><span style="color: var(--acento, #D4A843); font-size: 0.85rem; font-weight: 700;">VER</span></a></li>
+            <li><a href="/respuesta-pqrds-anonimas" class="documento-item"><span style="font-weight: 700; font-size: 0.95rem; flex: 1;">4.10 Informes PQRS</span><span style="color: var(--acento, #D4A843); font-size: 0.85rem; font-weight: 700;">VER</span></a></li>
+          </ul>
+        </div>
+      </div>
+
+      {# Acordeón 5 #}
+      <div class="accordion-item" style="border: 1px solid #EBE9E0; border-radius: 12px; background: #fff; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.02);">
+        <button class="accordion-header" style="width: 100%; text-align: left; display: flex; align-items: center; padding: 20px 25px; cursor: pointer; background: transparent; border: none; font-weight: 800; color: var(--verde-oscuro, #1a3c28); font-size: 1.15rem; gap: 15px;">
+          <span style="background: var(--verde-xclaro, #E8F0EA); color: var(--verde-oscuro, #1a3c28); width: 38px; height: 38px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0;">5</span>
+          <span style="flex: 1;">Trámites</span>
+          <span class="accordion-chevron" style="color: var(--acento, #D4A843); font-size: 1.2rem;">▼</span>
+        </button>
+        <div class="accordion-content" style="padding: 25px; border-top: 1px solid #EBE9E0; background: #FCFAEF;">
+          <ul class="documentos-lista">
+            <li><a href="/inscripciones" class="documento-item"><span style="font-weight: 700; font-size: 0.95rem; flex: 1;">5.1 Tramites e inscripciones</span><span style="color: var(--acento, #D4A843); font-size: 0.85rem; font-weight: 700;">VER</span></a></li>
+            <li><a href="/programas-de-formacion" class="documento-item"><span style="font-weight: 700; font-size: 0.95rem; flex: 1;">5.2 Formatos y/o formularios asociados</span><span style="color: var(--acento, #D4A843); font-size: 0.85rem; font-weight: 700;">VER</span></a></li>
+          </ul>
+        </div>
+      </div>
+
+      {# Acordeón 6 #}
+      <div class="accordion-item" style="border: 1px solid #EBE9E0; border-radius: 12px; background: #fff; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.02);">
+        <button class="accordion-header" style="width: 100%; text-align: left; display: flex; align-items: center; padding: 20px 25px; cursor: pointer; background: transparent; border: none; font-weight: 800; color: var(--verde-oscuro, #1a3c28); font-size: 1.15rem; gap: 15px;">
+          <span style="background: var(--verde-xclaro, #E8F0EA); color: var(--verde-oscuro, #1a3c28); width: 38px; height: 38px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0;">6</span>
+          <span style="flex: 1;">Participa</span>
+          <span class="accordion-chevron" style="color: var(--acento, #D4A843); font-size: 1.2rem;">▼</span>
+        </button>
+        <div class="accordion-content" style="padding: 25px; border-top: 1px solid #EBE9E0; background: #FCFAEF;">
+          <ul class="documentos-lista">
+            <li><a href="/participacion" class="documento-item"><span style="font-weight: 700; font-size: 0.95rem; flex: 1;">6.1 Participación ciudadana en la gestión</span><span style="color: var(--acento, #D4A843); font-size: 0.85rem; font-weight: 700;">VER</span></a></li>
+            <li><a href="/planeacion-presupuesto-participativo" class="documento-item"><span style="font-weight: 700; font-size: 0.95rem; flex: 1;">6.2 Planeación y presupuesto participativo</span><span style="color: var(--acento, #D4A843); font-size: 0.85rem; font-weight: 700;">VER</span></a></li>
+            <li><a href="/consulta-ciudadana" class="documento-item"><span style="font-weight: 700; font-size: 0.95rem; flex: 1;">6.3 Consulta ciudadana</span><span style="color: var(--acento, #D4A843); font-size: 0.85rem; font-weight: 700;">VER</span></a></li>
+            <li><a href="/colaboracion-e-innovacion-abierta" class="documento-item"><span style="font-weight: 700; font-size: 0.95rem; flex: 1;">6.4 Colaboración e innovación abierta</span><span style="color: var(--acento, #D4A843); font-size: 0.85rem; font-weight: 700;">VER</span></a></li>
+            <li><a href="/rendicion-de-cuentas" class="documento-item"><span style="font-weight: 700; font-size: 0.95rem; flex: 1;">6.5 Rendición de cuentas</span><span style="color: var(--acento, #D4A843); font-size: 0.85rem; font-weight: 700;">VER</span></a></li>
+            <li><a href="https://tenjoculturayturismo.gov.co/apps/pqr_imctt/" class="documento-item"><span style="font-weight: 700; font-size: 0.95rem; flex: 1;">6.6 Control social</span><span style="color: var(--acento, #D4A843); font-size: 0.85rem; font-weight: 700;">VER</span></a></li>
+          </ul>
+        </div>
+      </div>
+
+      {# Acordeón 7 #}
+      <div class="accordion-item" style="border: 1px solid #EBE9E0; border-radius: 12px; background: #fff; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.02);">
+        <button class="accordion-header" style="width: 100%; text-align: left; display: flex; align-items: center; padding: 20px 25px; cursor: pointer; background: transparent; border: none; font-weight: 800; color: var(--verde-oscuro, #1a3c28); font-size: 1.15rem; gap: 15px;">
+          <span style="background: var(--verde-xclaro, #E8F0EA); color: var(--verde-oscuro, #1a3c28); width: 38px; height: 38px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0;">7</span>
+          <span style="flex: 1;">Datos abiertos</span>
+          <span class="accordion-chevron" style="color: var(--acento, #D4A843); font-size: 1.2rem;">▼</span>
+        </button>
+        <div class="accordion-content" style="padding: 25px; border-top: 1px solid #EBE9E0; background: #FCFAEF;">
+          <ul class="documentos-lista">
+            <li><a href="#" class="documento-item"><span style="font-weight: 700; font-size: 0.95rem; flex: 1;">7.1 Instrumentos de gestión de la información</span><span style="color: var(--acento, #D4A843); font-size: 0.85rem; font-weight: 700;">VER</span></a></li>
+            <li><a href="/registro-activos-de-informacion" class="documento-item"><span style="font-weight: 700; font-size: 0.95rem; flex: 1;">7.1.1 Registros de activos de información</span><span style="color: var(--acento, #D4A843); font-size: 0.85rem; font-weight: 700;">VER</span></a></li>
+            <li><a href="/indice-de-informacion-clasificada-y-reservada" class="documento-item"><span style="font-weight: 700; font-size: 0.95rem; flex: 1;">7.1.2 Índice de información clasificada y reservada</span><span style="color: var(--acento, #D4A843); font-size: 0.85rem; font-weight: 700;">VER</span></a></li>
+            <li><a href="/esquema-de-publicacion-de-informacion" class="documento-item"><span style="font-weight: 700; font-size: 0.95rem; flex: 1;">7.1.3 Esquema de publicación de la información</span><span style="color: var(--acento, #D4A843); font-size: 0.85rem; font-weight: 700;">VER</span></a></li>
+            <li><a href="/programa-gestion-documental" class="documento-item"><span style="font-weight: 700; font-size: 0.95rem; flex: 1;">7.1.4 Programa de gestión documental</span><span style="color: var(--acento, #D4A843); font-size: 0.85rem; font-weight: 700;">VER</span></a></li>
+            <li><a href="/tablas-retencion-documental" class="documento-item"><span style="font-weight: 700; font-size: 0.95rem; flex: 1;">7.1.5 Tablas de retención documental (TRD)</span><span style="color: var(--acento, #D4A843); font-size: 0.85rem; font-weight: 700;">VER</span></a></li>
+            <li><a href="datos.gov.co/browse?sortBy=relevance&pageSize=20" class="documento-item"><span style="font-weight: 700; font-size: 0.95rem; flex: 1;">7.2 Sección de Datos Abiertos</span><span style="color: var(--acento, #D4A843); font-size: 0.85rem; font-weight: 700;">VER</span></a></li>
+          </ul>
+        </div>
+      </div>
+
+      {# Acordeón 8 #}
+      <div class="accordion-item" style="border: 1px solid #EBE9E0; border-radius: 12px; background: #fff; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.02);">
+        <button class="accordion-header" style="width: 100%; text-align: left; display: flex; align-items: center; padding: 20px 25px; cursor: pointer; background: transparent; border: none; font-weight: 800; color: var(--verde-oscuro, #1a3c28); font-size: 1.15rem; gap: 15px;">
+          <span style="background: var(--verde-xclaro, #E8F0EA); color: var(--verde-oscuro, #1a3c28); width: 38px; height: 38px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0;">8</span>
+          <span style="flex: 1;">Información específica para grupos de interés</span>
+          <span class="accordion-chevron" style="color: var(--acento, #D4A843); font-size: 1.2rem;">▼</span>
+        </button>
+        <div class="accordion-content" style="padding: 25px; border-top: 1px solid #EBE9E0; background: #FCFAEF;">
+          <ul class="documentos-lista">
+            <li><a href="#" class="documento-item"><span style="font-weight: 700; font-size: 0.95rem; flex: 1;">8.1 Información para niños, niñas y adolescentes</span><span style="color: var(--acento, #D4A843); font-size: 0.85rem; font-weight: 700;">VER</span></a></li>
+            <li><a href="#" class="documento-item"><span style="font-weight: 700; font-size: 0.95rem; flex: 1;">8.2 Información para mujeres</span><span style="color: var(--acento, #D4A843); font-size: 0.85rem; font-weight: 700;">VER</span></a></li>
+            <li><a href="/documentos-SG-SSTT" class="documento-item"><span style="font-weight: 700; font-size: 0.95rem; flex: 1;">8.3 Documentación SG-SSTT</span><span style="color: var(--acento, #D4A843); font-size: 0.85rem; font-weight: 700;">VER</span></a></li>
+            <li><a href="/planes-accion-e-inversion" class="documento-item"><span style="font-weight: 700; font-size: 0.95rem; flex: 1;">8.4 Programas y proyectos en ejecución</span><span style="color: var(--acento, #D4A843); font-size: 0.85rem; font-weight: 700;">VER</span></a></li>
+            <li><a href="#" class="documento-item"><span style="font-weight: 700; font-size: 0.95rem; flex: 1;">8.5 Metas, objetivos e indicadores de gestión y/o desempeño</span><span style="color: var(--acento, #D4A843); font-size: 0.85rem; font-weight: 700;">VER</span></a></li>
+            <li><a href="/informes-empalme" class="documento-item"><span style="font-weight: 700; font-size: 0.95rem; flex: 1;">8.5 Informes de empalme</span><span style="color: var(--acento, #D4A843); font-size: 0.85rem; font-weight: 700;">VER</span></a></li>
+          </ul>
+        </div>
+      </div>
+
+      {# Acordeón 9 #}
+      <div class="accordion-item" style="border: 1px solid #EBE9E0; border-radius: 12px; background: #fff; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.02);">
+        <button class="accordion-header" style="width: 100%; text-align: left; display: flex; align-items: center; padding: 20px 25px; cursor: pointer; background: transparent; border: none; font-weight: 800; color: var(--verde-oscuro, #1a3c28); font-size: 1.15rem; gap: 15px;">
+          <span style="background: var(--verde-xclaro, #E8F0EA); color: var(--verde-oscuro, #1a3c28); width: 38px; height: 38px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0;">9</span>
+          <span style="flex: 1;">Obligación de reporte de información</span>
+          <span class="accordion-chevron" style="color: var(--acento, #D4A843); font-size: 1.2rem;">▼</span>
+        </button>
+        <div class="accordion-content" style="padding: 25px; border-top: 1px solid #EBE9E0; background: #FCFAEF;">
+          <ul class="documentos-lista">
+            <li><a href="/normatividad-especial" class="documento-item"><span style="font-weight: 700; font-size: 0.95rem; flex: 1;">9.1 Normatividad especial</span><span style="color: var(--acento, #D4A843); font-size: 0.85rem; font-weight: 700;">VER</span></a></li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+
+    {# --- 4. ACCESO AL SECOP --- #}
+    <div style="margin-top: 60px; padding: 40px; background: var(--verde-xclaro, #F4F7F5); border-radius: 15px; text-align: center; border: 1px dashed var(--verde-oscuro, #1a3c28);">
+      <a href="https://www.colombiacompra.gov.co/secop" target="_blank" rel="noopener" style="display: inline-block; background-color: var(--verde-oscuro, #1a3c28); color: #fff; padding: 12px 35px; border-radius: 50px; text-decoration: none; font-weight: 700; transition: background 0.3s;" onmouseover="this.style.backgroundColor='#111';" onmouseout="this.style.backgroundColor='#1a3c28';">INGRESAR AL SECOP</a>
+    </div>
+
+  </div>
+</div>

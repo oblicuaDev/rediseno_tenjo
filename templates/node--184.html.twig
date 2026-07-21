@@ -1,0 +1,148 @@
+{# 
+  Plantilla Estática para: Diagnóstico e Identificación de Problemas
+#}
+
+<style>
+  /* Previene el scroll horizontal generado por los márgenes negativos */
+  body, html { overflow-x: hidden; }
+  
+  /* Estilos base para la lectura */
+  .contenido-estatico p { margin-bottom: 25px; font-size: 1.15rem; line-height: 1.8; color: #444; text-align: justify; }
+  .contenido-estatico h2 { color: var(--verde-oscuro, #1a3c28); font-weight: 800; font-size: 1.8rem; margin: 50px 0 25px 0; border-bottom: 2px solid #EBE9E0; padding-bottom: 10px; }
+  
+  /* Estilos para la lista de participación (Tarjetas) */
+  .lista-participacion { list-style: none; padding: 0; margin: 0 0 40px 0; display: flex; flex-direction: column; gap: 20px; }
+  .tarjeta-item { 
+    display: flex; gap: 20px; background: #FCFAEF; padding: 25px; border-radius: 15px; 
+    border: 1px solid #EBE9E0; transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .tarjeta-item:hover { transform: translateY(-3px); box-shadow: 0 10px 25px rgba(0,0,0,0.05); }
+  .tarjeta-icono { 
+    background: #fff; width: 50px; height: 50px; border-radius: 12px; display: flex; 
+    align-items: center; justify-content: center; flex-shrink: 0; box-shadow: 0 4px 10px rgba(0,0,0,0.03); border: 1px solid #eee;
+  }
+  .tarjeta-texto strong { display: block; font-size: 1.2rem; color: var(--verde-oscuro, #1a3c28); margin-bottom: 5px; font-weight: 800; }
+  .tarjeta-texto p { margin: 0; font-size: 1.05rem; line-height: 1.6; color: #555; text-align: left; }
+</style>
+
+<div class="pagina-estatica-diagnostico">
+
+  {# --- 1. HERO INSTITUCIONAL (Estructura Marca Tenjo) --- #}
+  <div class="page-hero" style="width: 100vw; position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; background-color: var(--verde-medio, #1a3c28); padding: 80px 0 60px 0; color: #ffffff;">
+    <div class="container page-hero-inner" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+      
+      {# Migas de pan #}
+      <div class="page-hero-breadcrumb" style="margin-bottom: 25px; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; display: flex; align-items: center; gap: 8px; color: rgba(255,255,255,0.7);">
+        <a href="/" style="color: #fff; text-decoration: none;">Inicio</a>
+        <span class="sep" style="display: flex; align-items: center;">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9,18 15,12 9,6"/></svg>
+        </span>
+        <a href="/participa" style="color: #fff; text-decoration: none;">Participa</a>
+        <span class="sep" style="display: flex; align-items: center;">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9,18 15,12 9,6"/></svg>
+        </span>
+        <span>DIAGNÓSTICO</span>
+      </div>
+
+      {# Título #}
+      <h1 style="color: #fff; font-size: clamp(2.2rem, 5vw, 3.5rem); font-weight: 800; line-height: 1.1; margin: 0 0 20px 0;">
+        Diagnóstico e <br><span style="color: var(--acento, #D4A843);">Identificación de problemas</span>
+      </h1>
+      
+      <p style="font-size: 1.15rem; max-width: 850px; line-height: 1.6; opacity: 0.9; margin: 0;">
+        Un espacio que refleja nuestro compromiso con la transparencia y la colaboración, donde tu participación juega un papel fundamental en la construcción de un Tenjo lleno de vida y significado.
+      </p>
+      
+    </div>
+  </div>
+
+  {# --- 2. CONTENIDO PRINCIPAL (Una columna centrada) --- #}
+  <div class="container contenido-estatico" style="max-width: 900px; margin: 60px auto 100px auto; padding: 0 20px; font-family: 'Montserrat', sans-serif;">
+    
+    <p style="font-size: 1.3rem; font-weight: 600; color: var(--verde-oscuro, #1a3c28); border-left: 4px solid var(--acento, #D4A843); padding-left: 20px;">
+      En el Instituto Municipal de Cultura y Turismo de Tenjo, valoramos profundamente tu voz y perspectiva en la creación de un patrimonio cultural enriquecedor y vibrante. Te damos una cordial bienvenida al menú «Participa».
+    </p>
+
+    <h2>Explora nuestras secciones de participación:</h2>
+
+    <ul class="lista-participacion">
+      
+      {# ITEM 1 #}
+      <li class="tarjeta-item">
+        <div class="tarjeta-icono">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--acento, #D4A843)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+        </div>
+        <div class="tarjeta-texto">
+          <strong>Caja de sugerencias</strong>
+          <p>¿Tienes ideas inspiradoras para promover el turismo y la cultura en Tenjo? Comparte tus pensamientos aquí y contribuye a la expansión de nuestro patrimonio.</p>
+        </div>
+      </li>
+
+      {# ITEM 2 #}
+      <li class="tarjeta-item">
+        <div class="tarjeta-icono">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--acento, #D4A843)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path></svg>
+        </div>
+        <div class="tarjeta-texto">
+          <strong>Diálogos culturales</strong>
+          <p>Únete a discusiones significativas sobre eventos culturales, proyectos y actividades. Participa en debates informados que moldearán el futuro cultural de nuestra comunidad.</p>
+        </div>
+      </li>
+
+      {# ITEM 3 #}
+      <li class="tarjeta-item">
+        <div class="tarjeta-icono">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--acento, #D4A843)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+        </div>
+        <div class="tarjeta-texto">
+          <strong>Encuestas y opiniones</strong>
+          <p>Tu opinión importa. Participa en encuestas que abordan aspectos cruciales de nuestro instituto y turismo local para que podamos ajustar nuestras iniciativas según tus preferencias.</p>
+        </div>
+      </li>
+
+      {# ITEM 4 #}
+      <li class="tarjeta-item">
+        <div class="tarjeta-icono">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--acento, #D4A843)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M23 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+        </div>
+        <div class="tarjeta-texto">
+          <strong>Conexiones creativas</strong>
+          <p>Explora oportunidades de colaboración con artistas locales, creadores y entusiastas culturales. Juntos, podemos dar vida a proyectos que enriquezcan la escena cultural de Tenjo.</p>
+        </div>
+      </li>
+
+      {# ITEM 5 #}
+      <li class="tarjeta-item">
+        <div class="tarjeta-icono">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--acento, #D4A843)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"></path></svg>
+        </div>
+        <div class="tarjeta-texto">
+          <strong>Registro de propuestas</strong>
+          <p>Accede a tus aportaciones pasadas, realiza un seguimiento de tus ideas y observa cómo tus contribuciones han ayudado a dar forma a eventos y programas.</p>
+        </div>
+      </li>
+
+      {# ITEM 6 #}
+      <li class="tarjeta-item">
+        <div class="tarjeta-icono">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--acento, #D4A843)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+        </div>
+        <div class="tarjeta-texto">
+          <strong>Agenda cultural</strong>
+          <p>Mantente al tanto de los próximos eventos culturales y turísticos en Tenjo. ¡Participa y disfruta de las diversas experiencias que nuestra comunidad tiene para ofrecer!</p>
+        </div>
+      </li>
+
+    </ul>
+
+    <div style="background-color: var(--verde-xclaro, #F4F7F5); padding: 30px; border-radius: 15px; border: 1px solid #EBE9E0; text-align: center; margin-top: 50px;">
+      <p style="margin-bottom: 15px; font-weight: 700; color: #333;">
+        En el menú «Participa», cada voz cuenta y cada idea puede desencadenar cambios significativos. Te invitamos a unirte a nosotros en la creación de un entorno cultural y turístico que resalte la identidad y la diversidad de Tenjo.
+      </p>
+      <p style="margin: 0; font-size: 1.1rem; color: var(--verde-oscuro, #1a3c28); font-weight: 800;">
+        ¡Gracias por ser parte del proceso creativo en el IMCTT!
+      </p>
+    </div>
+
+  </div>
+</div>

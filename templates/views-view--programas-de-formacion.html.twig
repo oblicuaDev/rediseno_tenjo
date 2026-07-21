@@ -1,0 +1,35 @@
+{# views-view--programas-de-formacion.html.twig #}
+<div class="view-equipo-integrantes">
+
+  {# --- HERO --- #}
+  <div class="page-hero">
+    <div class="container page-hero-inner">
+      <div class="page-hero-breadcrumb">
+        <a href="/es">INICIO</a> <span class="sep">></span> <span>PROGRAMAS DE FORMACIÓN</span>
+      </div>
+      <h1>Programas de <span>Formación</span></h1>
+      <p class="page-hero-sub">
+        Desarrolla tu talento artístico con nuestras áreas de formación en artes escénicas, danzarías, plásticas, musicales, transversales, literarias.
+      </p>
+
+    </div>
+  </div>
+
+{# --- BARRA DE FILTROS --- #}
+  <div class="filtros-bar">
+    <div class="filtros-inner">
+      <button class="filtro-btn activo" data-filtro="todos">Todas las áreas</button>
+      <button class="filtro-btn" data-filtro="artes-escenicas">Artes Escénicas</button>
+      <button class="filtro-btn" data-filtro="artes-plasticas-y-visuales">Artes Plásticas</button>
+      <button class="filtro-btn" data-filtro="artes-y-oficios">Artes y Oficios</button>
+      <button class="filtro-btn" data-filtro="musica">Música</button>
+      <button class="filtro-btn" data-filtro="literatura">Literatura</button>
+    </div>
+  </div>
+
+  {# --- GRILLA DE PROGRAMAS --- #}
+  <div class="programas-grid" id="contenedor-programas">
+    {{ rows }}
+  </div>
+
+</div>

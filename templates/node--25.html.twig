@@ -1,0 +1,90 @@
+{# 
+  Plantilla Estática para: Nuestra Gente
+  Archivo: node--25.html.twig
+#}
+<div class="pagina-estatica-nuestra-gente">
+
+  {# --- 1. HERO INSTITUCIONAL --- #}
+  <div class="page-hero" style="width: 100vw; position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; background-color: var(--verde-medio, #1a3c28); padding: 60px 0; color: #ffffff;">
+    <div class="container page-hero-inner" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+      
+      {# Migas de pan #}
+      <div class="page-hero-breadcrumb" style="margin-bottom: 20px; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; display: flex; align-items: center; gap: 8px; color: rgba(255,255,255,0.7);">
+        <a href="/es" style="color: #fff; text-decoration: none;">INICIO</a>
+        <span class="sep">></span>
+        <a href="#" style="color: #fff; text-decoration: none;">TENJO CULTURAL</a>
+        <span class="sep">></span>
+        <span>NUESTRA GENTE</span>
+      </div>
+
+      {# Título #}
+      <h1 style="color: #fff; font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 800; line-height: 1.15; margin: 0;">
+        Nuestra <span style="color: var(--acento, #D4A843);">Gente</span>
+      </h1>
+      <p style="color: rgba(255,255,255,0.8); max-width: 700px; font-size: 1.1rem; margin-top: 15px;">
+        Descubre las historias, la sabiduría y la calidez de los habitantes que hacen de Tenjo un lugar único.
+      </p>
+    </div>
+  </div>
+
+  {# --- 2. INTRODUCCIÓN (Texto + Imagen) --- #}
+  <div class="container" style="max-width: 1200px; margin: 60px auto; padding: 0 20px;">
+    <div style="display: flex; flex-wrap: wrap; gap: 40px; align-items: center;">
+      
+      {# Columna de Texto #}
+      <div style="flex: 1; min-width: 300px; font-size: 1.1rem; line-height: 1.8; color: #444;">
+        <p style="margin-bottom: 20px;">
+          Tenjo es un municipio pleno de historias, oficios, artes, mitos, leyendas, tradiciones y personajes que hacen posible conocer todas estas cualidades que conforman la idiosincrasia de un pueblo. 
+        </p>
+        <p style="margin-bottom: 20px;">
+          Los mayores, por ejemplo, ciudadanos con inmensa sabiduría, se han encargado de que su conocimiento pase de generación en generación. Los pobladores, gente amable, atenta, cálida, sencilla y generosa, hacen de una estadía en Tenjo la mejor experiencia para compartir conocimientos.
+        </p>
+        <p style="font-weight: 700; color: var(--verde-oscuro, #1a3c28); font-size: 1.2rem; border-left: 4px solid var(--acento, #D4A843); padding-left: 15px;">
+          Visite Tenjo y conozca a su gente, comparta con ellos y descubra de su propia mano la cultura de este pueblo.
+        </p>
+      </div>
+
+      {# Columna de Imagen #}
+      <div style="flex: 1; min-width: 300px; display: flex; justify-content: center;">
+        <div style="position: relative; border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+          <img src="/sites/default/files/2026-05/img-gente-1.jpg" alt="Habitantes de Tenjo" style="width: 100%; height: auto; max-height: 400px; object-fit: cover; display: block; border-radius: 12px;">
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  {# --- 3. SECCIÓN DESTACADA: HISTORIA Y VIDEO --- #}
+  {# Usamos un fondo ancho 100vw para darle un quiebre visual a la página #}
+  <div style="width: 100vw; position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; background-color: #FDFCF5; padding: 80px 0; border-top: 1px solid #EBE9E0; margin-bottom: 80px;">
+    <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+      
+      <div style="display: flex; flex-wrap: wrap; gap: 50px; align-items: center; flex-direction: row-reverse;">
+        
+        {# Columna de Texto del Video #}
+        <div style="flex: 1; min-width: 300px;">
+          <span style="display: inline-block; background-color: var(--verde-xclaro, #E8F0EA); color: var(--verde-oscuro, #1a3c28); padding: 5px 15px; border-radius: 20px; font-weight: 800; font-size: 0.8rem; margin-bottom: 15px; letter-spacing: 1px;">HISTORIAS DE NUESTRO PUEBLO</span>
+          <h2 style="font-size: 2.2rem; color: var(--verde-oscuro, #1a3c28); font-weight: 800; margin-bottom: 20px; line-height: 1.2;">418 Años de Tenjo</h2>
+          <p style="font-size: 1.1rem; line-height: 1.8; color: #555; margin-bottom: 20px;">
+            ¡Seguimos escribiendo la historia de Tenjo!<br>
+            A pocos días de celebrar el cumpleaños de nuestro municipio, hablamos con <strong>don Leonidas Orozco</strong>, quien desde su hogar compartió recuerdos valiosos de Tenjo y reflexionó sobre el importante compromiso que tienen las nuevas generaciones con el medioambiente.
+          </p>
+          <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+            <span style="font-weight: 700; color: var(--acento, #D4A843);">#TenjoBioseguro</span>
+            <span style="font-weight: 700; color: var(--acento, #D4A843);">#TenjoEsDeTodos</span>
+          </div>
+        </div>
+
+        {# Columna de Video #}
+        <div style="flex: 1.2; min-width: 300px;">
+          <div style="border-radius: 12px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.15); background: #000; border: 4px solid #fff;">
+            <video src="https://tenjoculturayturismo.gov.co/wp-content/uploads/CTLeonidas-version-corta_1.mp4" controls playsinline style="width: 100%; display: block; outline: none;"></video>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+
+</div>

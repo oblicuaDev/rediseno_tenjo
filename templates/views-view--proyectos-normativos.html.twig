@@ -1,0 +1,118 @@
+{#
+  Plantilla: Contenedor Principal Vista PROYECTOS NORMATIVOS
+  Archivo: views-view--proyectos-normativos.html.twig
+#}
+<style>
+  body, html { overflow-x: hidden; }
+  .accordion-content { display: none; }
+  .accordion-header .accordion-chevron { transition: transform 0.3s ease; }
+  .accordion-header.activo .accordion-chevron { transform: rotate(180deg); }
+</style>
+
+<div class="pagina-estatica-proyectos-normativos">
+
+  {# --- 1. HERO INSTITUCIONAL --- #}
+  <div class="page-hero" style="margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw); width: 100vw; max-width: 100vw; background-color: var(--verde-medio, #1a3c28); padding: 60px 0; color: #ffffff;">
+    <div class="container page-hero-inner" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+
+      <div class="page-hero-breadcrumb" style="margin-bottom: 20px; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; display: flex; align-items: center; gap: 8px; color: rgba(255,255,255,0.7);">
+        <a href="/es" style="color: #fff; text-decoration: none;">INICIO</a>
+        <span class="sep">></span>
+        <a href="/transparencia" style="color: #fff; text-decoration: none;">TRANSPARENCIA</a>
+        <span class="sep">></span>
+        <span>PROYECTOS NORMATIVOS</span>
+      </div>
+
+      <h1 style="color: #fff; font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 800; line-height: 1.15; margin: 0;">
+        Proyectos <br>
+        <span style="color: var(--acento, #D4A843);">Normativos</span>
+      </h1>
+
+    </div>
+  </div>
+
+  {# --- 2. CONTENIDO PRINCIPAL --- #}
+  <div class="container" style="max-width: 1100px; margin: 50px auto 100px auto; padding: 0 20px;">
+
+    {# --- 3. ACORDEONES DINÁMICOS DE LA VISTA --- #}
+    {# --- SUIN y SUCOP (Req. 4.2a / 4.3c) --- #}
+    <div style="display: flex; flex-wrap: wrap; gap: 16px; margin-bottom: 40px;">
+
+      <a href="http://www.suin-juriscol.gov.co/" target="_blank" rel="noopener noreferrer"
+         style="flex: 1; min-width: 220px; display: flex; align-items: center; gap: 14px; background: #FCFAEF; border: 1px solid #EBE9E0; border-radius: 12px; padding: 18px 20px; text-decoration: none; color: var(--verde-oscuro, #1a3c28); font-weight: 700; font-size: 0.95rem; transition: box-shadow 0.2s;"
+         aria-label="Ir al Sistema Único de Información Normativa SUIN (abre en nueva ventana)">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--verde-oscuro, #1a3c28)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        <span>SUIN — Sistema Único de Información Normativa<br><span style="font-weight:400; font-size:0.82rem; color:#666;">suin-juriscol.gov.co</span></span>
+      </a>
+
+      <a href="https://www.sucop.gov.co/" target="_blank" rel="noopener noreferrer"
+         style="flex: 1; min-width: 220px; display: flex; align-items: center; gap: 14px; background: #FCFAEF; border: 1px solid #EBE9E0; border-radius: 12px; padding: 18px 20px; text-decoration: none; color: var(--verde-oscuro, #1a3c28); font-weight: 700; font-size: 0.95rem; transition: box-shadow 0.2s;"
+         aria-label="Ir al Sistema Único de Consulta Pública SUCOP (abre en nueva ventana)">
+        <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="var(--verde-oscuro, #1a3c28)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" style="flex-shrink:0;"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        <span>SUCOP — Sistema Único de Consulta Pública<br><span style="font-weight:400; font-size:0.82rem; color:#666;">sucop.gov.co</span></span>
+      </a>
+
+    </div>
+
+    <h2 style="font-size: 1.8rem; color: var(--verde-oscuro, #1a3c28); font-weight: 800; margin: 0 0 25px 0; text-align: center; border-bottom: 2px solid #EBE9E0; padding-bottom: 10px;">
+      Proyectos Normativos por Año
+    </h2>
+
+    {{ rows }}
+
+    {% if not rows %}
+      <div style="text-align: center; padding: 40px; color: #666; border: 1px dashed #ccc; border-radius: 12px;">
+        <p>No hay documentos de Proyectos Normativos publicados actualmente.</p>
+      </div>
+    {% endif %}
+
+    {# --- 4. COMENTARIOS Y DOCUMENTO DE RESPUESTA (Req. 4.3b) --- #}
+    <div style="margin-top: 60px; border-top: 2px solid #EBE9E0; padding-top: 40px;">
+
+      <h2 style="font-size: 1.6rem; color: var(--verde-oscuro, #1a3c28); font-weight: 800; margin: 0 0 10px 0;">
+        Comentarios y documento de respuesta
+      </h2>
+      <p style="color: #555; font-size: 1rem; line-height: 1.7; margin: 0 0 30px 0;">
+        La ciudadanía puede enviar observaciones y comentarios sobre los proyectos normativos publicados. El Instituto Municipal de Cultura y Turismo de Tenjo publicará en este espacio el documento de respuesta consolidado a los comentarios recibidos.
+      </p>
+
+      <div class="pn-comentarios-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 30px;">
+
+        <div style="background: #FCFAEF; border: 1px solid #EBE9E0; border-radius: 12px; padding: 28px 24px;">
+          <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 14px;">
+            <div style="background: var(--verde-oscuro, #1a3c28); width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <h3 style="font-size: 1.1rem; font-weight: 800; color: var(--verde-oscuro, #1a3c28); margin: 0;">Envíe sus comentarios</h3>
+          </div>
+          <p style="color: #555; font-size: 0.95rem; line-height: 1.6; margin: 0 0 18px 0;">
+            Para participar en la consulta de proyectos normativos, envíe sus comentarios u observaciones a través del correo electrónico institucional o el canal de PQRSD.
+          </p>
+          <a href="/es/node/add/pqrsd" style="display: inline-flex; align-items: center; gap: 8px; background: var(--verde-oscuro, #1a3c28); color: #fff; text-decoration: none; padding: 10px 20px; border-radius: 8px; font-weight: 700; font-size: 0.9rem; transition: background 0.2s;" aria-label="Ir al formulario PQRSD para enviar comentarios sobre proyectos normativos">
+            Radicar comentario (PQRSD)
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </a>
+        </div>
+
+        <div style="background: #fff; border: 1px solid #EBE9E0; border-radius: 12px; padding: 28px 24px;">
+          <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 14px;">
+            <div style="background: var(--acento, #D4A843); width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+            </div>
+            <h3 style="font-size: 1.1rem; font-weight: 800; color: var(--verde-oscuro, #1a3c28); margin: 0;">Documentos de respuesta</h3>
+          </div>
+          <p style="color: #555; font-size: 0.95rem; line-height: 1.6; margin: 0 0 18px 0;">
+            Una vez vencido el plazo de consulta, publicamos el documento consolidado con las respuestas a los comentarios de la ciudadanía.
+          </p>
+          <a href="#" style="display: inline-flex; align-items: center; gap: 8px; border: 2px solid var(--verde-oscuro, #1a3c28); color: var(--verde-oscuro, #1a3c28); text-decoration: none; padding: 10px 20px; border-radius: 8px; font-weight: 700; font-size: 0.9rem; transition: background 0.2s, color 0.2s;" aria-label="Ver documentos de respuesta a comentarios sobre proyectos normativos">
+            Ver documentos de respuesta
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</div>

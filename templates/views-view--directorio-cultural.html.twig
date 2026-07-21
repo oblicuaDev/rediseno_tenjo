@@ -1,0 +1,125 @@
+{# 
+  Plantilla: Contenedor Principal Directorio Cultural
+  Corrige el desplazamiento a la derecha y aplica diseño de tarjetas verticales
+#}
+<style>
+  body, html { overflow-x: hidden; }
+  
+  /* Reset de Drupal: Evitamos que las filas se muevan a la derecha */
+  .view-directorio-cultural .view-content {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)) !important;
+    gap: 30px !important;
+    margin-top: 40px !important;
+  }
+
+  .view-directorio-cultural .views-row {
+    margin: 0 !important;
+    padding: 0 !important;
+    display: block !important; /* Reseteamos flexbox anterior */
+  }
+
+  /* Estilos de la tarjeta (Igual a Nuestro Equipo) */
+  .tarjeta-cultural {
+    background: #ffffff;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+    border: 1px solid #EBE9E0;
+    text-align: center;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .tarjeta-cultural:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+  }
+
+  .tarjeta-foto {
+    width: 100%;
+    height: 280px;
+    overflow: hidden;
+    background: #f4f4f4;
+  }
+
+  .tarjeta-foto img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .tarjeta-info {
+    padding: 25px 20px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .tarjeta-nombre {
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: var(--verde-oscuro, #1a3c28);
+    margin: 0;
+    line-height: 1.2;
+  }
+
+  .tarjeta-cargo {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #777;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .btn-perfil {
+    margin-top: 15px;
+    display: inline-block;
+    padding: 8px 20px;
+    background: var(--verde-oscuro, #1a3c28);
+    color: #fff !important;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-decoration: none !important;
+    transition: background 0.2s;
+  }
+  .btn-perfil:hover { background: #111; }
+</style>
+
+<div class="view-directorio-cultural">
+  
+  {# --- HERO VERDE --- #}
+  <div class="page-hero" style="margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw); width: 100vw; background-color: var(--verde-medio); padding: 60px 0; color: #ffffff;">
+    <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+      
+      <div class="page-hero-breadcrumb" style="margin-bottom: 20px; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; display: flex; align-items: center; gap: 8px; color: rgba(255,255,255,0.7);">
+        <a href="/es" style="color: #fff; text-decoration: none;">INICIO</a>
+        <span class="sep">></span>
+        <span>DIRECTORIO CULTURAL</span>
+      </div>
+
+      <h1 style="color: #fff; font-size: 3rem; font-weight: 800; margin: 0;">
+        Directorio <span style="color: #D4A843;">Cultural</span>
+      </h1>
+    </div>
+  </div>
+
+  {# --- CONTENIDO --- #}
+  <div class="container" style="max-width: 1200px; margin: 60px auto 100px auto; padding: 0 20px;">
+    <div class="view-content">
+      {{ rows }}
+    </div>
+
+    {% if pager %}
+      <div style="margin-top: 50px; display: flex; justify-content: center;">
+        {{ pager }}
+      </div>
+    {% endif %}
+  </div>
+
+</div>

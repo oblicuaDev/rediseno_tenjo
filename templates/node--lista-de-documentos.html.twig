@@ -1,0 +1,46 @@
+{# node--lista-de-documentos.html.twig #}
+<article class="lista-documental">
+
+  {# BANNER SUPERIOR VERDE #}
+  <header class="lista-header-verde">
+    <div class="container">
+      <nav class="breadcrumb-custom">
+        <a href="/">INICIO</a> <span style="opacity: 0.5; margin: 0 5px;">/</span> <span>{{ label|render|striptags|upper }}</span>
+      </nav>
+      <h1 class="lista-titulo-principal">{{ label|render|striptags }}</h1>
+      {% if node.field_mini_descripcion.value %}
+        <div class="lista-mini-desc">
+          {{ node.field_mini_descripcion.value }}
+        </div>
+      {% endif %}
+    </div>
+  </header>
+
+  <div class="container lista-cuerpo-wrap">
+    
+    {# DESCRIPCIÓN INTRODUCTORIA (Usamos .value|raw para evitar el label "Descripción sección") #}
+    {% if node.field_descripcion_seccion.value %}
+      <section class="lista-body-text">
+        {{ node.field_descripcion_seccion.value|raw }}
+      </section>
+    {% endif %}
+
+    {# LISTADO DE ACORDEONES #}
+    {% if content.field_acordeones|render|trim %}
+      <section class="lista-sistema-acordeones">
+        {# Imprimimos el campo. RECUERDA: En "Gestionar presentación" pon la etiqueta como <Oculto> #}
+        {{ content.field_acordeones }}
+      </section>
+    {% endif %}
+
+    {# BOTÓN DE ACCIÓN FINAL (SUCOP / EXTERNOS) #}
+    {% if not node.field_field_enlace_final.isEmpty %}
+      <div class="lista-accion-final">
+        <a href="{{ node.field_field_enlace_final.0.url }}" class="btn-institucional-rojo" {% if node.field_field_enlace_final.0.url.external %}target="_blank" rel="noopener noreferrer"{% endif %}>
+          {{ node.field_field_enlace_final.0.title }}
+        </a>
+      </div>
+    {% endif %}
+    
+  </div>
+</article>

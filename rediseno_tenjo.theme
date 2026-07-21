@@ -1,0 +1,16 @@
+<?php
+
+/**
+ * Implements hook_preprocess_page().
+ */
+function rediseno_tenjo_preprocess_page(array &$variables) {
+
+  $view = \Drupal\views\Views::getView('noticias');
+
+  if ($view) {
+    $view->setDisplay('block_ultimas_noticias');
+    $view->execute();
+
+    $variables['ultimas_noticias'] = $view->render();
+  }
+}

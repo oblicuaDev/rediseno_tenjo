@@ -1,0 +1,84 @@
+{# 
+  Plantilla: Contenedor Principal Representantes Consejo de Cultura
+  Crea el Hero y convierte las filas por defecto de Drupal en una Grilla (Grid)
+#}
+<style>
+  body, html { overflow-x: hidden; }
+  
+  /* Forzamos la cuadrícula de 3 columnas */
+  .view-representantes-cultura .view-content {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)) !important;
+    gap: 30px !important;
+    margin-top: 40px !important;
+  }
+
+  /* Convertimos la fila por defecto de Drupal en una tarjeta */
+  .view-representantes-cultura .views-row {
+    background: #ffffff !important;
+    border-radius: 15px !important;
+    overflow: hidden !important;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05) !important;
+    transition: transform 0.3s ease !important;
+    border: 1px solid #EBE9E0 !important;
+    text-align: center !important;
+    margin: 0 !important;
+    padding: 0 0 25px 0 !important; /* Espacio inferior para el texto */
+    display: block !important;
+  }
+
+  .view-representantes-cultura .views-row:hover {
+    transform: translateY(-10px) !important;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1) !important;
+  }
+
+  /* Forzamos a que la imagen que imprime la vista quede perfecta arriba */
+  .view-representantes-cultura .views-row img {
+    width: 100% !important;
+    height: 280px !important;
+    object-fit: cover !important;
+    margin-bottom: 20px !important;
+  }
+</style>
+
+<div class="view-representantes-cultura">
+  
+  {# --- HERO VERDE INSTITUCIONAL --- #}
+  <div class="page-hero" style="margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw); width: 100vw; background-color: var(--verde-medio); padding: 60px 0; color: #ffffff;">
+    <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+      
+      <div class="page-hero-breadcrumb" style="margin-bottom: 20px; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; display: flex; align-items: center; gap: 8px; color: rgba(255,255,255,0.7);">
+        <a href="/es" style="color: #fff; text-decoration: none;">INICIO</a>
+        <span class="sep" style="display: flex; align-items: center;">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </span>
+        <span>REPRESENTANTES CONSEJO DE CULTURA</span>
+      </div>
+
+      <h1 style="color: #fff; font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 800; margin: 0;">
+        Representantes <span style="color: #D4A843;">Consejo de Cultura</span>
+      </h1>
+      
+      <p style="margin-top: 20px; font-size: 1.1rem; max-width: 800px; opacity: 0.9; line-height: 1.6;">
+        El Instituto Municipal de Cultura y Turismo de Tenjo presenta a la comunidad los representantes del Consejo de Cultura electos para el periodo 2022-2026.
+      </p>
+    </div>
+  </div>
+
+  {# --- CONTENIDO CENTRALIZADO --- #}
+  <div class="container" style="max-width: 1200px; margin: 60px auto 100px auto; padding: 0 20px;">
+    
+    {# Aquí Drupal imprimirá las filas normales, pero el CSS de arriba las convertirá en tarjetas #}
+    <div class="view-content">
+      {{ rows }}
+    </div>
+
+    {% if pager %}
+      <div style="margin-top: 50px; display: flex; justify-content: center;">
+        {{ pager }}
+      </div>
+    {% endif %}
+    
+  </div>
+
+</div>

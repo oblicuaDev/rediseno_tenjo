@@ -1,0 +1,27 @@
+{# node--perfil.html.twig - Versión con condicional de fotografía #}
+{% set nombre = label|render|striptags|trim %}
+
+{# Validación segura para evitar errores si el objeto de la imagen no existe #}
+{% set foto = '' %}
+{% if node.field_fotografia.entity and node.field_fotografia.entity.field_media_image.entity %}
+  {% set foto = file_url(node.field_fotografia.entity.field_media_image.entity.uri.value) %}
+{% endif %}
+
+<article class="team-card js-perfil-trigger {{ not foto ? 'no-photo' }}" data-nombre="{{ nombre }}" data-cargo="{{ node.field_cargo.value|trim }}" data-foto="{{ foto }}">
+  {# La clase aquí debe ser exactamente la que busca el JS #}
+  <div class="hidden-bio-content" style="display:none !important;">{{ node.field_biografia.value|raw }}</div>
+
+  {# Condicional para pintar la imagen solo si existe el archivo #}
+  {% if foto %}
+    <div class="team-img">
+      <img src="{{ foto }}" alt="{{ nombre }}">
+    </div>
+  {% endif %}
+
+  <div class="team-info">
+    <span class="team-role" style="color:var(--acento); font-weight:800; font-size:0.75rem; letter-spacing:1px; display:block; margin-bottom:8px;">{{ node.field_cargo.value|upper|trim }}</span>
+    <h3 class="team-name">{{ nombre }}</h3>
+    <div class="team-bio">{{ node.field_biografia.value|striptags|trim }}</div>
+    <div style="margin-top:15px; color:var(--acento); font-weight:700; font-size:0.8rem;">VER PERFIL COMPLETO +</div>
+  </div>
+</article>

@@ -1,0 +1,101 @@
+{#
+  Plantilla: Contenedor Principal Vista ARTENJO
+  Archivo: views-view--artenjo.html.twig
+#}
+<style>
+  body, html { overflow-x: hidden; }
+  .accordion-content { display: none; }
+  .accordion-header .accordion-chevron { transition: transform 0.3s ease; }
+  .accordion-header.activo .accordion-chevron { transform: rotate(180deg); }
+
+  /* Galería de ediciones Artenjo */
+  .artenjo-galeria {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 50px;
+  }
+  .artenjo-galeria-img {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.10);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: block;
+  }
+  .artenjo-galeria-img:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+  }
+  @media (max-width: 767px) {
+    .artenjo-galeria {
+      grid-template-columns: 1fr;
+      gap: 15px;
+    }
+    .artenjo-galeria-img { height: 200px; }
+  }
+</style>
+
+<div class="pagina-estatica-artenjo">
+
+  {# --- 1. HERO INSTITUCIONAL --- #}
+  <div class="page-hero" style="margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw); width: 100vw; max-width: 100vw; background-color: var(--verde-medio, #1a3c28); padding: 60px 0; color: #ffffff;">
+    <div class="container page-hero-inner" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+
+      <div class="page-hero-breadcrumb" style="margin-bottom: 20px; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; display: flex; align-items: center; gap: 8px; color: rgba(255,255,255,0.7);">
+        <a href="/es" style="color: #fff; text-decoration: none;">INICIO</a>
+        <span class="sep">></span>
+        <span>TENJO CULTURAL</span>
+        <span class="sep">></span>
+        <span>ARTENJO</span>
+      </div>
+
+      <h1 style="color: #fff; font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 800; line-height: 1.15; margin: 0;">
+        Portafolio de Estímulos <br>
+        <span style="color: var(--acento, #D4A843);">ARTENJO</span>
+      </h1>
+
+    </div>
+  </div>
+
+  {# --- 2. CONTENIDO PRINCIPAL --- #}
+  <div class="container" style="max-width: 1100px; margin: 50px auto 100px auto; padding: 0 20px;">
+
+    {# Banner Principal #}
+    <div style="margin-bottom: 40px; border-radius: 15px; overflow: hidden; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+      <img src="https://tenjoculturayturismo.gov.co/wp-content/uploads/WhatsApp-Image-2025-04-24-at-4.42.56-PM.jpeg" alt="Banner Artenjo" style="width: 100%; height: auto; display: block;">
+    </div>
+
+    {# Texto Introductorio #}
+    <div style="background-color: #F8F9F3; border-radius: 12px; padding: 35px; border: 1px solid #EBE9E0; margin-bottom: 40px;">
+      <p style="font-size: 1.1rem; line-height: 1.8; color: #444; margin-bottom: 15px;">
+        El <strong>Portafolio Municipal de Estímulos Artísticos ARTENJO</strong>, es el programa que impulsa y consolida procesos sostenibles de creación, investigación, circulación, formación y el fortalecimiento de las expresiones artísticas y culturales en el municipio de Tenjo.
+      </p>
+      <p style="font-size: 1.1rem; line-height: 1.8; color: #444; margin: 0;">
+        A través de una convocatoria pública, se asignan recursos económicos en modalidad de estímulos para apoyar artistas, creadores, gestores, colectivos y organizaciones culturales, patrimoniales y turísticas que tengan sede y residencia en el municipio. Aquí podrás consultar toda la información necesaria para participar.
+      </p>
+    </div>
+
+    {# Galería de Ediciones #}
+    <div class="artenjo-galeria">
+      <img class="artenjo-galeria-img" src="https://tenjoculturayturismo.gov.co/wp-content/uploads/artenjo-2026.jpeg" alt="Artenjo 2026">
+      <img class="artenjo-galeria-img" src="https://tenjoculturayturismo.gov.co/wp-content/uploads/artenjo-2025.jpeg" alt="Artenjo 2025">
+      <img class="artenjo-galeria-img" src="https://tenjoculturayturismo.gov.co/wp-content/uploads/artenjo-2024.jpeg" alt="Artenjo 2024">
+    </div>
+
+    {# --- 3. ACORDEONES DINÁMICOS DE LA VISTA --- #}
+    <h2 style="font-size: 1.8rem; color: var(--verde-oscuro, #1a3c28); font-weight: 800; margin: 0 0 25px 0; text-align: center; border-bottom: 2px solid #EBE9E0; padding-bottom: 10px;">
+      Convocatorias por Año
+    </h2>
+
+    {{ rows }}
+
+    {% if not rows %}
+      <div style="text-align: center; padding: 40px; color: #666; border: 1px dashed #ccc; border-radius: 12px;">
+        <p>No hay documentos de ARTENJO publicados actualmente.</p>
+      </div>
+    {% endif %}
+
+  </div>
+</div>

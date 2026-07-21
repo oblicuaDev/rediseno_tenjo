@@ -1,0 +1,18 @@
+<article{{ attributes.addClass('page-institucional') }}>
+  {# Cabecera de la página con el diseño de Claude #}
+  <header class="page-header section-padding-small">
+    <div class="container">
+      <h1 class="page-title">{{ label }}</h1>
+      {% if node.field_resumen %}
+        <p class="page-subtitle">{{ content.field_resumen }}</p>
+      {% endif %}
+    </div>
+  </header>
+
+  <div class="container page-body-wrapper section-padding">
+    {# El contenido que escribas en el editor de Drupal saldrá aquí #}
+    <div class="content-rich-text">
+      {{ content.body }}
+    </div>
+  </div>
+</article>

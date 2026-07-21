@@ -1,0 +1,217 @@
+<div class="pagina-estatica-entes">
+  <style>
+    /* Evitar scroll horizontal */
+    body, html { overflow-x: hidden; }
+
+    /* === ESTILOS PARA LA GRILLA Y TARJETAS === */
+    .grilla-entes {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .tarjeta-ente {
+      background: #fff;
+      border-radius: 12px;
+      border: 1px solid #EBE9E0;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+      padding: 35px 25px;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    .tarjeta-ente:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    }
+
+    .ente-logo-wrapper {
+      height: 100px;
+      margin-bottom: 25px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .ente-logo {
+      max-height: 100%;
+      max-width: 80%;
+      object-fit: contain;
+    }
+
+    .ente-titulo {
+      color: var(--verde-oscuro, #1a3c28);
+      font-size: 1.3rem;
+      font-weight: 800;
+      margin: 0 0 15px 0;
+      text-align: center;
+      line-height: 1.3;
+    }
+
+    .ente-meta {
+      font-size: 0.95rem;
+      color: #444;
+      margin-bottom: 25px;
+      flex-grow: 1; /* Empuja el botón siempre hacia abajo */
+    }
+
+    .ente-meta p {
+      margin: 0 0 12px 0;
+      line-height: 1.5;
+    }
+
+    .ente-meta strong {
+      color: var(--verde-oscuro, #1a3c28);
+      font-weight: 700;
+    }
+
+    .ente-boton {
+      display: block;
+      text-align: center;
+      background: var(--verde-oscuro, #1a3c28);
+      color: #fff !important;
+      padding: 12px;
+      border-radius: 6px;
+      text-decoration: none !important;
+      font-weight: 700;
+      font-size: 0.9rem;
+      transition: all 0.3s ease;
+      margin-top: auto;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .ente-boton:hover {
+      background: var(--acento, #D4A843);
+      color: #111 !important;
+    }
+  </style>
+
+  {# --- HERO INSTITUCIONAL --- #}
+  <div class="page-hero" style="width: 100vw; max-width: 100vw; margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw); background-color: var(--verde-medio, #1a3c28); padding: 80px 0 60px 0; color: #ffffff; position: relative; left: 0; right: 0; display: block; box-sizing: border-box;">
+    <div class="container page-hero-inner" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+
+      <div class="page-hero-breadcrumb" style="margin-bottom: 25px; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; display: flex; align-items: center; gap: 8px; color: rgba(255,255,255,0.7);">
+        <a href="/" style="color: #fff; text-decoration: none;">Inicio</a>
+        <span class="sep">></span>
+        <a href="/transparencia" style="color: #fff; text-decoration: none;">Transparencia</a>
+        <span class="sep">></span>
+        <span>Entes y Autoridades</span>
+      </div>
+
+      <h1 style="color: #fff; font-size: clamp(2.2rem, 5vw, 3.8rem); font-weight: 800; line-height: 1.1; margin: 0 0 20px 0;">
+        Entes y autoridades que lo <span style="color: var(--acento, #D4A843);">vigilan</span>
+      </h1>
+
+    </div>
+  </div>
+
+  {# --- CONTENIDO PRINCIPAL --- #}
+  <div class="container" style="max-width: 1200px; margin: 60px auto 100px auto; padding: 0 20px;">
+
+    <div class="grilla-entes">
+
+      <div class="tarjeta-ente">
+        <div class="ente-logo-wrapper">
+          <img class="ente-logo" src="https://tenjoculturayturismo.gov.co/wp-content/themes/yootheme/cache/procuraduria-53340e8f.webp" alt="Procuradur&iacute;a General de la Naci&oacute;n">
+        </div>
+        <h3 class="ente-titulo">Procuradur&iacute;a General de la Naci&oacute;n</h3>
+        <div class="ente-meta">
+          <p><strong>Direcci&oacute;n:</strong> Carrera 10 # 16 - 82 - BOGOT&Aacute; REGIONAL (CUNDINAMARCA)</p>
+          <p><strong>Tel&eacute;fono:</strong> 601 587 8750</p>
+          <p><strong>E-mail:</strong> <a href="mailto:quejas@procuraduria.gov.co" style="color: inherit;">quejas@procuraduria.gov.co</a></p>
+          <p><strong>Tipo de control:</strong> Disciplinario</p>
+        </div>
+        <a href="https://www.procuraduria.gov.co" target="_blank" rel="noopener" class="ente-boton">Portal Web</a>
+      </div>
+
+      <div class="tarjeta-ente">
+        <div class="ente-logo-wrapper">
+          <img class="ente-logo" src="https://tenjoculturayturismo.gov.co/wp-content/themes/yootheme/cache/contraloria-ddd436d4.webp" alt="Contralor&iacute;a General de la Rep&uacute;blica">
+        </div>
+        <h3 class="ente-titulo">Contralor&iacute;a General de la Rep&uacute;blica</h3>
+        <div class="ente-meta">
+          <p><strong>Direcci&oacute;n:</strong> Carrera 69 No 44-35, Bogot&aacute;, Colombia</p>
+          <p><strong>Tel&eacute;fono:</strong> 601 518 7000</p>
+          <p><strong>E-mail:</strong> <a href="mailto:cgr@contraloria.gov.co" style="color: inherit;">cgr@contraloria.gov.co</a></p>
+          <p><strong>Tipo de control:</strong> Fiscal</p>
+        </div>
+        <a href="https://www.contraloria.gov.co/" target="_blank" rel="noopener" class="ente-boton">Portal Web</a>
+      </div>
+
+      <div class="tarjeta-ente">
+        <div class="ente-logo-wrapper">
+          <img class="ente-logo" src="/sites/default/files/2026-07/logo_contraloria_200x200.png" alt="Contralor&iacute;a Departamental de Cundinamarca">
+        </div>
+        <h3 class="ente-titulo">Contralor&iacute;a Departamental de Cundinamarca</h3>
+        <div class="ente-meta">
+          <p><strong>Direcci&oacute;n:</strong> Calle 49 No. 13 - 33, Bogot&aacute;, Cundinamarca</p>
+          <p><strong>Tel&eacute;fono:</strong> 601 339 4460</p>
+          <p><strong>E-mail:</strong> <a href="mailto:radicacion@contraloria-cundinamarca.gov.co" style="color: inherit;">radicacion@contraloria-cundinamarca.gov.co</a></p>
+          <p><strong>Tipo de control:</strong> Fiscal</p>
+        </div>
+        <a href="https://www.contraloria-cundinamarca.gov.co/" target="_blank" rel="noopener" class="ente-boton">Portal Web</a>
+      </div>
+
+      <div class="tarjeta-ente">
+        <div class="ente-logo-wrapper">
+          <img class="ente-logo" src="https://tenjoculturayturismo.gov.co/wp-content/themes/yootheme/cache/Logo-Personeria-Tenjo-8a8bd9e2.webp" alt="Person&eacute;r&iacute;a Municipal de Tenjo">
+        </div>
+        <h3 class="ente-titulo">Person&eacute;r&iacute;a Municipal de Tenjo</h3>
+        <div class="ente-meta">
+          <p><strong>Direcci&oacute;n:</strong> Cra 3 No.2-74, Tenjo, Cundinamarca Colombia</p>
+          <p><strong>Tel&eacute;fono:</strong> 601 864 6806</p>
+          <p><strong>E-mail:</strong> <a href="mailto:personeria@tenjo-cundinamarca.gov.co" style="color: inherit;">personeria@tenjo-cundinamarca.gov.co</a></p>
+          <p><strong>Tipo de control:</strong> Disciplinario</p>
+        </div>
+        <a href="https://www.personeria-tenjo.gov.co/" target="_blank" rel="noopener" class="ente-boton">Portal Web</a>
+      </div>
+
+      <div class="tarjeta-ente">
+        <div class="ente-logo-wrapper">
+          <img class="ente-logo" src="https://tenjoculturayturismo.gov.co/wp-content/themes/yootheme/cache/Concejo-Municipal-12e460e7.webp" alt="Concejo Municipal de Tenjo">
+        </div>
+        <h3 class="ente-titulo">Concejo Municipal de Tenjo</h3>
+        <div class="ente-meta">
+          <p><strong>Direcci&oacute;n:</strong> Cra 3 No.2-74, Tenjo, Cundinamarca Colombia</p>
+          <p><strong>Tel&eacute;fono:</strong> 310 326 9216</p>
+          <p><strong>E-mail:</strong> <a href="mailto:secretariaconcejo@concejo-tenjo-cundinamarca.gov.co" style="color: inherit;">secretariaconcejo@concejo-tenjo-cundinamarca.gov.co</a></p>
+          <p><strong>Tipo de control:</strong> Pol&iacute;tico</p>
+        </div>
+        <a href="https://www.concejo-tenjo-cundinamarca.gov.co/" target="_blank" rel="noopener" class="ente-boton">Portal Web</a>
+      </div>
+
+      <div class="tarjeta-ente">
+        <div class="ente-logo-wrapper">
+          <img class="ente-logo" src="/sites/default/files/2026-07/funcionpublica.png" alt="Departamento Administrativo de la Funci&oacute;n P&uacute;blica">
+        </div>
+        <h3 class="ente-titulo">Departamento Administrativo de la Funci&oacute;n P&uacute;blica &ndash; DAFP</h3>
+        <div class="ente-meta">
+          <p><strong>Direcci&oacute;n:</strong> Carrera 6 No. 12-62, Bogot&aacute; D. C., Colombia</p>
+          <p><strong>Tel&eacute;fono:</strong> (+57) 601 595 6600</p>
+          <p><strong>E-mail:</strong> <a href="mailto:eva@funcionpublica.gov.co" style="color: inherit;">eva@funcionpublica.gov.co</a></p>
+          <p><strong>Tipo de control:</strong> Regulatorio</p>
+        </div>
+        <a href="https://www.funcionpublica.gov.co" target="_blank" rel="noopener" class="ente-boton">Portal Web</a>
+      </div>
+
+      <div class="tarjeta-ente">
+        <div class="ente-logo-wrapper">
+          <img class="ente-logo" src="/sites/default/files/2026-07/secretransparencia%20%281%29.png" alt="Secretar&iacute;a de Transparencia de la Presidencia">
+        </div>
+        <h3 class="ente-titulo">Secretar&iacute;a de Transparencia de la Presidencia</h3>
+        <div class="ente-meta">
+          <p><strong>Direcci&oacute;n:</strong> Casa de Nari&ntilde;o, Carrera 8 No. 7-26, Bogot&aacute;</p>
+          <p><strong>Tel&eacute;fono:</strong> (+57 601) 562 9300 &ndash; 382 2800</p>
+          <p><strong>E-mail:</strong> <a href="mailto:contacto@presidencia.gov.co" style="color: inherit;">contacto@presidencia.gov.co</a></p>
+          <p><strong>Tipo de control:</strong> Regulatorio</p>
+        </div>
+        <a href="https://www.secretariatransparencia.gov.co" target="_blank" rel="noopener" class="ente-boton">Portal Web</a>
+      </div>
+
+    </div>
+  </div>
+</div>

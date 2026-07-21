@@ -1,0 +1,17 @@
+{#
+  Template: Lista de resultados de búsqueda
+  Hook: item_list__search_results
+  Variables: title, items, list_type, list_attributes, attributes, empty
+#}
+{% if items %}
+  <ol class="resultados-lista">
+    {% for item in items %}
+      <li class="resultado-item">{{ item.value }}</li>
+    {% endfor %}
+  </ol>
+{% else %}
+  <div class="resultados-vacios">
+    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="var(--verde-oscuro, #1a3c28)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+    <p>No se encontraron resultados para su búsqueda. Intente con otras palabras clave.</p>
+  </div>
+{% endif %}

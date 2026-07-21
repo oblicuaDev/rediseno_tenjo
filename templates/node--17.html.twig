@@ -1,0 +1,125 @@
+{# 
+  Plantilla Estática para: Presentación (Estructura Operativa)
+  Archivo: node--17.html.twig
+#}
+<div class="pagina-estatica-presentacion">
+
+  {# --- 1. HERO INSTITUCIONAL --- #}
+  <div class="page-hero" style="width: 100vw; position: relative; left: 50%; right: 50%; margin-left: -50vw; margin-right: -50vw; background-color: var(--verde-medio, #1a3c28); padding: 60px 0; color: #ffffff;">
+    <div class="container page-hero-inner" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+      
+      {# Migas de pan #}
+      <div class="page-hero-breadcrumb" style="margin-bottom: 20px; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; display: flex; align-items: center; gap: 8px; color: rgba(255,255,255,0.7);">
+        <a href="/es" style="color: #fff; text-decoration: none;">INICIO</a>
+        <span class="sep">></span>
+        <a href="#" style="color: #fff; text-decoration: none;">TENJO CULTURAL</a>
+        <span class="sep">></span>
+        <span>PRESENTACIÓN</span>
+      </div>
+
+      {# Título #}
+      <h1 style="color: #fff; font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 800; line-height: 1.15; margin: 0;">
+        Presentación <br><span style="color: var(--acento, #D4A843);">Estructura Operativa</span>
+      </h1>
+      <p style="color: rgba(255,255,255,0.8); max-width: 700px; font-size: 1.1rem; margin-top: 15px;">
+        Ficha Técnica de la estructura operativa en la Escuela de Formación Artística y Cultural de Tenjo.
+      </p>
+    </div>
+  </div>
+
+  {# --- 2. CONTENIDO PRINCIPAL --- #}
+  <div class="container" style="max-width: 1100px; margin: 60px auto 100px auto; padding: 0 20px;">
+    
+    {# Tabla Moderna #}
+    <div style="margin-bottom: 60px;">
+      <div style="overflow-x: auto; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.06); border: 1px solid #EBE9E0;">
+        <table style="width: 100%; border-collapse: collapse; background-color: #fff; text-align: left; font-size: 0.95rem;">
+          <thead>
+            <tr style="background-color: var(--verde-xclaro, #E8F0EA); color: var(--verde-oscuro, #1a3c28);">
+              <th style="padding: 18px 25px; font-weight: 800; border-bottom: 2px solid #D0E0D6;">Ítem</th>
+              <th style="padding: 18px 25px; font-weight: 800; border-bottom: 2px solid #D0E0D6;">Activos a 2020</th>
+              <th style="padding: 18px 25px; font-weight: 800; border-bottom: 2px solid #D0E0D6;">Nuevos para el Cuatrienio</th>
+              <th style="padding: 18px 25px; font-weight: 800; border-bottom: 2px solid #D0E0D6;">Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom: 1px solid #f0f0f0;">
+              <td style="padding: 16px 25px; font-weight: 700; color: #333;">Programas de Formación Artística</td>
+              <td style="padding: 16px 25px; color: #666;">6</td>
+              <td style="padding: 16px 25px; color: #666;">1</td>
+              <td style="padding: 16px 25px; font-weight: 800; color: var(--acento, #D4A843); font-size: 1.1rem;">7</td>
+            </tr>
+            <tr style="border-bottom: 1px solid #f0f0f0;">
+              <td style="padding: 16px 25px; font-weight: 700; color: #333;">Áreas</td>
+              <td style="padding: 16px 25px; color: #666;">17</td>
+              <td style="padding: 16px 25px; color: #666;">3</td>
+              <td style="padding: 16px 25px; font-weight: 800; color: var(--acento, #D4A843); font-size: 1.1rem;">20</td>
+            </tr>
+            <tr>
+              <td style="padding: 16px 25px; font-weight: 700; color: #333;">Procesos</td>
+              <td style="padding: 16px 25px; color: #666;">51</td>
+              <td style="padding: 16px 25px; color: #666;">13</td>
+              <td style="padding: 16px 25px; font-weight: 800; color: var(--acento, #D4A843); font-size: 1.1rem;">64</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    {# Introducción al Glosario #}
+    <p style="font-size: 1.1rem; line-height: 1.8; color: #444; margin-bottom: 30px; text-align: center; max-width: 800px; margin-left: auto; margin-right: auto;">
+      <strong>En nuestra organización operativa, en especial la formación artística, ofrecemos procesos de formación con la siguiente estructura:</strong>
+    </p>
+
+    {# Cuadrícula de Tarjetas Conceptuales (Reemplazo de las pestañas antiguas) #}
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-bottom: 60px;">
+      
+      <div style="background: #fff; border: 1px solid #eee; border-top: 4px solid var(--verde-oscuro, #1a3c28); border-radius: 8px; padding: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.03);">
+        <h3 style="font-size: 1.15rem; color: var(--verde-oscuro, #1a3c28); font-weight: 800; margin-bottom: 12px; line-height: 1.3;">Escuela de Formación Artística y Cultural de Tenjo</h3>
+        <p style="font-size: 0.95rem; color: #555; line-height: 1.6; margin: 0;">Es el proceso misional subyacente de la Subdirección de Cultura, mediante el cual se organiza y desarrolla el Proyecto Institucional de Formación Artística (PIFA) dentro del Instituto Municipal de Cultura y Turismo de Tenjo.</p>
+      </div>
+
+      <div style="background: #fff; border: 1px solid #eee; border-top: 4px solid var(--acento, #D4A843); border-radius: 8px; padding: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.03);">
+        <h3 style="font-size: 1.15rem; color: var(--verde-oscuro, #1a3c28); font-weight: 800; margin-bottom: 12px; line-height: 1.3;">Proyecto Institucional de Formación Artística (PIFA)</h3>
+        <p style="font-size: 0.95rem; color: #555; line-height: 1.6; margin: 0;">Documento unificado de operación en donde se plasma la dinámica de la formación artística en el Instituto, el cual está conformado por los programas y planes de formación.</p>
+      </div>
+
+      <div style="background: #fff; border: 1px solid #eee; border-top: 4px solid var(--verde-oscuro, #1a3c28); border-radius: 8px; padding: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.03);">
+        <h3 style="font-size: 1.15rem; color: var(--verde-oscuro, #1a3c28); font-weight: 800; margin-bottom: 12px; line-height: 1.3;">Formación Artística</h3>
+        <p style="font-size: 0.95rem; color: #555; line-height: 1.6; margin: 0;">Espacio de educación informal organizada por medio de procesos que, además del desarrollo de habilidades en el arte, conlleva beneficios de tipo social como el buen aprovechamiento del tiempo libre.</p>
+      </div>
+
+      <div style="background: #fff; border: 1px solid #eee; border-top: 4px solid var(--acento, #D4A843); border-radius: 8px; padding: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.03);">
+        <h3 style="font-size: 1.15rem; color: var(--verde-oscuro, #1a3c28); font-weight: 800; margin-bottom: 12px; line-height: 1.3;">Proceso</h3>
+        <p style="font-size: 0.95rem; color: #555; line-height: 1.6; margin: 0;">Secuencia lógica de acciones que conllevan al alcance de un objetivo o meta predeterminados dentro de unos términos de tiempo y calidad. Evidenciado como la formación individual de un arte específico.</p>
+      </div>
+
+      <div style="background: #fff; border: 1px solid #eee; border-top: 4px solid var(--verde-oscuro, #1a3c28); border-radius: 8px; padding: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.03);">
+        <h3 style="font-size: 1.15rem; color: var(--verde-oscuro, #1a3c28); font-weight: 800; margin-bottom: 12px; line-height: 1.3;">Talleres</h3>
+        <p style="font-size: 0.95rem; color: #555; line-height: 1.6; margin: 0;">Espacios físicos y temporales en los cuales se desarrolla una enseñanza o práctica académica, científica o artística. Señalan la formación artística específica e individual (clarinete, pintura, escultura, etc.).</p>
+      </div>
+
+      <div style="background: #fff; border: 1px solid #eee; border-top: 4px solid var(--acento, #D4A843); border-radius: 8px; padding: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.03);">
+        <h3 style="font-size: 1.15rem; color: var(--verde-oscuro, #1a3c28); font-weight: 800; margin-bottom: 12px; line-height: 1.3;">Programa de Formación</h3>
+        <p style="font-size: 0.95rem; color: #555; line-height: 1.6; margin: 0;">Estructura disciplinaria que se compone de los diferentes planes de formación desarrollados en áreas y procesos. También aplica a la agrupación de áreas de una disciplina (Programa de Música, Literatura, etc.).</p>
+      </div>
+
+      <div style="background: #fff; border: 1px solid #eee; border-top: 4px solid var(--verde-oscuro, #1a3c28); border-radius: 8px; padding: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.03);">
+        <h3 style="font-size: 1.15rem; color: var(--verde-oscuro, #1a3c28); font-weight: 800; margin-bottom: 12px; line-height: 1.3;">Disciplina</h3>
+        <p style="font-size: 0.95rem; color: #555; line-height: 1.6; margin: 0;">Arte, facultad o ciencia que, aplicada al contexto institucional, se refiere a las disciplinas artísticas cuya naturaleza propia las diferencia de otros lenguajes artísticos (música, artes escénicas, artes plásticas).</p>
+      </div>
+
+      <div style="background: #fff; border: 1px solid #eee; border-top: 4px solid var(--acento, #D4A843); border-radius: 8px; padding: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.03);">
+        <h3 style="font-size: 1.15rem; color: var(--verde-oscuro, #1a3c28); font-weight: 800; margin-bottom: 12px; line-height: 1.3;">Área</h3>
+        <p style="font-size: 0.95rem; color: #555; line-height: 1.6; margin: 0;">Campo de acción formativo con características propias definidas por su práctica artística, organología, estilo, género o técnica. Ejemplo: piano, cuerdas pulsadas, músicas urbanas y modernas.</p>
+      </div>
+
+      <div style="background: #fff; border: 1px solid #eee; border-top: 4px solid var(--verde-oscuro, #1a3c28); border-radius: 8px; padding: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.03);">
+        <h3 style="font-size: 1.15rem; color: var(--verde-oscuro, #1a3c28); font-weight: 800; margin-bottom: 12px; line-height: 1.3;">Planes de Formación</h3>
+        <p style="font-size: 0.95rem; color: #555; line-height: 1.6; margin: 0;">Es la planeación estructurada por procesos de formación artística.</p>
+      </div>
+
+    </div>
+
+  </div>
+</div>

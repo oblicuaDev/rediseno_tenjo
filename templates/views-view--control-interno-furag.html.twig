@@ -1,0 +1,51 @@
+{#
+  Plantilla: Contenedor Principal Vista ÍNDICE DE DESEMPEÑO INSTITUCIONAL – FURAG
+  Archivo: views-view--control-interno-furag.html.twig
+#}
+<style>
+  body, html { overflow-x: hidden; }
+  .accordion-content { display: none; }
+  .accordion-header .accordion-chevron { transition: transform 0.3s ease; }
+  .accordion-header.activo .accordion-chevron { transform: rotate(180deg); }
+</style>
+
+<div class="pagina-estatica-control-interno-furag">
+
+  {# --- 1. HERO INSTITUCIONAL --- #}
+  <div class="page-hero" style="margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw); width: 100vw; max-width: 100vw; background-color: var(--verde-medio, #1a3c28); padding: 60px 0; color: #ffffff;">
+    <div class="container page-hero-inner" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+
+      <div class="page-hero-breadcrumb" style="margin-bottom: 20px; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; display: flex; align-items: center; gap: 8px; color: rgba(255,255,255,0.7);">
+        <a href="/es" style="color: #fff; text-decoration: none;">INICIO</a>
+        <span class="sep">></span>
+        <a href="/transparencia" style="color: #fff; text-decoration: none;">TRANSPARENCIA</a>
+        <span class="sep">></span>
+        <span>ÍNDICE DE DESEMPEÑO INSTITUCIONAL – FURAG</span>
+      </div>
+
+      <h1 style="color: #fff; font-size: clamp(2rem, 4vw, 3.5rem); font-weight: 800; line-height: 1.15; margin: 0;">
+        Índice de Desempeño <br>
+        <span style="color: var(--acento, #D4A843);">Institucional (FURAG)</span>
+      </h1>
+
+    </div>
+  </div>
+
+  {# --- 2. CONTENIDO PRINCIPAL --- #}
+  <div class="container" style="max-width: 1100px; margin: 50px auto 100px auto; padding: 0 20px;">
+
+    {# --- 3. ACORDEONES DINÁMICOS DE LA VISTA --- #}
+    <h2 style="font-size: 1.8rem; color: var(--verde-oscuro, #1a3c28); font-weight: 800; margin: 0 0 25px 0; text-align: center; border-bottom: 2px solid #EBE9E0; padding-bottom: 10px;">
+      Resultados FURAG por Año
+    </h2>
+
+    {{ rows }}
+
+    {% if not rows %}
+      <div style="text-align: center; padding: 40px; color: #666; border: 1px dashed #ccc; border-radius: 12px;">
+        <p>No hay documentos del Índice de Desempeño Institucional – FURAG publicados actualmente.</p>
+      </div>
+    {% endif %}
+
+  </div>
+</div>

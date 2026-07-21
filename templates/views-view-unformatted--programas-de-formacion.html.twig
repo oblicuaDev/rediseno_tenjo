@@ -1,0 +1,17 @@
+{#
+  Plantilla: Filas de la Vista de Programas de Formación
+  Archivo: views-view-unformatted--programas-de-formacion.html.twig
+  Nota: Las tarjetas son hijos directos de .programas-grid (CSS grid),
+  sin wrapper .views-row, para que las celdas se llenen correctamente.
+#}
+
+{# Si la vista tiene agrupación por área, el título abarca todas las columnas #}
+{% if title %}
+  <h2 class="programas-grupo-titulo" style="font-size: 1.8rem; color: var(--verde-oscuro, #1a3c28); font-weight: 800; margin: 40px 0 20px 0; width: 100%; grid-column: 1 / -1;">
+    {{ title|render|striptags|trim }}
+  </h2>
+{% endif %}
+
+{% for row in rows %}
+  {{ row.content }}
+{% endfor %}

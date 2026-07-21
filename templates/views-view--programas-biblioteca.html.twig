@@ -1,0 +1,33 @@
+{# views-view--programas-biblioteca.html.twig #}
+<div class="view-equipo-integrantes">
+
+  {# --- HERO --- #}
+  <div class="page-hero">
+    <div class="container page-hero-inner">
+      <div class="page-hero-breadcrumb">
+        <a href="/es">INICIO</a> <span class="sep">></span> <a href="#">TENJO CULTURAL</a> <span class="sep">></span> <span>PROGRAMAS DE BIBLIOTECA</span>
+      </div>
+      <h1>Programas de la <span>Biblioteca</span></h1>
+      <p class="page-hero-sub">
+        Brindar servicios bibliotecarios básicos de manera accesible, inclusiva y gratuita a toda la comunidad, con el fin de garantizar el derecho a la información, la educación, la cultura y el esparcimiento. La Biblioteca Pública busca organizar, conservar y poner a disposición recursos documentales, digitales y tecnológicos actualizados, atendiendo a las diversas necesidades y contextos socioculturales de sus usuarios. Además, promueve activamente el hábito de la lectura, la alfabetización informacional, la formación ciudadana y el aprendizaje a lo largo de la vida, convirtiéndose en un espacio democrático, seguro y participativo que fomente la integración social, el pensamiento crítico y el desarrollo integral de las personas, sin distinción de edad, género, origen o condición socioeconómica.
+      </p>
+    </div>
+  </div>
+
+  {# --- BARRA DE FILTROS --- #}
+  <div class="filtros-bar">
+    <div class="filtros-inner">
+      <button class="filtro-btn activo" data-filtro="todos">Todos los programas</button>
+      <button class="filtro-btn" data-filtro="promocion-de-lectura-escritura-y-oralidad">Promoción de Lectura</button>
+      <button class="filtro-btn" data-filtro="bilinguismo">Bilingüismo</button>
+      <button class="filtro-btn" data-filtro="patrimonio-y-memoria">Patrimonio y Memoria</button>
+      <button class="filtro-btn" data-filtro="alfabetizacion-digital">Alfabetización Digital</button>
+    </div>
+  </div>
+
+  {# --- GRILLA DE PROGRAMAS --- #}
+  <div class="programas-grid" id="contenedor-programas">
+    {{ rows }}
+  </div>
+
+</div>

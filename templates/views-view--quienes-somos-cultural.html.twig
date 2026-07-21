@@ -1,0 +1,66 @@
+{#
+  Plantilla: Contenedor Principal Vista QUIÉNES SOMOS (Tenjo Cultural)
+  Archivo: views-view--quienes-somos-cultural.html.twig
+#}
+<style>
+  body, html { overflow-x: hidden; }
+
+  /* Estilos para las grillas de cada grupo (se aplican en el agrupador) */
+  .equipo-grupo-grid {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)) !important;
+    gap: 30px !important;
+  }
+
+  .equipo-grupo-grid .views-row {
+    margin: 0 !important;
+    padding: 0 !important;
+    display: block !important;
+  }
+</style>
+
+<div class="view-quienes-somos-cultural">
+
+  {# --- HERO VERDE --- #}
+  <div class="page-hero" style="width: 100vw; max-width: 100vw; margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw); background-color: var(--verde-medio, #1a3c28); padding: 80px 0 60px 0; color: #ffffff;">
+    <div class="container page-hero-inner" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+
+      <div class="page-hero-breadcrumb" style="margin-bottom: 25px; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; display: flex; align-items: center; gap: 8px; color: rgba(255,255,255,0.7);">
+        <a href="/" style="color: #fff; text-decoration: none;">INICIO</a>
+        <span class="sep" style="display: flex; align-items: center;">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </span>
+        <span style="color: #fff;">TENJO CULTURAL</span>
+        <span class="sep" style="display: flex; align-items: center;">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"></polyline></svg>
+        </span>
+        <span>QUIÉNES SOMOS</span>
+      </div>
+
+      <h1 style="color: #fff; font-size: clamp(2.2rem, 5vw, 3.8rem); font-weight: 800; line-height: 1.1; margin: 0 0 20px 0;">
+        Quiénes <span style="color: var(--acento, #D4A843);">somos</span>
+      </h1>
+
+      <p class="page-hero-sub" style="font-size: 1.15rem; max-width: 850px; line-height: 1.6; opacity: 0.9; margin: 0;">
+        El Instituto Municipal de Cultura y Turismo de Tenjo cuenta con un talento humano excepcional, conformado por los profesionales de la Biblioteca Municipal y los gestores de nuestro Directorio Cultural.
+      </p>
+
+    </div>
+  </div>
+
+  {# --- CONTENIDO CENTRALIZADO --- #}
+  <div class="container" style="max-width: 1200px; margin: 60px auto 100px auto; padding: 0 20px; font-family: 'Montserrat', sans-serif;">
+
+    {# AQUÍ DRUPAL INYECTARÁ LOS GRUPOS SEPARADOS #}
+    <div class="view-content">
+      {{ rows }}
+
+      {% if not rows %}
+        <div style="padding: 40px; text-align: center; color: #777; border: 1px dashed #ccc; border-radius: 12px;">
+          No hay integrantes registrados en esta sección por el momento.
+        </div>
+      {% endif %}
+    </div>
+
+  </div>
+</div>

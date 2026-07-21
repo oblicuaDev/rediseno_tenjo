@@ -1,0 +1,58 @@
+{# views-view-fields--eventos.html.twig #}
+{% set nodo = row._entity %}
+
+{# Fecha (Con el nombre exacto de tu campo) #}
+{% set fecha_raw = nodo.field_fecha_del_evento.value %}
+
+{# Solo mostrar eventos de hoy o futuros. Los nodos siguen publicados para no romper URLs. #}
+{% set hoy = "now"|date("Y-m-d") %}
+{% if fecha_raw >= hoy %}
+
+{% set link = url('entity.node.canonical', {'node': nodo.id}) %}
+
+{# Imagen (Extraída desde Multimedia) #}
+{% set img_uri = nodo.field_imagen_principal.entity.field_media_image.entity.uri.value %}
+{% set img_url = img_uri ? file_url(img_uri) : '' %}
+
+{% set dia = fecha_raw|date('d') %}
+{% set mes = fecha_raw|date('M') %}
+
+{# Descripción Corta #}
+{% set descripcion = nodo.field_descripcion_del_evento.value %}
+
+<article class="noticia-card">
+  <div class="noticia-img-wrap">
+    <a href="{{ link }}">
+      {% if img_url %}
+        <img src="{{ img_url }}" alt="{{ nodo.title.value }}" loading="lazy">
+      {% else %}
+        <div class="img-placeholder" style="background: #eaeaea; height: 100%; width: 100%;"></div>
+      {% endif %}
+    </a>
+
+    <div class="noticia-fecha-badge">
+      <span class="badge-mes">{{ mes }}</span>
+      <span class="badge-dia">{{ dia }}</span>
+    </div>
+  </div>
+
+  <div class="noticia-content">
+    {% if nodo.field_categoria_del_evento.entity.name.value %}
+      <span class="noticia-categoria">{{ nodo.field_categoria_del_evento.entity.name.value }}</span>
+    {% endif %}
+
+    <h3 class="noticia-titulo">
+      <a href="{{ link }}">{{ nodo.title.value }}</a>
+    </h3>
+
+    {% if descripcion %}
+      <p class="evento-descripcion-corta" style="font-size: 0.95rem; color: #666; margin-bottom: 20px; line-height: 1.5;">
+        {{ descripcion|striptags|slice(0, 100) ~ '...' }}
+      </p>
+    {% endif %}
+
+    <a href="{{ link }}" class="btn-noticia-red">Conoce más</a>
+  </div>
+</article>
+
+{% endif %}
