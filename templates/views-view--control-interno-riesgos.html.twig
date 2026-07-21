@@ -2,6 +2,29 @@
   Plantilla: Contenedor Principal Vista EVALUACIÓN A LA ADMINISTRACIÓN DE RIESGOS
   Archivo: views-view--control-interno-riesgos.html.twig
 #}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "GovernmentService",
+  "name": "Evaluación a la Administración de Riesgos",
+  "description": "Informes de evaluación a la administración de riesgos del Instituto Municipal de Cultura y Turismo de Tenjo.",
+  "url": "{{ url('<current>') }}",
+  "provider": {
+    "@type": "GovernmentOrganization",
+    "name": "Instituto Municipal de Cultura y Turismo de Tenjo",
+    "url": "https://tenjoculturayturismo.gov.co"
+  },
+  "availableChannel": {
+    "@type": "ServiceChannel",
+    "serviceUrl": "{{ url('<current>') }}"
+  },
+  "category": "Transparencia y Acceso a la Información Pública",
+  "areaServed": {
+    "@type": "Place",
+    "name": "Tenjo, Cundinamarca, Colombia"
+  }
+}
+</script>
 <style>
   body, html { overflow-x: hidden; }
   .accordion-content { display: none; }

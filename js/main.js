@@ -479,8 +479,22 @@
           if (label) label.innerText = 'Seleccionar fecha hasta';
         });
 
-        // Permitir filtrar con solo una fecha: completar el campo vacío antes de enviar
-        form.addEventListener('submit', function () {
+        // Permitir filtrar con solo una fecha: completar el campo vacío antes de enviar.
+        // Se usa función compartida porque Drupal Views con AJAX intercepta el click del botón
+        // y NO dispara el evento nativo "submit" del formulario. Se necesita escuchar ambos.
+        function sumar6Meses(fechaStr) {
+          const d = new Date(fechaStr + 'T00:00:00');
+          d.setMonth(d.getMonth() + 6);
+          return d.toISOString().slice(0, 10);
+        }
+
+        function restar6Meses(fechaStr) {
+          const d = new Date(fechaStr + 'T00:00:00');
+          d.setMonth(d.getMonth() - 6);
+          return d.toISOString().slice(0, 10);
+        }
+
+        function completarFechasVacias() {
           minInputs.forEach((minInput, i) => {
             const maxInput = maxInputs[i];
             if (!maxInput) return;
@@ -489,13 +503,22 @@
             const tieneMax = maxInput.value.trim() !== '';
 
             if (tieneMin && !tieneMax) {
-              // Solo fecha inicial → mostrar desde esa fecha en adelante
-              maxInput.value = '2099-12-31';
+              // Solo fecha inicial → mostrar los 6 meses siguientes
+              maxInput.value = sumar6Meses(minInput.value);
             } else if (!tieneMin && tieneMax) {
-              // Solo fecha final → mostrar hasta esa fecha
-              minInput.value = '2000-01-01';
+              // Solo fecha final → mostrar los 6 meses anteriores
+              minInput.value = restar6Meses(maxInput.value);
             }
           });
+        }
+
+        // Para formularios sin AJAX
+        form.addEventListener('submit', completarFechasVacias);
+
+        // Para Drupal Views con AJAX: escuchar el click del botón en fase de captura
+        // (antes de que el handler AJAX de Drupal serialice el formulario)
+        form.querySelectorAll('input[type="submit"], button[type="submit"]').forEach(function (btn) {
+          btn.addEventListener('click', completarFechasVacias, true);
         });
 
       });

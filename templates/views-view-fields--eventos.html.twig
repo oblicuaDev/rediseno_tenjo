@@ -5,8 +5,10 @@
 {% set fecha_raw = nodo.field_fecha_del_evento.value %}
 
 {# Solo mostrar eventos de hoy o futuros. Los nodos siguen publicados para no romper URLs. #}
-{% set hoy = "now"|date("Y-m-d") %}
-{% if fecha_raw >= hoy %}
+{# Se usa zona horaria de Colombia (UTC-5) para evitar ocultar eventos del día actual desde las 7pm. #}
+{% set hoy = "now"|date("Y-m-d", "America/Bogota") %}
+{% set fecha_normalizada = fecha_raw ? fecha_raw|date("Y-m-d", "America/Bogota") : '' %}
+{% if fecha_normalizada >= hoy %}
 
 {% set link = url('entity.node.canonical', {'node': nodo.id}) %}
 

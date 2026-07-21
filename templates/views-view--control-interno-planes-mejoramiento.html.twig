@@ -2,6 +2,29 @@
   Plantilla: Contenedor Principal Vista PLANES DE MEJORAMIENTO INTERNOS
   Archivo: views-view--control-interno-planes-mejoramiento.html.twig
 #}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "GovernmentService",
+  "name": "Planes de Mejoramiento Internos",
+  "description": "Planes de mejoramiento internos del Instituto Municipal de Cultura y Turismo de Tenjo.",
+  "url": "{{ url('<current>') }}",
+  "provider": {
+    "@type": "GovernmentOrganization",
+    "name": "Instituto Municipal de Cultura y Turismo de Tenjo",
+    "url": "https://tenjoculturayturismo.gov.co"
+  },
+  "availableChannel": {
+    "@type": "ServiceChannel",
+    "serviceUrl": "{{ url('<current>') }}"
+  },
+  "category": "Transparencia y Acceso a la Información Pública",
+  "areaServed": {
+    "@type": "Place",
+    "name": "Tenjo, Cundinamarca, Colombia"
+  }
+}
+</script>
 <style>
   body, html { overflow-x: hidden; }
   .accordion-content { display: none; }

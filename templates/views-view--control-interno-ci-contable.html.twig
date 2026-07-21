@@ -2,6 +2,29 @@
   Plantilla: Contenedor Principal Vista CONTROL INTERNO CONTABLE
   Archivo: views-view--control-interno-ci-contable.html.twig
 #}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "GovernmentService",
+  "name": "Control Interno Contable",
+  "description": "Informes de control interno contable del Instituto Municipal de Cultura y Turismo de Tenjo.",
+  "url": "{{ url('<current>') }}",
+  "provider": {
+    "@type": "GovernmentOrganization",
+    "name": "Instituto Municipal de Cultura y Turismo de Tenjo",
+    "url": "https://tenjoculturayturismo.gov.co"
+  },
+  "availableChannel": {
+    "@type": "ServiceChannel",
+    "serviceUrl": "{{ url('<current>') }}"
+  },
+  "category": "Transparencia y Acceso a la Información Pública",
+  "areaServed": {
+    "@type": "Place",
+    "name": "Tenjo, Cundinamarca, Colombia"
+  }
+}
+</script>
 <style>
   body, html { overflow-x: hidden; }
   .accordion-content { display: none; }

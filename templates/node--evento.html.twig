@@ -1,4 +1,44 @@
 {# node--evento.html.twig #}
+
+{# Schema.org: Event JSON-LD #}
+{% set _schema_evento = {
+  "@context": "https://schema.org",
+  "@type": "Event",
+  "name": node.title.value,
+  "startDate": node.field_fecha_del_evento.value,
+  "eventStatus": "https://schema.org/EventScheduled",
+  "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+  "organizer": {
+    "@type": "GovernmentOrganization",
+    "name": "Instituto Municipal de Cultura y Turismo de Tenjo",
+    "url": "https://tenjoculturayturismo.gov.co"
+  },
+  "location": {
+    "@type": "Place",
+    "name": node.field_direccion.value ?: "Centro Cultural Nhora Matallana, Tenjo",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": node.field_direccion.value ?: "Centro Cultural Nhora Matallana, Km 1, Vía La Punta",
+      "addressLocality": "Tenjo",
+      "addressRegion": "Cundinamarca",
+      "addressCountry": "CO"
+    }
+  }
+} %}
+{% if node.field_descripcion_del_evento.value %}
+  {% set _schema_evento = _schema_evento|merge({"description": node.field_descripcion_del_evento.value|striptags}) %}
+{% endif %}
+{% set _img_uri_evento = node.field_imagen_principal.entity.field_media_image.entity.uri.value %}
+{% if _img_uri_evento %}
+  {% set _schema_evento = _schema_evento|merge({"image": file_url(_img_uri_evento)}) %}
+{% endif %}
+{% if node.field_categoria_del_evento.entity.name.value %}
+  {% set _schema_evento = _schema_evento|merge({"keywords": node.field_categoria_del_evento.entity.name.value}) %}
+{% endif %}
+<script type="application/ld+json">
+{{ _schema_evento|json_encode(448)|raw }}
+</script>
+
 <article class="evento-interna container" style="margin-top: 40px; margin-bottom: 60px;">
   
   <div class="evento-layout">

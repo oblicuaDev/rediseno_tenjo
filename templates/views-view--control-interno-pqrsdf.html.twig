@@ -2,6 +2,29 @@
   Plantilla: Contenedor Principal Vista SEGUIMIENTO A LA ATENCIÓN DE PQRSDF
   Archivo: views-view--control-interno-pqrsdf.html.twig
 #}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "GovernmentService",
+  "name": "Seguimiento a la Atención de PQRSDF",
+  "description": "Informes de seguimiento a la atención de Peticiones, Quejas, Reclamos, Sugerencias, Denuncias y Felicitaciones (PQRSDF) del Instituto Municipal de Cultura y Turismo de Tenjo.",
+  "url": "{{ url('<current>') }}",
+  "provider": {
+    "@type": "GovernmentOrganization",
+    "name": "Instituto Municipal de Cultura y Turismo de Tenjo",
+    "url": "https://tenjoculturayturismo.gov.co"
+  },
+  "availableChannel": {
+    "@type": "ServiceChannel",
+    "serviceUrl": "{{ url('<current>') }}"
+  },
+  "category": "Transparencia y Acceso a la Información Pública",
+  "areaServed": {
+    "@type": "Place",
+    "name": "Tenjo, Cundinamarca, Colombia"
+  }
+}
+</script>
 <style>
   body, html { overflow-x: hidden; }
   .accordion-content { display: none; }
