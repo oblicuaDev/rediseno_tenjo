@@ -1,0 +1,82 @@
+{#
+  Plantilla: Lógica de agrupación para TRANSPARENCIA PASIVA
+  Numeral 9.2 — Ley 1712 de 2014
+  Archivo: views-view-unformatted--transparencia-pasiva.html.twig
+#}
+
+{% if title %}
+  {# Limpiamos el título del grupo (año o categoría) #}
+  {% set anio_limpio = title|render|striptags|trim %}
+  {% set titulo_lower = anio_limpio|lower %}
+
+  <div class="accordion-item" style="border: 1px solid #EBE9E0; border-radius: 12px; background: #fff; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.02); margin-bottom: 15px;">
+
+    <button class="accordion-header" style="width: 100%; text-align: left; display: flex; align-items: center; padding: 20px 25px; cursor: pointer; background: transparent; border: none; font-weight: 800; color: var(--verde-oscuro, #1a3c28); font-size: 1.15rem; gap: 15px;">
+      <span style="background: var(--verde-xclaro, #E8F0EA); color: var(--verde-oscuro, #1a3c28); width: 38px; height: 38px; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 1rem; flex-shrink: 0;">&#128196;</span>
+      <span style="flex: 1;">
+        {% if anio_limpio %}
+          Vigencia {{ anio_limpio }}
+        {% else %}
+          Otras vigencias
+        {% endif %}
+      </span>
+      <span class="accordion-chevron" style="color: var(--acento, #D4A843); font-size: 1.2rem; transition: transform 0.3s ease;">▼</span>
+    </button>
+
+    <div class="accordion-content" style="padding: 25px; border-top: 1px solid #EBE9E0; background: #FCFAEF;">
+
+      {# === TEXTOS INFORMATIVOS POR VIGENCIA === #}
+
+      {% if '2026' in titulo_lower %}
+        <div style="margin-bottom: 20px; background: #F8F9F3; border-radius: 10px; padding: 18px 20px; border: 1px solid #EBE9E0;">
+          <p style="margin: 0; font-size: 0.93rem; color: #444; line-height: 1.6;">
+            Solicitudes de acceso a la información pública radicadas durante la vigencia <strong>2026</strong>
+            y atendidas conforme a la Ley 1712 de 2014. Consulta los informes, registros y actos
+            administrativos correspondientes.
+          </p>
+        </div>
+
+      {% elseif '2025' in titulo_lower %}
+        <div style="margin-bottom: 20px; background: #F8F9F3; border-radius: 10px; padding: 18px 20px; border: 1px solid #EBE9E0;">
+          <p style="margin: 0; font-size: 0.93rem; color: #444; line-height: 1.6;">
+            Solicitudes de acceso a la información pública radicadas durante la vigencia <strong>2025</strong>
+            y atendidas conforme a la Ley 1712 de 2014. Consulta los informes, registros y actos
+            administrativos correspondientes.
+          </p>
+        </div>
+
+      {% elseif '2024' in titulo_lower %}
+        <div style="margin-bottom: 20px; background: #F8F9F3; border-radius: 10px; padding: 18px 20px; border: 1px solid #EBE9E0;">
+          <p style="margin: 0; font-size: 0.93rem; color: #444; line-height: 1.6;">
+            Solicitudes de acceso a la información pública radicadas durante la vigencia <strong>2024</strong>
+            y atendidas conforme a la Ley 1712 de 2014. Consulta los informes, registros y actos
+            administrativos correspondientes.
+          </p>
+        </div>
+
+      {% else %}
+        <div style="margin-bottom: 20px; background: #F8F9F3; border-radius: 10px; padding: 18px 20px; border: 1px solid #EBE9E0;">
+          <p style="margin: 0; font-size: 0.93rem; color: #444; line-height: 1.6;">
+            Solicitudes de acceso a la información pública atendidas conforme a la Ley 1712 de 2014.
+          </p>
+        </div>
+      {% endif %}
+
+      {# === DOCUMENTOS DEL GRUPO === #}
+      <div class="documentos-lista" style="display: flex; flex-direction: column; gap: 12px;">
+        {% for row in rows %}
+          {{ row.content }}
+        {% endfor %}
+      </div>
+
+    </div>
+  </div>
+
+{% else %}
+  {# Sin agrupación: imprime los documentos directamente #}
+  <div class="documentos-lista" style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 20px;">
+    {% for row in rows %}
+      {{ row.content }}
+    {% endfor %}
+  </div>
+{% endif %}
