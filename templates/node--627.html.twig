@@ -1,0 +1,53 @@
+{#
+  Plantilla: Mapas y Cartas Descriptivas de Procesos
+  Numeral 1.3 — Transparencia y Acceso a la Información Pública
+  Archivo: node--627.html.twig
+#}
+
+<div class="pagina-mapas-cartas-descriptivas">
+
+  {# --- HERO --- #}
+  <section class="page-hero" style="margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw); width: 100vw; max-width: 100vw; background-color: var(--verde-medio, #1a3c28); padding: 60px 0; color: #ffffff;">
+    <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
+
+      <nav class="page-hero-breadcrumb" style="margin-bottom: 20px; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px; display: flex; align-items: center; gap: 8px; color: rgba(255,255,255,0.7); flex-wrap: wrap;">
+        <a href="/es" style="color: #fff; text-decoration: none;">INICIO</a>
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9,18 15,12 9,6"/></svg>
+        <a href="/transparencia" style="color: #fff; text-decoration: none;">TRANSPARENCIA</a>
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9,18 15,12 9,6"/></svg>
+        <span>1.3 MAPAS Y CARTAS DESCRIPTIVAS DE PROCESOS</span>
+      </nav>
+
+      <h1 style="color: #fff; font-size: clamp(1.8rem, 4vw, 3rem); font-weight: 800; line-height: 1.15; margin: 0;">
+        Mapas y Cartas <span style="color: var(--acento, #D4A843);">Descriptivas de Procesos</span>
+      </h1>
+
+    </div>
+  </section>
+
+  {# --- CONTENIDO --- #}
+  <div class="container" style="max-width: 1100px; margin: 50px auto 100px auto; padding: 0 20px;">
+
+    {# Imagen del mapa de procesos (desde el cuerpo del nodo) #}
+    <div class="imagen-mapa-procesos" style="text-align: center; margin-bottom: 40px;">
+      <style>
+        .pagina-mapas-cartas-descriptivas .field--name-body img,
+        .pagina-mapas-cartas-descriptivas .text-formatted img,
+        .imagen-mapa-procesos img {
+          max-width: 100% !important;
+          height: auto !important;
+          width: auto !important;
+          object-fit: contain !important;
+          display: block !important;
+          margin: 0 auto !important;
+        }
+      </style>
+      {{ content.body }}
+    </div>
+
+    {# --- Sección de documentos (se completará más adelante) --- #}
+    {# <ul class="documentos-lista"> ... </ul> #}
+
+  </div>
+
+</div>

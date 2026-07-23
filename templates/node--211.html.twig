@@ -1,7 +1,7 @@
 {#
   Plantilla: Escuela de Formación Artística y Cultural
   Archivo: node--211.html.twig
-  Estado: CONTENIDO PROVISIONAL — pendiente contenido real
+  Título desde {{ label }}, contenido administrable desde el campo body del nodo en Drupal
 #}
 <div class="pagina-estatica-escuela-formacion">
 
@@ -18,7 +18,7 @@
       </nav>
 
       <h1 style="color: #fff; font-size: clamp(2.2rem, 5vw, 3.8rem); font-weight: 800; line-height: 1.1; margin: 0 0 20px 0;">
-        Escuela de Formación <br><span style="color: var(--acento, #D4A843);">Artística y Cultural</span>
+        {{ label }}
       </h1>
 
       <p style="font-size: 1.15rem; max-width: 850px; line-height: 1.6; opacity: 0.9; margin: 0;">
@@ -28,46 +28,8 @@
     </div>
   </section>
 
-  {# --- CONTENIDO PROVISIONAL --- #}
+  {# --- CONTENIDO DESDE DRUPAL (body del nodo) --- #}
   <main class="container" style="max-width: 1100px; margin: 60px auto 100px auto; padding: 0 20px; font-family: 'Montserrat', sans-serif;">
-
-    <p style="font-size: 1.2rem; font-weight: 500; color: var(--verde-oscuro, #1a3c28); border-left: 4px solid var(--acento, #D4A843); padding-left: 20px; max-width: 900px; line-height: 1.8; margin-bottom: 50px;">
-      La Escuela de Formación Artística y Cultural del Instituto Municipal de Cultura y Turismo de Tenjo impulsa procesos sostenibles de creación, investigación y formación en diversas disciplinas artísticas para toda la comunidad.
-    </p>
-
-    <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 25px; margin-bottom: 60px;">
-
-      <div style="background: #F8F9F3; border: 1px solid #EBE9E0; border-radius: 12px; padding: 30px;">
-        <div style="width: 48px; height: 48px; background: var(--verde-oscuro, #1a3c28); border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 18px;">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polygon points="10,8 16,12 10,16 10,8"/></svg>
-        </div>
-        <h3 style="color: var(--verde-oscuro, #1a3c28); font-size: 1.15rem; font-weight: 800; margin: 0 0 10px 0;">Misión y Visión</h3>
-        <p style="color: #555; font-size: 0.95rem; line-height: 1.6; margin: 0;">Contenido provisional — próximamente información sobre el propósito y proyección de la escuela.</p>
-      </div>
-
-      <div style="background: #F8F9F3; border: 1px solid #EBE9E0; border-radius: 12px; padding: 30px;">
-        <div style="width: 48px; height: 48px; background: var(--verde-oscuro, #1a3c28); border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 18px;">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
-        </div>
-        <h3 style="color: var(--verde-oscuro, #1a3c28); font-size: 1.15rem; font-weight: 800; margin: 0 0 10px 0;">Oferta Formativa</h3>
-        <p style="color: #555; font-size: 0.95rem; line-height: 1.6; margin: 0;">Contenido provisional — próximamente el catálogo de programas y áreas de formación disponibles.</p>
-      </div>
-
-      <div style="background: #F8F9F3; border: 1px solid #EBE9E0; border-radius: 12px; padding: 30px;">
-        <div style="width: 48px; height: 48px; background: var(--verde-oscuro, #1a3c28); border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 18px;">
-          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
-        </div>
-        <h3 style="color: var(--verde-oscuro, #1a3c28); font-size: 1.15rem; font-weight: 800; margin: 0 0 10px 0;">Inscripciones y Calendario</h3>
-        <p style="color: #555; font-size: 0.95rem; line-height: 1.6; margin: 0;">Contenido provisional — próximamente fechas de inscripción y calendario académico.</p>
-      </div>
-
-    </div>
-
-    <div style="background: #FCFAEF; border: 1px dashed var(--acento, #D4A843); border-radius: 12px; padding: 30px; text-align: center;">
-      <p style="font-size: 1rem; color: #666; margin: 0;">
-        <strong style="color: var(--verde-oscuro, #1a3c28);">Contenido en preparación.</strong> Próximamente encontrarás aquí toda la información sobre la Escuela de Formación Artística y Cultural.
-      </p>
-    </div>
-
+    {{ content.body }}
   </main>
 </div>

@@ -8,66 +8,6 @@
   .accordion-content { display: none; }
   .accordion-header .accordion-chevron { transition: transform 0.3s ease; }
   .accordion-header.activo .accordion-chevron { transform: rotate(180deg); }
-
-  .tp-stat-card {
-    background: #fff;
-    border: 1px solid #EBE9E0;
-    border-radius: 12px;
-    padding: 24px 16px;
-    text-align: center;
-    flex: 1;
-    min-width: 140px;
-  }
-  .tp-stat-card .tp-stat-number {
-    font-size: 2rem;
-    font-weight: 800;
-    color: var(--verde-oscuro, #1a3c28);
-    line-height: 1;
-    margin-bottom: 6px;
-  }
-  .tp-stat-card .tp-stat-label {
-    font-size: 0.8rem;
-    color: #666;
-    line-height: 1.35;
-  }
-
-  .tp-step {
-    display: flex;
-    gap: 18px;
-    align-items: flex-start;
-    padding: 18px 0;
-    border-bottom: 1px solid #EBE9E0;
-  }
-  .tp-step:last-child { border-bottom: none; }
-  .tp-step-num {
-    background: var(--verde-oscuro, #1a3c28);
-    color: #fff;
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 800;
-    font-size: 0.95rem;
-    flex-shrink: 0;
-    margin-top: 2px;
-  }
-  .tp-step-body h4 { margin: 0 0 5px 0; font-size: 0.97rem; color: #1a3c28; font-weight: 700; }
-  .tp-step-body p  { margin: 0; font-size: 0.9rem; color: #555; line-height: 1.5; }
-
-  .tp-canal-card {
-    flex: 1;
-    min-width: 250px;
-    background: #fff;
-    border: 1px solid #EBE9E0;
-    border-radius: 12px;
-    padding: 24px;
-  }
-  .tp-canal-icon { font-size: 1.5rem; margin-bottom: 10px; }
-  .tp-canal-card h3 { margin: 0 0 8px 0; font-size: 1rem; color: #1a3c28; font-weight: 800; }
-  .tp-canal-card p  { margin: 0; font-size: 0.88rem; color: #555; line-height: 1.55; }
-
   .documentos-lista { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 12px; }
   .documento-item {
     display: flex;
@@ -111,7 +51,7 @@
   {# --- 2. CONTENIDO PRINCIPAL --- #}
   <div class="container" style="max-width: 1100px; margin: 50px auto 100px auto; padding: 0 20px;">
 
-    {# Marco legal #}
+    {# Párrafo introductorio #}
     <div style="background-color: #F8F9F3; border-radius: 12px; padding: 30px; border: 1px solid #EBE9E0; margin-bottom: 40px; font-size: 0.95rem; line-height: 1.7; color: #444;">
       <p style="margin: 0 0 12px 0;">
         La <strong>Transparencia Pasiva</strong> hace referencia a la obligación de atender y responder las
@@ -125,118 +65,7 @@
       </p>
     </div>
 
-    {# Estadísticas #}
-    <h2 style="font-size: 1.3rem; font-weight: 800; color: var(--verde-oscuro, #1a3c28); margin: 0 0 18px 0; padding-bottom: 10px; border-bottom: 2px solid var(--acento, #D4A843);">
-      Estadísticas de solicitudes de información
-    </h2>
-    <div style="display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 45px;">
-      <div class="tp-stat-card">
-        <div class="tp-stat-number">0</div>
-        <div class="tp-stat-label">Solicitudes<br>recibidas</div>
-      </div>
-      <div class="tp-stat-card">
-        <div class="tp-stat-number">0</div>
-        <div class="tp-stat-label">Solicitudes<br>respondidas</div>
-      </div>
-      <div class="tp-stat-card">
-        <div class="tp-stat-number">0</div>
-        <div class="tp-stat-label">En trámite</div>
-      </div>
-      <div class="tp-stat-card">
-        <div class="tp-stat-number">0</div>
-        <div class="tp-stat-label">Negadas /<br>Excepcionadas</div>
-      </div>
-      <div class="tp-stat-card">
-        <div class="tp-stat-number">20</div>
-        <div class="tp-stat-label">Días hábiles<br>máx. de respuesta</div>
-      </div>
-    </div>
-
-    {# ¿Cómo solicitar? #}
-    <h2 style="font-size: 1.3rem; font-weight: 800; color: var(--verde-oscuro, #1a3c28); margin: 0 0 12px 0; padding-bottom: 10px; border-bottom: 2px solid var(--acento, #D4A843);">
-      ¿Cómo presentar una solicitud de información?
-    </h2>
-    <div style="background: #FFF8E7; border: 1px solid #D4A843; border-radius: 10px; padding: 14px 20px; display: flex; gap: 12px; align-items: flex-start; font-size: 0.9rem; color: #5a4200; line-height: 1.5; margin-bottom: 22px;">
-      <span style="font-size: 1.2rem; flex-shrink: 0;">&#9432;</span>
-      <span>Toda persona tiene derecho a solicitar información pública <strong>sin necesidad de justificar</strong> el motivo. La respuesta debe entregarse en máximo <strong>20 días hábiles</strong>, prorrogables 10 días más con justificación previa.</span>
-    </div>
-    <div style="background: #fff; border: 1px solid #EBE9E0; border-radius: 12px; padding: 25px 30px; margin-bottom: 45px;">
-      <div class="tp-step">
-        <div class="tp-step-num">1</div>
-        <div class="tp-step-body">
-          <h4>Identifíquese (opcional)</h4>
-          <p>Puede radicar su solicitud de forma anónima o indicando nombre, documento y datos de contacto para recibir respuesta.</p>
-        </div>
-      </div>
-      <div class="tp-step">
-        <div class="tp-step-num">2</div>
-        <div class="tp-step-body">
-          <h4>Describa la información solicitada</h4>
-          <p>Indique de manera clara la información pública que desea consultar. No es necesario conocer el número del documento.</p>
-        </div>
-      </div>
-      <div class="tp-step">
-        <div class="tp-step-num">3</div>
-        <div class="tp-step-body">
-          <h4>Elija el canal de radicación</h4>
-          <p>Radique su solicitud en línea a través del sistema PQRSD, de forma presencial o por correo electrónico institucional.</p>
-        </div>
-      </div>
-      <div class="tp-step">
-        <div class="tp-step-num">4</div>
-        <div class="tp-step-body">
-          <h4>Reciba su número de radicado</h4>
-          <p>Se le asignará un número de radicado para hacer seguimiento al estado de su petición.</p>
-        </div>
-      </div>
-      <div class="tp-step">
-        <div class="tp-step-num">5</div>
-        <div class="tp-step-body">
-          <h4>Reciba la respuesta</h4>
-          <p>La entidad responderá en máximo <strong>20 días hábiles</strong>. En caso de prórroga, será notificado antes del vencimiento del plazo inicial.</p>
-        </div>
-      </div>
-    </div>
-
-    {# Canales de atención #}
-    <h2 style="font-size: 1.3rem; font-weight: 800; color: var(--verde-oscuro, #1a3c28); margin: 0 0 18px 0; padding-bottom: 10px; border-bottom: 2px solid var(--acento, #D4A843);">
-      Canales de atención
-    </h2>
-    <div style="display: flex; flex-wrap: wrap; gap: 16px; margin-bottom: 50px;">
-
-      <div class="tp-canal-card">
-        <div class="tp-canal-icon">&#128101;</div>
-        <h3>Sistema PQRSD en línea</h3>
-        <p style="margin-bottom: 14px;">Radique su solicitud directamente desde nuestra plataforma, disponible las 24 horas.</p>
-        <a href="https://tenjoculturayturismo.gov.co/apps/pqr_imctt/" target="_blank" rel="noopener" style="display: inline-block; background: var(--verde-oscuro, #1a3c28); color: #fff; padding: 9px 22px; border-radius: 25px; font-size: 0.85rem; font-weight: 700; text-decoration: none;">RADICAR SOLICITUD</a>
-      </div>
-
-      <div class="tp-canal-card">
-        <div class="tp-canal-icon">&#128205;</div>
-        <h3>Presencial</h3>
-        <p>
-          Carrera 3 N.º 3-41, Tenjo, Cundinamarca.<br>
-          <strong>Horario:</strong> Lunes a viernes, 8:00 a.m. – 5:00 p.m.<br>
-          <strong>Tel:</strong> (601) 857 10 27
-        </p>
-      </div>
-
-      <div class="tp-canal-card">
-        <div class="tp-canal-icon">&#128231;</div>
-        <h3>Correo electrónico</h3>
-        <p>
-          <strong>imctt@tenjoculturayturismo.gov.co</strong><br>
-          Asunto: <em>"Solicitud de Acceso a la Información"</em>.
-        </p>
-      </div>
-
-    </div>
-
-    {# --- 3. ACORDEONES DINÁMICOS DE LA VISTA --- #}
-    <h2 style="font-size: 1.3rem; font-weight: 800; color: var(--verde-oscuro, #1a3c28); margin: 0 0 20px 0; padding-bottom: 10px; border-bottom: 2px solid var(--acento, #D4A843);">
-      Documentos e informes por vigencia
-    </h2>
-
+    {# --- 3. DOCUMENTOS POR VIGENCIA (VISTA DINÁMICA) --- #}
     {{ rows }}
 
     {% if not rows %}
@@ -247,7 +76,10 @@
 
     {# Botón volver #}
     <div style="text-align: center; margin-top: 55px; padding-top: 30px; border-top: 1px solid #EBE9E0;">
-      <a href="/transparencia" style="display: inline-block; background: transparent; color: var(--verde-oscuro, #1a3c28); padding: 11px 32px; border-radius: 50px; border: 2px solid var(--verde-oscuro, #1a3c28); text-decoration: none; font-weight: 700; font-size: 0.95rem;" onmouseover="this.style.background='#1a3c28'; this.style.color='#fff';" onmouseout="this.style.background='transparent'; this.style.color='#1a3c28';">
+      <a href="/transparencia"
+         style="display: inline-block; background: transparent; color: var(--verde-oscuro, #1a3c28); padding: 11px 32px; border-radius: 50px; border: 2px solid var(--verde-oscuro, #1a3c28); text-decoration: none; font-weight: 700; font-size: 0.95rem;"
+         onmouseover="this.style.background='#1a3c28'; this.style.color='#fff';"
+         onmouseout="this.style.background='transparent'; this.style.color='#1a3c28';">
         ← Volver a Transparencia
       </a>
     </div>

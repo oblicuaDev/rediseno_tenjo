@@ -53,6 +53,22 @@
       Normativa por Año
     </h2>
 
+    {# --- BUSCADOR POR PALABRA CLAVE --- #}
+    <div style="margin-bottom: 30px;">
+      <input
+        id="buscador-normativa"
+        type="search"
+        placeholder="Buscador de normas de la entidad"
+        style="width: 100%; padding: 13px 18px; border: 2px solid #EBE9E0; border-radius: 8px; font-size: 1rem; color: #333; outline: none; box-sizing: border-box; transition: border-color 0.2s ease;"
+        aria-label="Buscador de normas de la entidad"
+        onFocus="this.style.borderColor='var(--verde-oscuro, #1a3c28)'"
+        onBlur="this.style.borderColor='#EBE9E0'"
+      >
+      <p id="buscador-sin-resultados" style="display:none; text-align:center; color:#666; margin-top:20px; padding: 20px; border: 1px dashed #ccc; border-radius: 12px;">
+        No se encontraron normas para esa búsqueda.
+      </p>
+    </div>
+
     {{ rows }}
 
     {% if not rows %}
@@ -63,3 +79,70 @@
 
   </div>
 </div>
+
+<script>
+(function () {
+  function normalizar(texto) {
+    return texto.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+  }
+
+  var input = document.getElementById('buscador-normativa');
+  if (!input) return;
+
+  input.addEventListener('input', function () {
+    var termino = normalizar(this.value.trim());
+    var acordeones = document.querySelectorAll('.pagina-estatica-normativa-entidad .accordion-item');
+    var hayResultados = false;
+
+    acordeones.forEach(function (acordeon) {
+      var lista = acordeon.querySelector('.documentos-lista');
+      var contenido = acordeon.querySelector('.accordion-content');
+      var header = acordeon.querySelector('.accordion-header');
+
+      if (!termino) {
+        // Sin búsqueda: restaurar todo al estado original
+        acordeon.style.display = '';
+        if (contenido) contenido.style.display = '';
+        if (header) header.classList.remove('activo');
+        if (lista) {
+          Array.from(lista.children).forEach(function (doc) {
+            doc.style.display = '';
+          });
+        }
+        return;
+      }
+
+      if (!lista) {
+        acordeon.style.display = 'none';
+        return;
+      }
+
+      // Filtrar documentos individuales dentro del acordeón
+      var documentos = Array.from(lista.children);
+      var coincidencias = 0;
+
+      documentos.forEach(function (doc) {
+        var texto = normalizar(doc.textContent);
+        if (texto.includes(termino)) {
+          doc.style.display = '';
+          coincidencias++;
+        } else {
+          doc.style.display = 'none';
+        }
+      });
+
+      if (coincidencias > 0) {
+        acordeon.style.display = '';
+        if (contenido) contenido.style.display = 'block';
+        if (header) header.classList.add('activo');
+        hayResultados = true;
+      } else {
+        acordeon.style.display = 'none';
+      }
+    });
+
+    var sinResultados = document.getElementById('buscador-sin-resultados');
+    if (sinResultados) sinResultados.style.display = (termino && !hayResultados) ? 'block' : 'none';
+  });
+})();
+</script>
