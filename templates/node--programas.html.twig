@@ -1,6 +1,7 @@
 {# node--programas.html.twig #}
 {% set titulo = label|render|striptags|trim %}
-{% set imagen = file_url(node.field_imagen_principal.entity.field_media_image.entity.uri.value) %}
+{% set _imagen_uri = node.field_imagen_principal.entity.field_media_image.entity.uri.value | image_style('large') %}
+{% set imagen = _imagen_uri ? file_url(_imagen_uri) : '' %}
 {% set categoria = node.field_categoria_del_programa.entity.name.value %}
 {# Creamos un ID limpio para el filtro (ej. "Artes Escénicas" -> "artes-escenicas") #}
 {% set categoria_id = categoria|lower|replace({' ': '-', 'á':'a', 'é':'e', 'í':'i', 'ó':'o', 'ú':'u'}) %}

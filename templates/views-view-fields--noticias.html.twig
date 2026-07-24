@@ -8,7 +8,7 @@
 {% set link = url('entity.node.canonical', {'node': nodo.id}) %}
 
 {# Imagen: Buscamos en field_image (ajustar si es Media) #}
-{% set img_uri = nodo.field_image.entity.uri.value %}
+{% set img_uri = nodo.field_image.entity.uri.value | image_style('large') %}
 {% set img_url = img_uri ? file_url(img_uri) : '' %}
 
 {# Fecha: Día y Mes abreviado #}

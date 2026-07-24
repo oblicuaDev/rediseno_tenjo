@@ -4,7 +4,8 @@
 {# Validación segura para evitar errores si el objeto de la imagen no existe #}
 {% set foto = '' %}
 {% if node.field_fotografia.entity and node.field_fotografia.entity.field_media_image.entity %}
-  {% set foto = file_url(node.field_fotografia.entity.field_media_image.entity.uri.value) %}
+  {% set _foto_uri = node.field_fotografia.entity.field_media_image.entity.uri.value | image_style('large') %}
+  {% set foto = _foto_uri ? file_url(_foto_uri) : '' %}
 {% endif %}
 
 <article class="team-card js-perfil-trigger {{ not foto ? 'no-photo' }}" data-nombre="{{ nombre }}" data-cargo="{{ node.field_cargo.value|trim }}" data-foto="{{ foto }}">

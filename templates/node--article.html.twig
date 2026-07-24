@@ -58,8 +58,9 @@
 
   {# --- 2. IMAGEN PRINCIPAL --- #}
   {% if node.field_image.entity.uri.value %}
+    {% set _noticia_img_uri = node.field_image.entity.uri.value | image_style('wide') %}
     <div class="noticia-foto-principal" style="width: 100%; border-radius: 20px; overflow: hidden; box-shadow: 0 15px 40px rgba(0,0,0,0.1); margin-bottom: 50px;">
-      <img src="{{ file_url(node.field_image.entity.uri.value) }}" alt="{{ label.0 }}" style="width: 100%; height: auto; display: block;">
+      <img src="{{ file_url(_noticia_img_uri) }}" alt="{{ label.0 }}" style="width: 100%; height: auto; display: block;">
     </div>
   {% endif %}
 
