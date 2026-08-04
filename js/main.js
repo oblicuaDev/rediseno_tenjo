@@ -769,3 +769,36 @@
     }
   };
 })(Drupal, once);
+
+(function (Drupal, once) {
+  'use strict';
+
+  Drupal.behaviors.siteSearchGuard = {
+    attach: function (context) {
+      once('siteSearchGuardInit', '.site-search-form-visible', context).forEach(function (form) {
+        var input = form.querySelector('#site-search-keys');
+        if (!input) return;
+
+        input.addEventListener('invalid', function () {
+          input.setCustomValidity('Por favor, escriba una palabra clave para buscar.');
+        });
+
+        input.addEventListener('input', function () {
+          input.setCustomValidity('');
+        });
+
+        form.addEventListener('submit', function (e) {
+          var value = input.value.trim();
+          input.value = value;
+
+          if (!value) {
+            e.preventDefault();
+            input.setCustomValidity('Por favor, escriba una palabra clave para buscar.');
+            input.reportValidity();
+            input.focus();
+          }
+        });
+      });
+    }
+  };
+})(Drupal, once);
