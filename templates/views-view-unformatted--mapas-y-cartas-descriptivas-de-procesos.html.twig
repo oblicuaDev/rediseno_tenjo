@@ -1,0 +1,10 @@
+{#
+  Plantilla: Lógica de filas (lista plana, sin agrupación por fecha/año) para MAPAS Y CARTAS DESCRIPTIVAS DE PROCESOS
+  Archivo: views-view-unformatted--mapas-y-cartas-descriptivas-de-procesos.html.twig
+#}
+
+<div class="documentos-lista" style="display: flex; flex-direction: column; gap: 12px; margin-bottom: 20px;">
+  {% for row in rows %}
+    {{ row.content }}
+  {% endfor %}
+</div>

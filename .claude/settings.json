@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find /c/xampp/htdocs/rediseno_tenjo -iname \"*view.view.*mapa*\" -o -iname \"*view.view.*proceso*\" -o -iname \"*view.view.*carta*\" 2>/dev/null)",
+      "Read(//c/xampp/htdocs/rediseno_tenjo/**)",
+      "Bash(wc -c \"/c/xampp/htdocs/rediseno_tenjo/templates/views-view--mapas-y-cartas-descriptivas-de-procesos.html.twig\" \"/c/xampp/htdocs/rediseno_tenjo/templates/views-view-unformatted--mapas-y-cartas-descriptivas-de-procesos.html.twig\")",
+      "Read(//c/xampp/htdocs/rediseno_tenjo/templates/**)",
+      "Bash(rm \"/c/xampp/htdocs/rediseno_tenjo/templates/node--627.html.twig\")"
+    ],
+    "additionalDirectories": [
+      "C:\\xampp\\htdocs\\rediseno_tenjo\\templates"
+    ]
+  }
+}
