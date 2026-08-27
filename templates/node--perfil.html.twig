@@ -19,10 +19,14 @@
     </div>
   {% endif %}
 
+  {# Convertimos párrafos de CKEditor en saltos de línea y solo dejamos <br> y <a>,
+     así el resumen de la tarjeta no queda con el texto pegado y los enlaces (tel/mailto) siguen siendo clickeables. #}
+  {% set bio_resumen = node.field_biografia.value|replace({'</p>': '<br>', '<p>': ''})|striptags('<br><a>')|trim %}
+
   <div class="team-info">
     <span class="team-role" style="color:var(--acento); font-weight:800; font-size:0.75rem; letter-spacing:1px; display:block; margin-bottom:8px;">{{ node.field_cargo.value|upper|trim }}</span>
     <h3 class="team-name">{{ nombre }}</h3>
-    <div class="team-bio">{{ node.field_biografia.value|striptags|trim }}</div>
+    <div class="team-bio">{{ bio_resumen|raw }}</div>
     <div style="margin-top:15px; color:var(--acento); font-weight:700; font-size:0.8rem;">VER PERFIL COMPLETO +</div>
   </div>
 </article>

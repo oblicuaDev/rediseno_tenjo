@@ -5,7 +5,14 @@
       "Read(//c/xampp/htdocs/rediseno_tenjo/**)",
       "Bash(wc -c \"/c/xampp/htdocs/rediseno_tenjo/templates/views-view--mapas-y-cartas-descriptivas-de-procesos.html.twig\" \"/c/xampp/htdocs/rediseno_tenjo/templates/views-view-unformatted--mapas-y-cartas-descriptivas-de-procesos.html.twig\")",
       "Read(//c/xampp/htdocs/rediseno_tenjo/templates/**)",
-      "Bash(rm \"/c/xampp/htdocs/rediseno_tenjo/templates/node--627.html.twig\")"
+      "Bash(rm \"/c/xampp/htdocs/rediseno_tenjo/templates/node--627.html.twig\")",
+      "Bash(grep -v \"^\\\\./\\\\.git\")",
+      "Bash(ls -la /c/xampp/htdocs/ 2>/dev/null | head -30)",
+      "Read(//c/xampp/htdocs//**)",
+      "Bash(grep -n -B5 -A15 \"site-search-keys\" /c/xampp/htdocs/rediseno_tenjo/templates/page--front.html.twig /c/xampp/htdocs/rediseno_tenjo/templates/page.html.twig)",
+      "Bash(grep -n -i \"search\" /c/xampp/htdocs/rediseno_tenjo/rediseno_tenjo.theme /c/xampp/htdocs/rediseno_tenjo/js/main.js)",
+      "Bash(grep -rn \"header-search-form\\\\|header-search-input\\\\|header-search-toggle\" /c/xampp/htdocs/rediseno_tenjo/templates/*.twig)",
+      "Read(//c/xampp/htdocs/rediseno_tenjo/js/**)"
     ],
     "additionalDirectories": [
       "C:\\xampp\\htdocs\\rediseno_tenjo\\templates"
