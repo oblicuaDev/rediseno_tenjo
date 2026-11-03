@@ -1,0 +1,5 @@
+# Volcados y listados temporales generados durante diagnósticos
+*.txt
+
+# Configuración local de Claude Code
+.claude/settings.local.json

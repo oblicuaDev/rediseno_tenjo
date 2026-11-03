@@ -4582,6 +4582,23 @@ li.resultado-item:hover {
 .site-search-bar .container {
   display: flex;
   justify-content: flex-end;
+  align-items: center;
+  gap: 16px;
+}
+
+.site-search-bar-link {
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 0.8rem;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  white-space: nowrap;
+  transition: color 0.15s;
+}
+
+.site-search-bar-link:hover,
+.site-search-bar-link:focus-visible {
+  color: var(--acento, #D4A843);
 }
 
 .site-search-form-visible {
@@ -4652,6 +4669,17 @@ li.resultado-item:hover {
 @media (max-width: 768px) {
   .site-search-form-visible {
     max-width: 170px;
+  }
+
+  .site-search-bar .container {
+    gap: 10px;
+  }
+
+  .site-search-bar-link {
+    font-size: 0.72rem;
+    white-space: normal;
+    text-align: right;
+    line-height: 1.2;
   }
 }
 
@@ -4778,4 +4806,22 @@ li.resultado-item:hover {
   .pn-comentarios-grid {
     grid-template-columns: 1fr !important;
   }
+}
+
+/* --- Enlaces dentro de texto de corrido (transversal): verde, negrita y subrayado --- */
+.field--name-body :is(p, li, td, blockquote, dd) a:not(.btn):not(.button):not([class*="btn-"]):not([class*="boton"]),
+.noticia-cuerpo :is(p, li, td, blockquote, dd) a:not(.btn):not(.button):not([class*="btn-"]):not([class*="boton"]),
+.text-formatted :is(p, li, td, blockquote, dd) a:not(.btn):not(.button):not([class*="btn-"]):not([class*="boton"]) {
+  color: var(--verde-medio, #2D5A27);
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  overflow-wrap: anywhere;
+}
+
+.field--name-body :is(p, li, td, blockquote, dd) a:not(.btn):not(.button):not([class*="btn-"]):not([class*="boton"]):hover,
+.noticia-cuerpo :is(p, li, td, blockquote, dd) a:not(.btn):not(.button):not([class*="btn-"]):not([class*="boton"]):hover,
+.text-formatted :is(p, li, td, blockquote, dd) a:not(.btn):not(.button):not([class*="btn-"]):not([class*="boton"]):hover {
+  color: var(--verde-hover, #3D6B47);
+  text-decoration-thickness: 2px;
 }

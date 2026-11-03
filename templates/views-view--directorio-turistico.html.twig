@@ -74,19 +74,24 @@
   }
 </style>
 
+{# El hero solo se muestra en la página propia del directorio; al embeberlo
+   en ¿Quiénes somos? (es_embebido, definido en el preprocess) se oculta. #}
+
 <div class="pagina-directorio-completa">
 
+  {% if not es_embebido %}
   {# --- HERO VERDE --- #}
   <div class="page-hero" style="margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw); width: 100vw; background-color: var(--verde-medio); padding: 60px 0; color: #ffffff;">
     <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
       <div style="margin-bottom: 20px; font-size: 0.85rem; opacity: 0.7;">
-        <a href="/es" style="color: #fff; text-decoration: none;">INICIO</a> > DIRECTORIO TURÍSTICO
+        <a href="/es" style="color: #fff; text-decoration: none;">INICIO</a> > DIRECTORIO
       </div>
       <h1 style="color: #fff; font-size: 3rem; font-weight: 800; margin: 0;">
-        Directorio <span style="color: #D4A843;">Turístico</span>
+        Directorio
       </h1>
     </div>
   </div>
+  {% endif %}
 
   {# --- CONTENIDO DE LA VISTA --- #}
   <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">

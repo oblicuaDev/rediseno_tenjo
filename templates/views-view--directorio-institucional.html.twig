@@ -23,8 +23,14 @@
   </div>
 
   {# --- 2. CONTENIDO DE LA VISTA (Los acordeones y documentos) --- #}
-  <div class="container" style="max-width: 1100px; margin: 60px auto 100px auto; padding: 0 20px;">
-    
+  {#
+    El orden de los grupos lo define la Vista. Actualmente entrega
+    "Contratistas" antes que "Funcionarios"; con flex-direction: column-reverse
+    se muestran al revés (Funcionarios primero, luego Contratistas).
+    Asume 2 grupos; si se añaden más, corregir el orden en el sort de la Vista.
+  #}
+  <div class="container" style="max-width: 1100px; margin: 60px auto 100px auto; padding: 0 20px; display: flex; flex-direction: column-reverse;">
+
     {# 'rows' es lo que llama a tus otros archivos Twig para armar los acordeones #}
     {{ rows }}
 

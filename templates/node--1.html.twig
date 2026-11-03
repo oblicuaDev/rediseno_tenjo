@@ -57,7 +57,7 @@
             El Instituto Municipal de Cultura y Turismo de Tenjo es un ente descentralizado del sector público con autonomía administrativa y financiera, creado mediante el Acuerdo Municipal No. 004 del 17 de mayo de 2019 y su modificatorio, el Acuerdo No. 001 del 13 de febrero de 2020. Desde su creación, el Instituto dirige sus esfuerzos a estructurar los servicios que presta a la comunidad de manera clara, contextualizada y responsable, dando respuesta a necesidades clave como la estructuración del Proyecto Institucional de Formación Artística, el fomento del emprendimiento y la circulación artística. Todo este esfuerzo operativo se fundamenta en su misión principal: fomentar la cultura y el turismo en Tenjo a través del diseño, implementación y difusión de planes, programas y proyectos integrados, en pro del fortalecimiento, desarrollo y sostenibilidad de la identidad tenjana.
           </p>
           <div style="margin-top:24px; display:flex; gap:12px; flex-wrap:wrap;">
-            <a href="https://tenjoculturayturismo.gov.co/wp-content/uploads/ACUERDO-MUNICIPAL-004-DE-2019-creacion-instituto-1.pdf"
+            <a href="/sites/default/files/2026-06/ACUERDO-MUNICIPAL-004-DE-2019-creacion-instituto.pdf"
                target="_blank" rel="noopener"
                class="btn btn-acento">
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14,2 14,8 20,8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
@@ -68,8 +68,8 @@
 
         <div class="sobre-imagen" data-reveal data-delay="1">
           <img
-            src="/sites/default/files/2026-08/Parque-Tenjo-Mario-Pedraza.png"
-            alt="Parque Principal de Tenjo — foto Mario Pedraza"
+            src="/sites/default/files/2026-10/IMCTT-optimizada_0.jpg"
+            alt="Instituto Municipal de Cultura, Turismo y Territorio de Tenjo"
             loading="lazy"
           >
           <div class="sobre-imagen-overlay"></div>
@@ -86,7 +86,6 @@
       <div class="seccion-iconos-cabecera" data-reveal>
         <span class="seccion-tag turistica">Identidad institucional</span>
         <h2 class="seccion-iconos-titulo" id="mv-titulo">Misión y Visión</h2>
-        <p class="seccion-iconos-subtitulo">Los principios que guían nuestro trabajo en favor de la comunidad tenjana.</p>
       </div>
 
       <div class="mv-grid">
@@ -205,7 +204,7 @@
         </div>
 
         <div class="funciones-cta">
-          <a href="https://tenjoculturayturismo.gov.co/wp-content/uploads/ACUERDO-MUNICIPAL-004-DE-2019-creacion-instituto-1.pdf"
+          <a href="/sites/default/files/2026-06/ACUERDO-MUNICIPAL-004-DE-2019-creacion-instituto.pdf"
              target="_blank" rel="noopener"
              class="btn btn-acento">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7,10 12,15 17,10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
@@ -223,7 +222,7 @@
       <div class="seccion-iconos-cabecera" data-reveal>
         <span class="seccion-tag turistica">Estructura</span>
         <h2 class="seccion-iconos-titulo" id="org-titulo">Organigrama</h2>
-        <p class="seccion-iconos-subtitulo">Estructura organizacional vigente del Instituto Municipal de Cultura y Turismo de Tenjo.</p>
+        <p class="seccion-iconos-subtitulo">Estructura organizacional</p>
       </div>
 
       <div class="organigrama-wrap" data-reveal data-delay="1">
@@ -236,6 +235,23 @@
 
     </div>
   </section>
+
+  {% if directorio %}
+    <section class="seccion-directorio" aria-labelledby="directorio-titulo">
+      <div class="container">
+
+        <div class="seccion-iconos-cabecera" data-reveal>
+          <span class="seccion-tag cultural">Equipo</span>
+          <h2 class="seccion-iconos-titulo" id="directorio-titulo">Directorio</h2>
+        </div>
+
+        <div class="directorio-embed" data-reveal data-delay="1">
+          {{ directorio }}
+        </div>
+
+      </div>
+    </section>
+  {% endif %}
 
   <section class="seccion-logos" aria-label="Entidades aliadas">
     <div class="container">
