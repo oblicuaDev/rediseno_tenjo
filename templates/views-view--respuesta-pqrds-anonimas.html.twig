@@ -2,6 +2,9 @@
   Plantilla: Contenedor de la Vista de PQRDS
   Archivo: views-view--respuesta-pqrds-anonimas.html.twig
 #}
+{% if view.current_display starts with 'attachment' %}
+  {{ rows }}
+{% else %}
 <style>
   body, html { overflow-x: hidden; }
   .accordion-content { display: none; }
@@ -37,7 +40,7 @@
     {# Texto Introductorio #}
     <div style="background-color: #F8F9F3; border-radius: 12px; padding: 30px; border: 1px solid #EBE9E0; margin-bottom: 40px;">
       <p style="font-size: 1.1rem; line-height: 1.6; color: #444; margin: 0;">
-        El Instituto Municipal de Cultura y Turismo de Tenjo da a conocer a la comunidad los informes de PQRSDF y las solicitudes y respuestas publicadas de carácter anónimo, acorde a la Ley 1712 de 2014 de Transparencia y Acceso a la Información.
+        El Instituto Municipal de Cultura y Turismo de Tenjo da a conocer a la comunidad las respuestas a las PQRSDF que se reciben de manera anónima, acorde a la Ley 1712 de 2014 de Transparencia y Acceso a la Información.
       </p>
     </div>
 
@@ -81,84 +84,26 @@
 
     </div>
 
-    {# Recuperar las filas de todos los grupos, sin perder los documentos de otros años. #}
-    {% set filas_documentos = [] %}
-    {% for grupo in rows %}
-      {% set filas_documentos = filas_documentos|merge(grupo['#rows']|default([])) %}
-    {% endfor %}
+    {# Informes agrupados por año #}
+    <h2 style="font-size: 1.8rem; color: var(--verde-oscuro, #1a3c28); font-weight: 800; margin: 0 0 25px 0; text-align: center; border-bottom: 2px solid #EBE9E0; padding-bottom: 10px;">
+      Informes PQRSD
+    </h2>
 
-    {# Las categorías existentes separan informes de solicitudes y respuestas. #}
-    {% set informes = [] %}
-    {% set respuestas = [] %}
-    {% for row in filas_documentos %}
-      {% set documento = row.content['#row']._entity %}
-      {% set titulo_documento = documento.label|lower %}
-      {% set es_informe = titulo_documento starts with 'informe' or titulo_documento starts with 'consolidado' %}
-      {% for categoria in documento.field_categoria_del_documento %}
-        {% if 'inform' in categoria.entity.label|lower %}
-          {% set es_informe = true %}
-        {% endif %}
-      {% endfor %}
-      {% set fecha_documento = documento.field_fecha_documento.value %}
-      {% set fecha_publicacion = fecha_documento ?: documento.created.value %}
-      {% set zona_fecha = fecha_documento ? 'UTC' : null %}
-      {% set fecha_timestamp = fecha_publicacion|date('U') %}
-      {% set entrada = {
-        contenido: row.content,
-        fecha: fecha_timestamp,
-        creado: documento.created.value,
-        anio: fecha_timestamp|format_date('custom', 'Y', zona_fecha, 'es')
-      } %}
-      {% if es_informe %}
-        {% set informes = informes|merge([entrada]) %}
-      {% else %}
-        {% set respuestas = respuestas|merge([entrada]) %}
-      {% endif %}
-    {% endfor %}
+    {{ rows }}
 
-    {% set apartados = [
-      {titulo: 'Informes PQRSD', documentos: informes},
-      {titulo: 'Respuestas PQRSD anónimos publicados', documentos: respuestas}
-    ] %}
-    {% for apartado in apartados %}
-      <section style="margin-bottom: 40px;">
-        <h2 style="font-size: 1.8rem; color: var(--verde-oscuro, #1a3c28); font-weight: 800; margin: 0 0 25px 0; text-align: center; border-bottom: 2px solid #EBE9E0; padding-bottom: 10px;">
-          {{ apartado.titulo }}
-        </h2>
+    {% if not rows %}
+      <div style="text-align: center; padding: 40px; color: #666; border: 1px dashed #ccc; border-radius: 12px;">
+        <p style="font-size: 1.2rem;">No hay informes PQRSD para mostrar en este momento.</p>
+      </div>
+    {% endif %}
 
-        {# Ordenar por la fecha del documento, con creación como respaldo y desempate. #}
-        {% set documentos_ordenados = apartado.documentos|sort((a, b) => (b.fecha <=> a.fecha) ?: (b.creado <=> a.creado)) %}
-        {% set grupos_anuales = {} %}
-        {% for entrada in documentos_ordenados %}
-          {% set clave_anio = 'anio-' ~ entrada.anio %}
-          {% set grupo_anual = grupos_anuales[clave_anio]|default({anio: entrada.anio, documentos: []}) %}
-          {% set grupos_anuales = grupos_anuales|merge({(clave_anio): {
-            anio: entrada.anio,
-            documentos: grupo_anual.documentos|merge([entrada])
-          }}) %}
-        {% endfor %}
+    {# Solicitudes y respuestas anónimas agrupadas por año #}
+    <h2 style="font-size: 1.8rem; color: var(--verde-oscuro, #1a3c28); font-weight: 800; margin: 40px 0 25px 0; text-align: center; border-bottom: 2px solid #EBE9E0; padding-bottom: 10px;">
+      Respuestas PQRSD anónimos publicados
+    </h2>
 
-        {% for grupo_anual in grupos_anuales %}
-          <div class="accordion-item" style="border: 1px solid #EBE9E0; border-radius: 12px; background: #fff; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.02); margin-bottom: 15px;">
-            <button type="button" class="accordion-header" style="width: 100%; text-align: left; display: flex; align-items: center; padding: 20px 25px; cursor: pointer; background: transparent; border: none; font-weight: 800; color: var(--verde-oscuro, #1a3c28); font-size: 1.25rem; gap: 15px;">
-              <span style="flex: 1;">Año {{ grupo_anual.anio }}</span>
-              <span class="accordion-chevron" style="color: var(--acento, #D4A843); font-size: 1.2rem; transition: transform 0.3s ease;">▼</span>
-            </button>
-            <div class="accordion-content" style="padding: 25px; border-top: 1px solid #EBE9E0; background: #FCFAEF;">
-              <div class="documentos-lista" style="display: flex; flex-direction: column; gap: 12px;">
-                {% for entrada in grupo_anual.documentos %}
-                  {{ entrada.contenido }}
-                {% endfor %}
-              </div>
-            </div>
-          </div>
-        {% else %}
-          <div style="text-align: center; padding: 40px; color: #666; border: 1px dashed #ccc; border-radius: 12px;">
-            <p style="font-size: 1.2rem;">No hay documentos para mostrar en este apartado.</p>
-          </div>
-        {% endfor %}
-      </section>
-    {% endfor %}
+    {{ attachment_after }}
 
   </div>
 </div>
+{% endif %}
