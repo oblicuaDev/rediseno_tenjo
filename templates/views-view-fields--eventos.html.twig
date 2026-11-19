@@ -8,6 +8,8 @@
 {# Se usa zona horaria de Colombia (UTC-5) para evitar ocultar eventos del día actual desde las 7pm. #}
 {% set hoy = "now"|date("Y-m-d", "America/Bogota") %}
 {% set fecha_normalizada = fecha_raw ? fecha_raw|date("Y-m-d", "America/Bogota") : '' %}
+{# DEBUG TEMPORAL - quitar después de diagnosticar #}
+<!-- DEBUG evento nid={{ nodo.id }} fecha_raw="{{ fecha_raw }}" fecha_normalizada="{{ fecha_normalizada }}" hoy="{{ hoy }}" pasa_filtro={{ fecha_normalizada >= hoy ? 'SI' : 'NO' }} -->
 {% if fecha_normalizada >= hoy %}
 
 {% set link = url('entity.node.canonical', {'node': nodo.id}) %}
