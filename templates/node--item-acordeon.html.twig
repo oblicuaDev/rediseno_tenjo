@@ -22,8 +22,22 @@
         
         {% set nombre_amigable = node.field_nombre_documento.value ?: label|render|striptags %}
         
+                {% set documentos = [] %}
         {% for item in node.field_documentos %}
           {% set media_entity = item.entity %}
+          {% if media_entity %}
+            {% set fecha_publicacion = media_entity.field_fecha_documento.value ?: media_entity.created.value %}
+            {% set documentos = documentos|merge([{
+              entidad: media_entity,
+              fecha: fecha_publicacion|date('U'),
+              creado: media_entity.created.value,
+              zona: media_entity.field_fecha_documento.value ? 'UTC' : null
+            }]) %}
+          {% endif %}
+        {% endfor %}
+        {% set documentos = documentos|sort((a, b) => (b.fecha <=> a.fecha) ?: (b.creado <=> a.creado)) %}
+        {% for documento in documentos %}
+          {% set media_entity = documento.entidad %}
           {% set file_entity = media_entity.field_media_document.entity ?: media_entity.field_media_image.entity %}
           
           {% if file_entity %}
@@ -34,8 +48,9 @@
               <div class="doc-icon">
                 <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
               </div>
-              <div class="doc-info">
+                            <div class="doc-info">
                 <h4>{{ nombre_amigable }}</h4>
+                <time class="documento-fecha" datetime="{{ documento.fecha|format_date('custom', 'Y-m-d', documento.zona, 'es') }}" title="Fecha de publicación">{{ documento.fecha|format_date('custom', 'F j Y', documento.zona, 'es')|capitalize }}</time>
                 <span class="doc-meta">Documento {{ extension }}</span>
               </div>
               <div class="doc-action">

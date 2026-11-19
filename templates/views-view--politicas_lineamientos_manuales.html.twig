@@ -40,7 +40,15 @@
 
     {# AQUÍ DRUPAL INYECTA EL ACORDEÓN DINÁMICO #}
     <div class="contenedor-acordeones">
-      {{ rows }}
+      {% set filas = [] %}
+      {% for resultado in view.result %}
+        {% set filas = filas|merge([{ content: {
+          '#theme': 'views_view_fields',
+          '#view': view,
+          '#row': resultado
+        } }]) %}
+      {% endfor %}
+      {% include 'views-view-unformatted--politicas_lineamientos_manuales.html.twig' with { rows: filas } %}
 
       {% if not rows %}
         <div style="padding: 30px; text-align: center; color: #777; border: 1px dashed #ccc; border-radius: 12px;">

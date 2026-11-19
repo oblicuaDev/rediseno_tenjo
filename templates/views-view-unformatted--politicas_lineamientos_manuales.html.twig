@@ -3,32 +3,70 @@
   Archivo: views-view-unformatted--politicas_lineamientos_manuales.html.twig
 #}
 
-{% if title %}
-  {# 1. Limpiamos los comentarios de THEME DEBUG y espacios vacíos #}
-  {% set grupo_limpio = title|render|striptags|trim %}
+{% set documentos = [] %}
+{% for row in rows %}
+  {% set nodo = row.content['#row']._entity %}
+  {% set es_manual = false %}
+  {% for categoria in nodo.field_categoria_del_documento %}
+    {% if categoria.entity.label|lower in ['manual', 'manuales'] %}
+      {% set es_manual = true %}
+    {% endif %}
+  {% endfor %}
+  {% set fecha = nodo.field_fecha_documento.value ?: nodo.created.value %}
+  {% set documentos = documentos|merge([{
+    contenido: row.content,
+    tipo: es_manual ? 'manuales' : 'politicas',
+    fecha: fecha|date('U'),
+    creado: nodo.created.value,
+    anio: fecha|date('Y'),
+    fecha_visible: fecha|date('d/m/Y')
+  }]) %}
+{% endfor %}
+{% set documentos = documentos|sort((a, b) => (b.fecha <=> a.fecha) ?: (b.creado <=> a.creado)) %}
 
-  <div class="accordion-item" style="border: 1px solid #EBE9E0; border-radius: 12px; background: #fff; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.02); margin-bottom: 15px;">
+{% set secciones = [
+  { clave: 'politicas', titulo: 'Políticas', vacio: 'No hay políticas publicadas actualmente.' },
+  { clave: 'manuales', titulo: 'Manuales', vacio: 'No hay manuales publicados actualmente.' }
+] %}
 
-    <button class="accordion-header" style="width: 100%; text-align: left; display: flex; align-items: center; padding: 20px 25px; cursor: pointer; background: transparent; border: none; font-weight: 800; color: var(--verde-oscuro, #1a3c28); font-size: 1.25rem; gap: 15px;">
-      <span style="flex: 1;">{{ grupo_limpio }}</span>
-      <span class="accordion-chevron" style="color: var(--acento, #D4A843); font-size: 1.2rem; transition: transform 0.3s ease;">▼</span>
-    </button>
+{% for seccion in secciones %}
+  {% set anios = {} %}
+  {% for documento in documentos %}
+    {% if documento.tipo == seccion.clave %}
+      {% set clave_anio = 'anio-' ~ documento.anio %}
+      {% set anios = anios|merge({ (clave_anio): anios[clave_anio]|default([])|merge([documento]) }) %}
+    {% endif %}
+  {% endfor %}
 
-    <div class="accordion-content" style="padding: 25px; border-top: 1px solid #EBE9E0; background: #FCFAEF;">
-      <div class="documentos-lista" style="display: flex; flex-direction: column; gap: 12px;">
-        {% for row in rows %}
-          {# Se imprime el documento usando tu plantilla node--documento-institucional--teaser.html.twig #}
-          {{ row.content }}
-        {% endfor %}
+  <section class="seccion-politicas-manuales" data-seccion="{{ seccion.clave }}" style="{{ not loop.first ? 'margin-top: 60px;' }}">
+    <h2 style="font-size: 1.8rem; color: var(--verde-oscuro, #1a3c28); font-weight: 800; margin: 0 0 25px 0; text-align: center; border-bottom: 2px solid #EBE9E0; padding-bottom: 10px;">
+      {{ seccion.titulo }}
+    </h2>
+
+    {% for documentos_anio in anios %}
+      <div class="accordion-item" style="border: 1px solid #EBE9E0; border-radius: 12px; background: #fff; overflow: hidden; box-shadow: 0 4px 15px rgba(0,0,0,0.02); margin-bottom: 15px;">
+
+        <button type="button" class="accordion-header" style="width: 100%; text-align: left; display: flex; align-items: center; padding: 20px 25px; cursor: pointer; background: transparent; border: none; font-weight: 800; color: var(--verde-oscuro, #1a3c28); font-size: 1.25rem; gap: 15px;">
+          <span style="flex: 1;">Vigencia {{ documentos_anio|first.anio }}</span>
+          <span class="accordion-chevron" style="color: var(--acento, #D4A843); font-size: 1.2rem; transition: transform 0.3s ease;">▼</span>
+        </button>
+
+        <div class="accordion-content" style="padding: 25px; border-top: 1px solid #EBE9E0; background: #FCFAEF;">
+          <div class="documentos-lista" style="display: flex; flex-direction: column; gap: 12px;">
+            {% for documento in documentos_anio %}
+              <div>
+                {{ documento.contenido }}
+                <p style="margin: 8px 0 0; font-size: 0.85rem; color: #666;">Fecha de publicación: {{ documento.fecha_visible }}</p>
+              </div>
+            {% endfor %}
+          </div>
+        </div>
+
       </div>
-    </div>
-
-  </div>
-{% else %}
-  {# Fallback por si la vista pierde la agrupación #}
-  <div class="documentos-lista" style="margin-bottom: 20px; display: flex; flex-direction: column; gap: 12px;">
-    {% for row in rows %}
-      {{ row.content }}
+    {% else %}
+      <div style="padding: 30px; text-align: center; color: #777; border: 1px dashed #ccc; border-radius: 12px;">
+        {{ seccion.vacio }}
+      </div>
     {% endfor %}
-  </div>
-{% endif %}
+  </section>
+{% endfor %}

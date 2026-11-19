@@ -13,6 +13,11 @@
     {# El contenido que escribas en el editor de Drupal saldrá aquí #}
     <div class="content-rich-text">
       {{ content.body }}
+      {% if 'id="organigrama-directorio"' in node.body.value|default('') %}
+        <div class="directorio-embed">
+          {{ {'#type': 'view', '#name': 'directorio_institucional', '#display_id': 'default'} }}
+        </div>
+      {% endif %}
     </div>
   </div>
 </article>

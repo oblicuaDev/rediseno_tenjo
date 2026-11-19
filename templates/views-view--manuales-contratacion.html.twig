@@ -39,9 +39,43 @@
       Manuales por Año
     </h2>
 
-    {{ rows }}
+        {% set documentos = [] %}
+    {% for resultado in view.result %}
+      {% set nodo = resultado._entity %}
+      {% set es_contratacion = false %}
+      {% for categoria in nodo.field_categoria_del_documento %}
+        {% if categoria.entity.label|lower == 'manuales de contratación' %}
+          {% set es_contratacion = true %}
+        {% endif %}
+      {% endfor %}
+      {% if es_contratacion %}
+        {% set fecha = nodo.field_fecha_documento.value ?: nodo.created.value %}
+        {% set documentos = documentos|merge([{
+          content: {
+            '#theme': 'views_view_fields',
+            '#view': view,
+            '#row': resultado
+          },
+          fecha: fecha|date('U'),
+          creado: nodo.created.value,
+          anio: fecha|date('Y')
+        }]) %}
+      {% endif %}
+    {% endfor %}
+    {% set documentos = documentos|sort((a, b) => (b.fecha <=> a.fecha) ?: (b.creado <=> a.creado)) %}
+    {% set anios = {} %}
+    {% for documento in documentos %}
+      {% set clave_anio = 'anio-' ~ documento.anio %}
+      {% set anios = anios|merge({ (clave_anio): anios[clave_anio]|default([])|merge([documento]) }) %}
+    {% endfor %}
+    {% for documentos_anio in anios %}
+      {% include 'views-view-unformatted--manuales-contratacion.html.twig' with {
+        rows: documentos_anio,
+        title: (documentos_anio|first).anio
+      } %}
+    {% endfor %}
 
-    {% if not rows %}
+    {% if not documentos %}
       <div style="text-align: center; padding: 40px; color: #666; border: 1px dashed #ccc; border-radius: 12px;">
         <p>No hay documentos de Manuales de Contratación y Compras publicados actualmente.</p>
       </div>

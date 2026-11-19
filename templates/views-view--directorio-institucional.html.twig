@@ -4,6 +4,7 @@
 #}
 <div class="pagina-estatica-directorio">
 
+  {% if view.current_display == 'page_1' %}
   {# --- 1. HERO INSTITUCIONAL --- #}
   <div class="page-hero" style="margin-left: calc(50% - 50vw); margin-right: calc(50% - 50vw); width: 100vw; max-width: 100vw; background-color: var(--verde-medio, #1a3c28); padding: 60px 0; color: #ffffff;">
     <div class="container page-hero-inner" style="max-width: 1200px; margin: 0 auto; padding: 0 20px;">
@@ -21,6 +22,8 @@
       
     </div>
   </div>
+
+  {% endif %}
 
   {# --- 2. CONTENIDO DE LA VISTA (Los acordeones y documentos) --- #}
   {#

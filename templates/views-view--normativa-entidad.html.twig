@@ -8,6 +8,45 @@
   - Circulares: attachment de la misma vista ({{ attachment_after }}),
     filtrado por "Tipo de normativa" = Circular.
 #}
+{# Fecha de publicación efectiva: fecha del documento o fecha de creación. #}
+{% set documentos = [] %}
+{% for resultado in view.result %}
+  {% set nodo = resultado._entity %}
+  {% set fecha = nodo.field_fecha_documento.value ?: nodo.created.value %}
+  {% set documentos = documentos|merge([{
+    resultado: resultado,
+    fecha: fecha|date('U'),
+    creado: nodo.created.value,
+    anio: fecha|date('Y'),
+    fecha_visible: fecha|date('d/m/Y')
+  }]) %}
+{% endfor %}
+{% set documentos = documentos|sort((a, b) => (b.fecha <=> a.fecha) ?: (b.creado <=> a.creado)) %}
+{% set anios = {} %}
+{% for documento in documentos %}
+  {% set fila = {
+    '#theme': 'views_view_fields',
+    '#view': view,
+    '#row': documento.resultado
+  } %}
+  {% set contenido_documento %}
+    <div>
+      {{ fila }}
+      <p style="margin: 8px 0 0; font-size: 0.85rem; color: #666;">Fecha de publicación: {{ documento.fecha_visible }}</p>
+    </div>
+  {% endset %}
+  {% set clave_anio = 'anio-' ~ documento.anio %}
+  {% set anios = anios|merge({ (clave_anio): anios[clave_anio]|default([])|merge([{ content: contenido_documento, anio: documento.anio }]) }) %}
+{% endfor %}
+{% set rows %}
+  {% for documentos_anio in anios %}
+    {% include 'views-view-unformatted--normativa-entidad.html.twig' with {
+      rows: documentos_anio,
+      title: (documentos_anio|first).anio
+    } %}
+  {% endfor %}
+{% endset %}
+
 {% if view.current_display starts with 'attachment' %}
 
   {{ rows }}
