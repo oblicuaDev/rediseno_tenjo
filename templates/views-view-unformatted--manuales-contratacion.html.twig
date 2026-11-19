@@ -27,12 +27,7 @@
       {# === IMPRESIÓN DE LOS DOCUMENTOS DEL AÑO === #}
       <div class="documentos-lista" style="display: flex; flex-direction: column; gap: 12px;">
         {% for row in rows %}
-          {% set nodo = row.content['#row']._entity %}
-          {% set fecha = nodo.field_fecha_documento.value ?: nodo.created.value %}
-          <div>
-            {{ row.content }}
-            <p style="margin: 8px 0 0; font-size: 0.85rem; color: #666;">Fecha de publicación: {{ fecha|date('d/m/Y') }}</p>
-          </div>
+          {{ row.content }}
         {% endfor %}
       </div>
 
@@ -41,12 +36,7 @@
 {% else %}
   <div class="documentos-lista" style="margin-bottom: 20px;">
     {% for row in rows %}
-      {% set nodo = row.content['#row']._entity %}
-      {% set fecha = nodo.field_fecha_documento.value ?: nodo.created.value %}
-      <div>
-        {{ row.content }}
-        <p style="margin: 8px 0 0; font-size: 0.85rem; color: #666;">Fecha de publicación: {{ fecha|date('d/m/Y') }}</p>
-      </div>
+      {{ row.content }}
     {% endfor %}
   </div>
 {% endif %}

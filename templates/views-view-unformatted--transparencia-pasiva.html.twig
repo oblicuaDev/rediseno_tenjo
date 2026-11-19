@@ -65,9 +65,25 @@
       {# === DOCUMENTOS DEL GRUPO === #}
       <div class="documentos-lista" style="display: flex; flex-direction: column; gap: 12px;">
         {% if '2026' in titulo_lower %}
-          <a href="/respuesta-pqrds-anonimas" class="documento-item">
-            <span style="font-weight: 700; font-size: 0.95rem; flex: 1;">Envía tu PQRSDF</span>
-            <span style="color: var(--acento, #D4A843); font-size: 0.85rem; font-weight: 700;">VER</span>
+          {# Mismo diseño que las tarjetas de documentos (node--documento-institucional--teaser) #}
+          <a href="/respuesta-pqrds-anonimas" class="documento-item" style="display: flex; align-items: center; justify-content: space-between; background-color: #FCFAEF; padding: 16px 24px; border-radius: 12px; text-decoration: none; border: 1px solid #EBE9E0; transition: transform 0.2s, box-shadow 0.2s; flex-wrap: wrap; gap: 15px;" onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 8px 20px rgba(0,0,0,0.06)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';">
+            <div style="display: flex; flex-direction: column; gap: 5px; flex: 1; min-width: 280px;">
+              <div style="display: flex; align-items: center; gap: 18px;">
+                <div style="background-color: #fff; width: 46px; height: 46px; border-radius: 10px; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 5px rgba(0,0,0,0.04); border: 1px solid #eee; flex-shrink: 0;">
+                  <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--verde-oscuro, #1a3c28)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path><line x1="8" y1="9" x2="16" y2="9"></line><line x1="8" y1="13" x2="13" y2="13"></line></svg>
+                </div>
+                <div>
+                  <span style="font-size: 1.05rem; font-weight: 700; color: #111;">Envía tu PQRSDF</span>
+                </div>
+              </div>
+            </div>
+            <div style="display: flex; align-items: center; gap: 15px; margin-left: auto;">
+              <span style="background-color: #fff; border: 1px solid #ddd; padding: 4px 12px; border-radius: 20px; font-size: 0.75rem; font-weight: 800; color: #777;">ENLACE</span>
+              <span style="color: var(--verde-oscuro, #1a3c28); font-weight: 700; font-size: 0.95rem; display: flex; align-items: center; gap: 6px;">
+                Ir
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"></line><polyline points="12 5 19 12 12 19"></polyline></svg>
+              </span>
+            </div>
           </a>
         {% endif %}
         {% for row in rows %}
